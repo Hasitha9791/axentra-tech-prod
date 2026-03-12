@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Disallow admin or private directories if they exist
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://www.axentratech.com/sitemap.xml
+
+# Crawl-delay for courtesy
+Crawl-delay: 5
