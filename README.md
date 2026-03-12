@@ -7,17 +7,14 @@ A modern, SEO-optimized static website for **Axentra Tech** — a software solut
 ## Folder Structure
 
 ```
-Axentra/
+axentra-tech-prod/
 ├── index.html          ← Main HTML (all sections)
+├── style.css           ← All styles (dark theme, responsive, animations)
+├── main.js             ← All interactivity (nav, slider, forms, etc.)
+├── logo.png            ← ⚠️ Company logo (PNG, ~512×512)
 ├── robots.txt          ← SEO: Search engine crawl rules
 ├── sitemap.xml         ← SEO: Sitemap for Google indexing
-├── README.md           ← This file
-├── assets/
-│   └── logo.png        ← ⚠️ Place the company logo here (PNG, ~512×512)
-├── css/
-│   └── style.css       ← All styles (dark theme, responsive, animations)
-└── js/
-    └── main.js         ← All interactivity (nav, slider, forms, etc.)
+└── README.md           ← This file
 ```
 
 ---
@@ -25,14 +22,14 @@ Axentra/
 ## Setup Instructions
 
 ### 1. Add the Logo
-- Place the Axentra Tech logo file as: `assets/logo.png`
+- Place the Axentra Tech logo file as: `logo.png` (at the root, alongside `index.html`)
 - Recommended size: **512×512 px** or **1:1 ratio**, PNG format with transparent background
 
 ### 2. Open in Browser
 Simply open `index.html` in any modern browser — no build tools required.
 
 ### 3. To Deploy on a Web Host
-Upload all files to your hosting provider's `public_html` (or `www`) folder, preserving the folder structure.
+Upload all files (`index.html`, `style.css`, `main.js`, `logo.png`, `robots.txt`, `sitemap.xml`) to your hosting provider's `public_html` (or `www`) folder.
 
 ---
 
@@ -40,7 +37,7 @@ Upload all files to your hosting provider's `public_html` (or `www`) folder, pre
 
 | Item | Location | Notes |
 |------|----------|-------|
-| Company logo | `assets/logo.png` | Replace with your logo |
+| Company logo | `logo.png` | Replace with your logo |
 | Phone number | `index.html` — CTA & Contact sections | Update `href="tel:..."` |
 | Email address | `index.html` — Contact section | Update `href="mailto:..."` |
 | Office address | `index.html` — Contact section | Update address text |
