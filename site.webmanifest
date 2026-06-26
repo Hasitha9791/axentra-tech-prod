@@ -1,0 +1,23 @@
+{
+  "name": "Axentra Tech",
+  "short_name": "AxentraTech",
+  "description": "Professional website development and mobile app development for businesses.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070d1a",
+  "theme_color": "#0fbf7b",
+  "icons": [
+    {
+      "src": "assets/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

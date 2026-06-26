@@ -1,0 +1,4 @@
+Place your Axentra Tech logo file here.
+
+File name: logo.png
+Recommended: 512x512 pixels, PNG format, transparent background

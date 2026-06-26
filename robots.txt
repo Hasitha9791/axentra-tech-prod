@@ -7,6 +7,3 @@ Disallow: /private/
 
 # Sitemap location
 Sitemap: https://www.axentratech.com/sitemap.xml
-
-# Crawl-delay for courtesy
-Crawl-delay: 5
