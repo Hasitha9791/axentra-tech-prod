@@ -48,12 +48,22 @@ function initPreloader() {
 function initNavbar() {
   const e = document.getElementById("navbar");
   if (!e) return;
+  let ticking = false;
   const t = () => {
-    window.scrollY > 50
-      ? e.classList.add("scrolled")
-      : e.classList.remove("scrolled");
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        if (window.scrollY > 50) {
+          e.classList.add("scrolled");
+        } else {
+          e.classList.remove("scrolled");
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
   };
-  (window.addEventListener("scroll", t, { passive: !0 }), t());
+  window.addEventListener("scroll", t, { passive: true });
+  t();
 }
 function initHamburger() {
   const e = document.getElementById("hamburger"),
@@ -87,14 +97,15 @@ function initHamburger() {
 function initParticles() {
   const e = document.getElementById("particles");
   if (!e) return;
-  for (let t = 0; t < 40; t++) {
+  const count = window.innerWidth < 768 ? 6 : 14;
+  for (let t = 0; t < count; t++) {
     const t = document.createElement("div");
     t.classList.add("particle");
     const n = 100 * Math.random(),
-      o = 3 * Math.random() + 1,
+      o = 2.5 * Math.random() + 1,
       r = 15 * Math.random(),
       i = 12 * Math.random() + 8,
-      s = 200 * (Math.random() - 0.5) + "px";
+      s = 150 * (Math.random() - 0.5) + "px";
     ((t.style.cssText = `\n      left: ${n}%;\n      width: ${o}px;\n      height: ${o}px;\n      animation-duration: ${i}s;\n      animation-delay: ${r}s;\n      --drift: ${s};\n    `),
       e.appendChild(t));
   }
@@ -379,36 +390,69 @@ function initFooterYear() {
   e && (e.textContent = new Date().getFullYear());
 }
 function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach((e) => {
-    e.addEventListener("click", (t) => {
-      const n = e.getAttribute("href");
-      if (!n || "#" === n) return;
-      const o = document.querySelector(n);
-      if (!o) return;
-      t.preventDefault();
-      const r = o.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top: r, behavior: "smooth" });
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      const targetId = this.getAttribute("href");
+      if (!targetId || targetId === "#") return;
+      const targetElem = document.querySelector(targetId);
+      if (!targetElem) return;
+
+      e.preventDefault();
+
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
+      const wasOpen = navLinks && navLinks.classList.contains("open");
+
+      if (wasOpen) {
+        navLinks.classList.remove("open");
+        if (hamburger) {
+          hamburger.classList.remove("open");
+          hamburger.setAttribute("aria-expanded", "false");
+        }
+        document.body.style.overflow = "";
+      }
+
+      const delay = wasOpen ? 50 : 0;
+      setTimeout(() => {
+        const navbar = document.getElementById("navbar");
+        const navHeight = navbar ? navbar.offsetHeight : 70;
+        const targetTop = targetElem.getBoundingClientRect().top + window.pageYOffset - (navHeight + 12);
+        window.scrollTo({
+          top: Math.max(0, targetTop),
+          behavior: "smooth"
+        });
+      }, delay);
     });
   });
 }
 function initActiveNavOnScroll() {
   const e = document.querySelectorAll("section[id], div[id]"),
-    t = document.querySelectorAll(".nav-link"),
-    n = () => {
-      const n = window.scrollY + 120;
-      e.forEach((e) => {
-        const o = e.offsetTop,
-          r = o + e.offsetHeight;
-        n >= o &&
-          n < r &&
-          t.forEach((t) => {
-            (t.classList.remove("active"),
-              t.getAttribute("href") === `#${e.id}` &&
-                t.classList.add("active"));
-          });
+    t = document.querySelectorAll(".nav-link");
+  let ticking = false;
+  const n = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const n = window.scrollY + 120;
+        e.forEach((e) => {
+          const o = e.offsetTop,
+            r = o + e.offsetHeight;
+          if (n >= o && n < r) {
+            t.forEach((t) => {
+              if (t.getAttribute("href") === `#${e.id}`) {
+                t.classList.add("active");
+              } else {
+                t.classList.remove("active");
+              }
+            });
+          }
+        });
+        ticking = false;
       });
-    };
-  (window.addEventListener("scroll", n, { passive: !0 }), n());
+      ticking = true;
+    }
+  };
+  window.addEventListener("scroll", n, { passive: true });
+  n();
 }
 const CASE_STUDIES_DATA = {
   apexlendcore: {
