@@ -6,26 +6,44 @@ function initPreloader() {
     n = e.querySelector(".preloader-percent");
   let o = 0,
     r = !1;
-  function i(e) {
-    ((o = Math.min(e, 100)),
-      t && (t.style.width = o + "%"),
-      n && (n.textContent = o + "%"));
+  function i(val) {
+    o = Math.min(val, 100);
+    if (t) t.style.width = o + "%";
+    if (n) n.textContent = Math.round(o) + "%";
   }
   document.body.style.overflow = "hidden";
+  
+  // Smooth, snappy ticker
   const s = setInterval(() => {
-    o < 85 ? i(o + (4 * Math.random() + 1)) : clearInterval(s);
-  }, 60);
+    if (o < 90) {
+      i(o + (12 * Math.random() + 6));
+    } else {
+      clearInterval(s);
+    }
+  }, 25);
+
   function a() {
-    r ||
-      ((r = !0),
-      clearInterval(s),
-      i(100),
+    if (r) return;
+    r = !0;
+    clearInterval(s);
+    i(100);
+    setTimeout(() => {
+      e.classList.add("hidden");
+      document.body.style.overflow = "";
       setTimeout(() => {
-        (e.classList.add("hidden"), (document.body.style.overflow = ""));
-      }, 500));
+        if (e) e.style.display = "none";
+      }, 600);
+    }, 200);
   }
-  (window.addEventListener("load", () => setTimeout(a, 300)),
-    setTimeout(a, 4e3));
+
+  if (document.readyState === "interactive" || document.readyState === "complete") {
+    setTimeout(a, 250);
+  } else {
+    document.addEventListener("DOMContentLoaded", () => setTimeout(a, 250));
+    window.addEventListener("load", () => setTimeout(a, 150));
+  }
+  // Hard fallback timeout so it never blocks mobile users
+  setTimeout(a, 850);
 }
 function initNavbar() {
   const e = document.getElementById("navbar");
@@ -1042,6 +1060,9 @@ function initShowcaseSlider() {
       if (i === currentIndex) {
         tab.classList.add("active");
         tab.setAttribute("aria-selected", "true");
+        if (window.innerWidth <= 768) {
+          tab.scrollIntoView({ behavior: "smooth", inline: "nearest", block: "nearest" });
+        }
       } else {
         tab.classList.remove("active");
         tab.setAttribute("aria-selected", "false");

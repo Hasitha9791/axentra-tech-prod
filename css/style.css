@@ -392,8 +392,8 @@ textarea {
 }
 .preloader-glow {
   position: absolute;
-  width: 360px;
-  height: 260px;
+  width: min(340px, 90vw);
+  height: 220px;
   background: radial-gradient(
     ellipse at center,
     rgba(15, 191, 123, 0.22) 0,
@@ -412,17 +412,17 @@ textarea {
   }
   50% {
     opacity: 1;
-    transform: scale(1.15);
+    transform: scale(1.1);
   }
 }
 .preloader-logo img {
-  width: 340px;
-  height: 210px;
-  max-width: 88vw;
+  width: min(320px, 82vw);
+  height: auto;
+  max-height: 180px;
   object-fit: contain;
-  padding: 16px 24px;
+  padding: 12px 18px;
   background: #070d1a;
-  border-radius: 26px;
+  border-radius: 22px;
   position: relative;
   z-index: 2;
   filter: drop-shadow(0 0 14px rgba(15, 191, 123, 0.65))
@@ -5261,42 +5261,61 @@ textarea {
   .hero-tabs-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .template-features-pill-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
 }
 
 @media (max-width: 768px) {
+  /* Global Layout & Overflow Containment */
+  html, body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden !important;
+  }
+  .container {
+    width: 100%;
+    max-width: 100vw;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
   /* Navbar & Logo */
   .nav-container {
     padding: 0 16px;
     gap: 12px;
   }
   .logo-circle {
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
     border-radius: 12px;
   }
   .logo-text {
-    font-size: 1.18rem;
+    font-size: 1.15rem;
   }
 
   /* Hero Section */
   .hero {
-    padding-top: 75px;
+    padding-top: 72px;
     padding-bottom: 20px;
     min-height: 100vh;
+    overflow: hidden;
   }
   .hero-slide {
-    padding: 80px 16px 85px;
+    padding: 75px 14px 80px;
   }
   .hero-cinematic-title {
-    font-size: clamp(1.75rem, 6.2vw, 2.4rem);
-    margin-bottom: 14px;
-    line-height: 1.18;
+    font-size: clamp(1.65rem, 6vw, 2.3rem);
+    margin-bottom: 12px;
+    line-height: 1.2;
+    word-break: break-word;
   }
   .hero-cinematic-desc {
-    font-size: 0.92rem;
-    line-height: 1.6;
-    margin-bottom: 22px;
-    padding: 0 8px;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin-bottom: 20px;
+    padding: 0 4px;
   }
   .hero-cinematic-actions {
     flex-direction: column;
@@ -5307,19 +5326,19 @@ textarea {
   .btn-cinematic-outline {
     width: 100%;
     justify-content: center;
-    padding: 12px 20px;
-    font-size: 0.92rem;
+    padding: 12px 18px;
+    font-size: 0.9rem;
   }
 
   /* Bottom Interactive Tabs on Mobile (Horizontal Touch Pill Bar) */
   .hero-bottom-nav-bar {
-    padding: 0 12px;
+    padding: 0 10px;
   }
   .hero-tabs-grid {
     display: flex;
     overflow-x: auto;
     gap: 8px;
-    padding: 6px 4px 10px;
+    padding: 6px 2px 10px;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
     width: 100%;
@@ -5348,13 +5367,25 @@ textarea {
     display: none;
   }
 
+  /* Section Typography & Spacing */
+  .section-header {
+    margin-bottom: 40px;
+  }
+  .section-title {
+    font-size: clamp(1.55rem, 5.5vw, 2.2rem);
+  }
+  .section-subtitle {
+    font-size: 0.92rem;
+    padding: 0 6px;
+  }
+
   /* Cards & Grid Controls */
   .service-card,
   .template-card,
   .portfolio-card,
   .team-card,
   .why-card {
-    padding: 24px 18px;
+    padding: 22px 16px;
   }
   .template-card-preview {
     height: 200px;
@@ -5406,21 +5437,109 @@ textarea {
   }
 }
 
+@media (max-width: 576px) {
+  .template-features-pill-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .template-feature-pill {
+    padding: 10px 14px;
+  }
+  .social-side-dock {
+    top: 58%;
+    transform: translateY(-50%);
+  }
+  .social-side-item {
+    width: 38px;
+    height: 36px;
+  }
+  .social-side-icon {
+    width: 36px;
+    height: 34px;
+    font-size: 0.95rem;
+  }
+  .back-to-top {
+    right: 14px;
+    bottom: 80px;
+    width: 38px;
+    height: 38px;
+    font-size: 0.82rem;
+  }
+}
+
 @media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
   .hero-slide {
-    padding: 70px 12px 80px;
+    padding: 65px 10px 75px;
   }
   .hero-cinematic-title {
-    font-size: 1.65rem;
+    font-size: 1.55rem;
+    line-height: 1.22;
   }
   .hero-cinematic-desc {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  .hero-cinematic-badge {
+    font-size: 0.72rem;
+    padding: 4px 12px;
   }
   .case-modal-metrics {
     grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .case-metrics-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+  .metric-chip {
+    padding: 8px 4px;
+  }
+  .metric-val {
+    font-size: 1rem;
+  }
+  .metric-lbl {
+    font-size: 0.65rem;
   }
   .tech-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 10px;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .stats-bar .stat-item {
+    padding: 1rem 0.5rem;
+  }
+  .stats-bar .stat-number {
+    font-size: 1.85rem;
+  }
+  .stats-bar .stat-label {
+    font-size: 0.72rem;
+  }
+  .chatbot-container {
+    right: 14px;
+    bottom: 14px;
+  }
+  .chatbot-teaser {
+    width: calc(100vw - 86px);
+    max-width: 260px;
+    bottom: 64px;
+    padding: 10px 12px;
+    font-size: 0.78rem;
+  }
+  .chatbot-window {
+    width: calc(100vw - 20px);
+    right: 0;
+    bottom: 64px;
+    height: calc(100vh - 84px);
+    max-height: 480px;
+  }
+  .contact-form {
+    padding: 22px 14px;
   }
 }
