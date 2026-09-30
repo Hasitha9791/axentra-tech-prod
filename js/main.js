@@ -66,33 +66,55 @@ function initNavbar() {
   t();
 }
 function initHamburger() {
-  const e = document.getElementById("hamburger"),
-    t = document.getElementById("nav-links");
-  e &&
-    t &&
-    (e.addEventListener("click", () => {
-      const n = t.classList.toggle("open");
-      (e.classList.toggle("open", n),
-        e.setAttribute("aria-expanded", String(n)),
-        (document.body.style.overflow = n ? "hidden" : ""));
-    }),
-    t.querySelectorAll(".nav-link, .mobile-cta-btn").forEach((n) => {
-      n.addEventListener("click", () => {
-        (t.classList.remove("open"),
-          e.classList.remove("open"),
-          e.setAttribute("aria-expanded", "false"),
-          (document.body.style.overflow = ""));
-      });
-    }),
-    document.addEventListener("click", (n) => {
-      !t.classList.contains("open") ||
-        t.contains(n.target) ||
-        e.contains(n.target) ||
-        (t.classList.remove("open"),
-        e.classList.remove("open"),
-        e.setAttribute("aria-expanded", "false"),
-        (document.body.style.overflow = ""));
-    }));
+  const hamburger = document.getElementById("hamburger"),
+    navLinks = document.getElementById("nav-links"),
+    navbar = document.getElementById("navbar");
+  if (!hamburger || !navLinks) return;
+
+  const setMenu = (open) => {
+    navLinks.classList.toggle("open", open);
+    hamburger.classList.toggle("open", open);
+    hamburger.setAttribute("aria-expanded", String(open));
+    document.body.classList.toggle("nav-open", open);
+    if (navbar) {
+      navbar.classList.toggle("menu-open", open);
+    }
+    document.body.style.overflow = open ? "hidden" : "";
+  };
+
+  hamburger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = !navLinks.classList.contains("open");
+    setMenu(isOpen);
+  });
+
+  navLinks.querySelectorAll(".nav-link, .mobile-cta-btn").forEach((link) => {
+    link.addEventListener("click", () => {
+      setMenu(false);
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (
+      navLinks.classList.contains("open") &&
+      !navLinks.contains(e.target) &&
+      !hamburger.contains(e.target)
+    ) {
+      setMenu(false);
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && navLinks.classList.contains("open")) {
+      setMenu(false);
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 992 && navLinks.classList.contains("open")) {
+      setMenu(false);
+    }
+  }, { passive: true });
 }
 function initParticles() {
   const e = document.getElementById("particles");
@@ -408,6 +430,11 @@ function initSmoothScroll() {
         if (hamburger) {
           hamburger.classList.remove("open");
           hamburger.setAttribute("aria-expanded", "false");
+        }
+        document.body.classList.remove("nav-open");
+        const navbarElem = document.getElementById("navbar");
+        if (navbarElem) {
+          navbarElem.classList.remove("menu-open");
         }
         document.body.style.overflow = "";
       }
@@ -1105,7 +1132,19 @@ function initShowcaseSlider() {
         tab.classList.add("active");
         tab.setAttribute("aria-selected", "true");
         if (window.innerWidth <= 768) {
-          tab.scrollIntoView({ behavior: "smooth", inline: "nearest", block: "nearest" });
+          const tabsGrid = tab.closest(".hero-tabs-grid");
+          if (tabsGrid) {
+            const tabLeft = tab.offsetLeft;
+            const tabWidth = tab.offsetWidth;
+            const gridScroll = tabsGrid.scrollLeft;
+            const gridWidth = tabsGrid.clientWidth;
+            if (tabLeft < gridScroll || (tabLeft + tabWidth) > (gridScroll + gridWidth)) {
+              tabsGrid.scrollTo({
+                left: tabLeft - (gridWidth / 2) + (tabWidth / 2),
+                behavior: "smooth"
+              });
+            }
+          }
         }
       } else {
         tab.classList.remove("active");
@@ -1217,6 +1256,23 @@ function initShowcaseSlider() {
   const heroSection = slider.closest(".hero") || slider;
   heroSection.addEventListener("mouseenter", pauseTimer);
   heroSection.addEventListener("mouseleave", resumeTimer);
+
+  // Pause auto-play when hero section is scrolled off-screen
+  if ("IntersectionObserver" in window) {
+    const heroObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            resumeTimer();
+          } else {
+            pauseTimer();
+          }
+        });
+      },
+      { threshold: 0.05 }
+    );
+    heroObserver.observe(heroSection);
+  }
 
   // Touch Swipe support for mobile
   let touchStartX = 0;
