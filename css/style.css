@@ -3349,6 +3349,36 @@ body.nav-open .social-side-dock {
   .templates-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .templates-custom-banner {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 26px 22px !important;
+    gap: 18px !important;
+  }
+  .templates-custom-banner-content {
+    width: 100% !important;
+  }
+  .templates-custom-banner-content h3 {
+    font-size: 1.25rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+  }
+  .templates-custom-banner-content p {
+    font-size: 0.9rem !important;
+    line-height: 1.55 !important;
+  }
+  .templates-custom-banner-actions {
+    width: 100% !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+  .templates-custom-banner-actions .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 12px 18px !important;
+    font-size: 0.94rem !important;
+  }
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -5661,6 +5691,16 @@ body.nav-open .social-side-dock {
   .tech-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+  }
+  .templates-custom-banner {
+    padding: 20px 16px !important;
+    border-radius: 16px !important;
+  }
+  .templates-custom-banner-content h3 {
+    font-size: 1.15rem !important;
+  }
+  .templates-custom-banner-content p {
+    font-size: 0.86rem !important;
   }
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
