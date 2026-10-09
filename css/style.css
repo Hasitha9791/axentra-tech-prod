@@ -5240,7 +5240,7 @@ body.nav-open .social-side-dock {
   background-size: cover;
   background-position: center 36%;
   background-repeat: no-repeat;
-  filter: brightness(1.18) contrast(1.06) saturate(1.14);
+  filter: brightness(0.92) contrast(1.08) saturate(1.10);
   transform: scale(1.05);
   transition: transform 5.5s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 1;
@@ -5251,13 +5251,13 @@ body.nav-open .social-side-dock {
   transform: scale(1);
 }
 
-/* Elegant Dark Glass Vignette Overlay - Lighter for vivid image visibility */
+/* Elegant Dark Glass Vignette Overlay - Perfectly balanced for razor-sharp text visibility */
 .hero-slide-overlay {
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(ellipse 90% 80% at 50% 45%, rgba(4, 8, 16, 0.38) 0%, rgba(4, 8, 16, 0.20) 55%, rgba(4, 8, 16, 0.65) 100%),
-    linear-gradient(180deg, rgba(4, 8, 16, 0.72) 0%, rgba(4, 8, 16, 0.08) 18%, rgba(4, 8, 16, 0.12) 75%, rgba(4, 8, 16, 0.88) 100%);
+    radial-gradient(ellipse 85% 75% at 50% 48%, rgba(4, 8, 18, 0.52) 0%, rgba(4, 8, 18, 0.38) 55%, rgba(4, 8, 18, 0.82) 100%),
+    linear-gradient(180deg, rgba(4, 8, 18, 0.82) 0%, rgba(4, 8, 18, 0.22) 20%, rgba(4, 8, 18, 0.28) 75%, rgba(4, 8, 18, 0.94) 100%);
   z-index: 2;
   pointer-events: none;
 }
@@ -5687,7 +5687,7 @@ body.nav-open .social-side-dock {
   }
   .hero-slide-bg {
     background-position: center 30%;
-    filter: brightness(1.2) contrast(1.08) saturate(1.15);
+    filter: brightness(0.90) contrast(1.10) saturate(1.10);
   }
   .hero-slide-content-center {
     padding: 0 8px;
