@@ -105,6 +105,17 @@ body::after {
   pointer-events: none;
   transform: translateZ(0);
 }
+
+/* High-Tech Kinetic Background (Bouncing Digital Node & Cyber Synapse Matrix) */
+.tech-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.9;
+}
 img {
   max-width: 100%;
   height: auto;

@@ -1539,8 +1539,243 @@ function initShowcaseSlider() {
   }
 }
 
+/* ====================================================================
+   HIGH-TECH KINETIC NODE MATRIX (PING-PONG BOUNCING TECHNOLOGY ENGINE)
+   ==================================================================== */
+function initTechKineticCanvas() {
+  const canvas = document.getElementById("tech-canvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d", { alpha: true });
+  if (!ctx) return;
+
+  let width = 0;
+  let height = 0;
+  let dpr = 1;
+  let animationFrameId = null;
+  let isVisible = true;
+
+  // Modern tech node palette (Electric Cyan, Cyber Emerald, Radiant Mint, Neon Azure)
+  const PALETTE = [
+    { r: 0, g: 229, b: 255 },
+    { r: 15, g: 191, b: 123 },
+    { r: 56, g: 239, b: 125 },
+    { r: 56, g: 189, b: 248 }
+  ];
+
+  let particles = [];
+  const mouse = { x: -9999, y: -9999, radius: 120, active: false };
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
+    ctx.scale(dpr, dpr);
+  }
+
+  function getParticleCount() {
+    if (width < 640) return 20;
+    if (width < 1024) return 32;
+    return 48;
+  }
+
+  class KineticNode {
+    constructor() {
+      this.init(true);
+    }
+
+    init(randomPos) {
+      this.radius = Math.random() * 2.4 + 2.2;
+      if (randomPos) {
+        this.x = Math.random() * (width - this.radius * 2) + this.radius;
+        this.y = Math.random() * (height - this.radius * 2) + this.radius;
+      } else {
+        this.x = Math.random() < 0.5 ? this.radius : width - this.radius;
+        this.y = Math.random() * (height - this.radius * 2) + this.radius;
+      }
+
+      // Ping-pong velocity vector
+      const speed = Math.random() * 0.7 + 0.6;
+      const angle = Math.random() * Math.PI * 2;
+      this.vx = Math.cos(angle) * speed;
+      this.vy = Math.sin(angle) * speed;
+
+      this.color = PALETTE[Math.floor(Math.random() * PALETTE.length)];
+      this.pulse = Math.random() * Math.PI * 2;
+      this.pulseSpeed = Math.random() * 0.03 + 0.015;
+      this.glowRadius = this.radius * 3.2;
+    }
+
+    update() {
+      this.pulse += this.pulseSpeed;
+
+      // Elastic Ping-Pong Boundary Collision
+      if (this.x - this.radius <= 0) {
+        this.x = this.radius;
+        this.vx = -this.vx;
+      } else if (this.x + this.radius >= width) {
+        this.x = width - this.radius;
+        this.vx = -this.vx;
+      }
+
+      if (this.y - this.radius <= 0) {
+        this.y = this.radius;
+        this.vy = -this.vy;
+      } else if (this.y + this.radius >= height) {
+        this.y = height - this.radius;
+        this.vy = -this.vy;
+      }
+
+      // Cursor Ricochet (Digital paddle interaction)
+      if (mouse.active) {
+        const dx = this.x - mouse.x;
+        const dy = this.y - mouse.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < mouse.radius && dist > 0) {
+          const force = (1 - dist / mouse.radius) * 1.6;
+          const normalX = dx / dist;
+          const normalY = dy / dist;
+          this.vx += normalX * force * 0.35;
+          this.vy += normalY * force * 0.35;
+          const currentSpeed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
+          if (currentSpeed > 3.0) {
+            this.vx = (this.vx / currentSpeed) * 3.0;
+            this.vy = (this.vy / currentSpeed) * 3.0;
+          }
+        }
+      }
+
+      this.x += this.vx;
+      this.y += this.vy;
+    }
+
+    draw() {
+      const alpha = 0.65 + Math.sin(this.pulse) * 0.25;
+      const c = this.color;
+
+      // Soft glowing aura
+      const grad = ctx.createRadialGradient(
+        this.x, this.y, 0,
+        this.x, this.y, this.glowRadius
+      );
+      grad.addColorStop(0, `rgba(${c.r}, ${c.g}, ${c.b}, ${alpha * 0.45})`);
+      grad.addColorStop(0.5, `rgba(${c.r}, ${c.g}, ${c.b}, ${alpha * 0.15})`);
+      grad.addColorStop(1, `rgba(${c.r}, ${c.g}, ${c.b}, 0)`);
+
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.glowRadius, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // Glowing ping-pong sphere core
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 255, 255, ${Math.min(1, alpha + 0.3)})`;
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius + 0.8, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(${c.r}, ${c.g}, ${c.b}, ${alpha})`;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+  }
+
+  function spawnParticles() {
+    const count = getParticleCount();
+    particles = [];
+    for (let i = 0; i < count; i++) {
+      particles.push(new KineticNode());
+    }
+  }
+
+  function drawConnections() {
+    const maxDist = width < 768 ? 95 : 130;
+    const len = particles.length;
+
+    for (let i = 0; i < len; i++) {
+      const p1 = particles[i];
+      for (let j = i + 1; j < len; j++) {
+        const p2 = particles[j];
+        const dx = p1.x - p2.x;
+        const dy = p1.y - p2.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < maxDist) {
+          const alpha = (1 - dist / maxDist) * 0.28;
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = `rgba(0, 229, 255, ${alpha})`;
+          ctx.lineWidth = 0.85;
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  function loop() {
+    if (!isVisible) return;
+    ctx.clearRect(0, 0, width, height);
+
+    drawConnections();
+
+    for (let i = 0; i < particles.length; i++) {
+      particles[i].update();
+      particles[i].draw();
+    }
+
+    animationFrameId = requestAnimationFrame(loop);
+  }
+
+  window.addEventListener("resize", () => {
+    resize();
+    spawnParticles();
+  }, { passive: true });
+
+  window.addEventListener("mousemove", (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+    mouse.active = true;
+  }, { passive: true });
+
+  window.addEventListener("mouseleave", () => {
+    mouse.active = false;
+  }, { passive: true });
+
+  window.addEventListener("touchmove", (e) => {
+    if (e.touches && e.touches[0]) {
+      mouse.x = e.touches[0].clientX;
+      mouse.y = e.touches[0].clientY;
+      mouse.active = true;
+    }
+  }, { passive: true });
+
+  window.addEventListener("touchend", () => {
+    mouse.active = false;
+  }, { passive: true });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      isVisible = false;
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    } else {
+      isVisible = true;
+      animationFrameId = requestAnimationFrame(loop);
+    }
+  });
+
+  resize();
+  spawnParticles();
+  animationFrameId = requestAnimationFrame(loop);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   (initPreloader(),
+    initTechKineticCanvas(),
     initNavbar(),
     initHamburger(),
     initParticles(),
