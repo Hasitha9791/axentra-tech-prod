@@ -4089,9 +4089,21 @@ body.nav-open .social-side-dock {
   right: 24px;
   z-index: 1000;
   font-family: var(--font-body);
+  animation: chatbotEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
 }
 
-/* Teaser Prompt Bubble */
+@keyframes chatbotEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.88);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Teaser Prompt Bubble - Appears gently after a delay */
 .chatbot-teaser {
   position: absolute;
   bottom: 74px;
@@ -4108,15 +4120,33 @@ body.nav-open .social-side-dock {
   align-items: center;
   gap: 10px;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(15, 191, 123, 0.2);
-  animation: teaserBounce 3s ease-in-out infinite;
   cursor: pointer;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-.chatbot-teaser.hidden {
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transform: translateY(10px) scale(0.9);
+  transform: translateY(14px) scale(0.92);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.65s;
 }
+
+.chatbot-teaser.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+  animation: teaserBounce 3.5s ease-in-out 0.65s infinite;
+}
+
+.chatbot-teaser.hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translateY(10px) scale(0.92) !important;
+  animation: none !important;
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s !important;
+}
+
 @keyframes teaserBounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }

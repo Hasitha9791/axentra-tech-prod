@@ -920,10 +920,43 @@ function initChatbot() {
     }, 450);
   }
 
+  const TEASER_DELAY_MS = 3800; // Polite delay so user first experiences hero branding
+  const TEASER_STORAGE_KEY = "axentra_chat_teaser_dismissed";
+  let teaserTimer = null;
+
+  function dismissTeaser(permanent) {
+    if (teaserTimer) {
+      clearTimeout(teaserTimer);
+      teaserTimer = null;
+    }
+    if (teaserEl) {
+      teaserEl.classList.remove("visible");
+      teaserEl.classList.add("hidden");
+    }
+    if (permanent) {
+      try {
+        sessionStorage.setItem(TEASER_STORAGE_KEY, "true");
+      } catch (e) {}
+    }
+  }
+
+  function scheduleTeaserEntrance() {
+    if (!teaserEl || !container) return;
+    try {
+      if (sessionStorage.getItem(TEASER_STORAGE_KEY) === "true") return;
+    } catch (e) {}
+
+    teaserTimer = setTimeout(() => {
+      if (!container.classList.contains("open") && !teaserEl.classList.contains("hidden")) {
+        teaserEl.classList.add("visible");
+      }
+    }, TEASER_DELAY_MS);
+  }
+
   function openChat() {
+    dismissTeaser(true);
     container.classList.add("open");
     toggleBtn.setAttribute("aria-expanded", "true");
-    if (teaserEl) teaserEl.classList.add("hidden");
     setTimeout(() => inputEl && inputEl.focus(), 300);
   }
 
@@ -951,7 +984,7 @@ function initChatbot() {
   if (teaserClose) {
     teaserClose.addEventListener("click", (e) => {
       e.stopPropagation();
-      teaserEl.classList.add("hidden");
+      dismissTeaser(true);
     });
   }
 
@@ -968,8 +1001,9 @@ function initChatbot() {
     }
   });
 
-  // Render initial greeting
+  // Render initial greeting & schedule gentle teaser entrance
   renderWelcomeGreeting();
+  scheduleTeaserEntrance();
 }
 
 function initSocialSideDock() {
