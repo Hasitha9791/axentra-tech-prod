@@ -390,7 +390,7 @@ function initTemplateLightbox() {
     if (t.target === e) r();
   });
   document.addEventListener("keydown", (evt) => {
-    if ("Escape" === evt.key) r();
+    if ("Escape" === evt.key && e.classList.contains("active")) r();
   });
 }
 function initBackToTop() {
@@ -439,6 +439,7 @@ function initFooterYear() {
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
+      if (this.classList.contains("open-quote-modal")) return;
       const targetId = this.getAttribute("href");
       if (!targetId || targetId === "#") return;
       const targetElem = document.querySelector(targetId);
