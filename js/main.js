@@ -1130,7 +1130,7 @@ function initShowcaseSlider() {
   let startTime = null;
   let pausedElapsed = 0;
   let isPaused = false;
-  const AUTO_PLAY_DELAY = 7000; // 7-second sequence change
+  const AUTO_PLAY_DELAY = 5500; // 5.5-second sequence change (fine-tuned)
 
   function showSlide(index) {
     if (index < 0) {
@@ -1349,6 +1349,20 @@ function initShowcaseSlider() {
   });
 
   showSlide(0);
+
+  // If preloader is active, start slider progression cleanly once the preloader dismisses
+  const preloaderEl = document.getElementById("preloader");
+  if (preloaderEl && !preloaderEl.classList.contains("hidden")) {
+    pauseTimer();
+    const checkPreloader = setInterval(() => {
+      if (preloaderEl.classList.contains("hidden") || preloaderEl.style.display === "none") {
+        clearInterval(checkPreloader);
+        setTimeout(() => {
+          resumeTimer();
+        }, 150);
+      }
+    }, 100);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
