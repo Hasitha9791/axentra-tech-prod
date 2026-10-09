@@ -766,6 +766,162 @@ function initCaseStudyModal() {
   });
 }
 
+function initQuickQuoteModal() {
+  const modal = document.getElementById("quick-quote-modal");
+  const form = document.getElementById("quick-quote-form");
+  const closeBtn = document.getElementById("quote-modal-close");
+  const whatsappBtn = document.getElementById("quote-whatsapp-btn");
+  const successBox = document.getElementById("quote-modal-success");
+  if (!modal || !form) return;
+
+  function openModal(defaultService) {
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+    if (defaultService) {
+      const select = form.querySelector("#quote-service");
+      if (select) {
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].value.toLowerCase().includes(defaultService.toLowerCase())) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    }
+    setTimeout(() => {
+      const nameInput = form.querySelector("#quote-name");
+      if (nameInput) nameInput.focus();
+    }, 200);
+  }
+
+  function closeModal() {
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  window.openQuoteModal = openModal;
+  window.closeQuoteModal = closeModal;
+
+  // Wire trigger buttons
+  document.querySelectorAll(".open-quote-modal").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const service = btn.getAttribute("data-service") || "";
+      openModal(service);
+    });
+  });
+
+  // Close handlers
+  if (closeBtn) closeBtn.addEventListener("click", closeModal);
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("active")) {
+      closeModal();
+    }
+  });
+
+  // Form input clear errors
+  ["quote-name", "quote-contact", "quote-details"].forEach((id) => {
+    const input = document.getElementById(id);
+    if (input) {
+      input.addEventListener("input", () => {
+        const err = document.getElementById(`${id}-error`);
+        if (err) err.textContent = "";
+        input.style.borderColor = "";
+      });
+    }
+  });
+
+  // Direct WhatsApp Button click
+  if (whatsappBtn) {
+    whatsappBtn.addEventListener("click", () => {
+      const name = form.querySelector("#quote-name")?.value.trim() || "Prospective Client";
+      const service = form.querySelector("#quote-service")?.value || "Custom Software";
+      const details = form.querySelector("#quote-details")?.value.trim() || "";
+      const text = encodeURIComponent(
+        `Hi Axentra Tech,\n\nI would like to request a quote:\n• Name: ${name}\n• Service: ${service}\n• Project Details: ${details || "Interested in learning more."}`
+      );
+      window.open(`https://wa.me/94771757556?text=${text}`, "_blank");
+    });
+  }
+
+  // Form submission via EmailJS
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const nameInput = form.querySelector("#quote-name");
+    const contactInput = form.querySelector("#quote-contact");
+    const serviceInput = form.querySelector("#quote-service");
+    const detailsInput = form.querySelector("#quote-details");
+    const submitBtn = document.getElementById("quote-submit-btn");
+
+    let isValid = true;
+    if (!nameInput.value.trim() || nameInput.value.trim().length < 2) {
+      document.getElementById("quote-name-error").textContent = "Please enter your name.";
+      nameInput.style.borderColor = "#ff4d6d";
+      isValid = false;
+    }
+    if (!contactInput.value.trim() || contactInput.value.trim().length < 5) {
+      document.getElementById("quote-contact-error").textContent = "Please provide a valid WhatsApp number or email.";
+      contactInput.style.borderColor = "#ff4d6d";
+      isValid = false;
+    }
+    if (!detailsInput.value.trim() || detailsInput.value.trim().length < 10) {
+      document.getElementById("quote-details-error").textContent = "Please provide brief project details (at least 10 chars).";
+      detailsInput.style.borderColor = "#ff4d6d";
+      isValid = false;
+    }
+    if (!isValid) return;
+
+    submitBtn.disabled = true;
+    const btnSpan = submitBtn.querySelector("span");
+    const originalText = btnSpan.textContent;
+    btnSpan.textContent = "Sending...";
+
+    const EMAILJS_CONFIG = {
+      PUBLIC_KEY: "V9_bPIzvKq3ziSfMq",
+      SERVICE_ID: "service_9z6t9vj",
+      TEMPLATE_ID: "template_q4b2wh5"
+    };
+
+    if (window.emailjs) {
+      emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+      emailjs
+        .send(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.TEMPLATE_ID, {
+          from_name: nameInput.value.trim(),
+          from_email: contactInput.value.trim(),
+          phone: contactInput.value.trim(),
+          service: serviceInput ? serviceInput.value : "General",
+          budget: "Quick Quote Request",
+          message: detailsInput.value.trim(),
+        })
+        .then(() => {
+          form.reset();
+          submitBtn.disabled = false;
+          btnSpan.textContent = originalText;
+          if (successBox) {
+            successBox.style.display = "flex";
+            setTimeout(() => {
+              successBox.style.display = "none";
+              closeModal();
+            }, 3000);
+          }
+        })
+        .catch(() => {
+          // Fallback gracefully to WhatsApp if EmailJS is blocked
+          submitBtn.disabled = false;
+          btnSpan.textContent = originalText;
+          if (whatsappBtn) whatsappBtn.click();
+        });
+    } else {
+      if (whatsappBtn) whatsappBtn.click();
+      submitBtn.disabled = false;
+      btnSpan.textContent = originalText;
+    }
+  });
+}
+
 const CHATBOT_FAQ_DATA = [
   {
     id: "pricing",
@@ -1408,6 +1564,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initActiveNavOnScroll(),
     initTemplateLightbox(),
     initCaseStudyModal(),
+    initQuickQuoteModal(),
     initChatbot(),
     initSocialSideDock(),
     initCookieConsent(),
