@@ -2821,15 +2821,15 @@ body.nav-open .social-side-dock {
 .form-group input,
 .form-group select,
 .form-group textarea {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(10, 20, 38, 0.82);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--clr-border-glass);
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: var(--radius-sm);
   padding: 13px 16px;
-  color: var(--clr-text);
-  font-size: 0.9rem;
+  color: #ffffff;
+  font-size: 0.92rem;
   transition: var(--transition);
   outline: 0;
   resize: vertical;
@@ -2837,7 +2837,7 @@ body.nav-open .social-side-dock {
   -webkit-appearance: none;
 }
 .form-group select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237a93b8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394a3b8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 16px center;
   padding-right: 40px;
@@ -2848,12 +2848,12 @@ body.nav-open .social-side-dock {
 .form-group textarea:focus {
   border-color: var(--clr-primary);
   border-top-color: var(--clr-accent);
-  background: rgba(15, 191, 123, 0.06);
-  box-shadow: 0 0 0 3px rgba(15, 191, 123, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  background: rgba(14, 28, 54, 0.95);
+  box-shadow: 0 0 0 3px rgba(15, 191, 123, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: var(--clr-text-dim);
+  color: #94a3b8;
 }
 .form-group select option {
   background: var(--clr-bg-2);
@@ -5907,7 +5907,7 @@ body.nav-open .social-side-dock {
   }
   .chatbot-container {
     right: 14px;
-    bottom: 14px;
+    bottom: 74px;
   }
   .chatbot-teaser {
     width: calc(100vw - 86px);
