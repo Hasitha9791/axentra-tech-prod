@@ -5256,7 +5256,7 @@ body.nav-open .social-side-dock {
   text-shadow: 0 4px 28px rgba(0, 0, 0, 0.98), 0 2px 10px rgba(0, 0, 0, 0.95);
 }
 
-/* 2nd Line Luminous Theme-Matching Neon Cyan/Mint Gradient with High-Contrast Appearance */
+/* 2nd Line Base Typography */
 .hero-cinematic-title .gradient-text {
   display: inline-block;
   color: #00e5ff;
@@ -5269,6 +5269,7 @@ body.nav-open .social-side-dock {
           drop-shadow(0 0 32px rgba(0, 229, 255, 0.45));
   font-weight: 800;
   letter-spacing: -0.01em;
+  transition: filter 0.4s ease;
 }
 
 .trademark {
@@ -5277,6 +5278,91 @@ body.nav-open .social-side-dock {
   color: #00e5ff;
   font-weight: 600;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.9));
+  transition: color 0.4s ease;
+}
+
+/* ====================================================================
+   Slide-by-Slide Adaptive Colors (Matching Individual Background Images)
+   ==================================================================== */
+
+/* Slide 1 (Enterprise SaaS): Electric Cyan & Sky Blue (matches network grid & HUD holograms) */
+.hero-slide:nth-child(1) .gradient-text,
+.hero-slide.slide-saas .gradient-text {
+  color: #00f0ff;
+  background: linear-gradient(135deg, #00f0ff 0%, #38b6ff 55%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.98)) 
+          drop-shadow(0 4px 22px rgba(0, 0, 0, 0.95)) 
+          drop-shadow(0 0 28px rgba(0, 240, 255, 0.45));
+}
+.hero-slide:nth-child(1) .trademark,
+.hero-slide.slide-saas .trademark {
+  color: #00f0ff;
+}
+
+/* Slide 2 (Apex LendCore Banking): Golden Amber & Emerald Wealth (matches financial vault & currency charts) */
+.hero-slide:nth-child(2) .gradient-text,
+.hero-slide.slide-banking .gradient-text {
+  color: #fbbf24;
+  background: linear-gradient(135deg, #fef08a 0%, #fbbf24 45%, #34d399 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.98)) 
+          drop-shadow(0 4px 22px rgba(0, 0, 0, 0.95)) 
+          drop-shadow(0 0 28px rgba(251, 191, 36, 0.45));
+}
+.hero-slide:nth-child(2) .trademark,
+.hero-slide.slide-banking .trademark {
+  color: #fbbf24;
+}
+
+/* Slide 3 (Apex LendMobile Field Banking): Vivid Mint Emerald & Neon Cyan (matches mobile POS & field terminal stats) */
+.hero-slide:nth-child(3) .gradient-text,
+.hero-slide.slide-mobile .gradient-text {
+  color: #00f5a0;
+  background: linear-gradient(135deg, #10b981 0%, #00f5a0 50%, #00e5ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.98)) 
+          drop-shadow(0 4px 22px rgba(0, 0, 0, 0.95)) 
+          drop-shadow(0 0 28px rgba(0, 245, 160, 0.45));
+}
+.hero-slide:nth-child(3) .trademark,
+.hero-slide.slide-mobile .trademark {
+  color: #00f5a0;
+}
+
+/* Slide 4 (Custom Websites & Templates): Modern Electric Violet & Sky Blue (matches creative code editor & modern UI) */
+.hero-slide:nth-child(4) .gradient-text,
+.hero-slide.slide-web .gradient-text {
+  color: #a78bfa;
+  background: linear-gradient(135deg, #c084fc 0%, #818cf8 50%, #38b6ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.98)) 
+          drop-shadow(0 4px 22px rgba(0, 0, 0, 0.95)) 
+          drop-shadow(0 0 28px rgba(129, 140, 248, 0.45));
+}
+.hero-slide:nth-child(4) .trademark,
+.hero-slide.slide-web .trademark {
+  color: #a78bfa;
+}
+
+/* Slide 5 (Ayu Health Suite EMR): Clinical Turquoise & Aqua (matches digital healthcare tablet & pulse monitors) */
+.hero-slide:nth-child(5) .gradient-text,
+.hero-slide.slide-health .gradient-text {
+  color: #2dd4bf;
+  background: linear-gradient(135deg, #2dd4bf 0%, #00e5ff 55%, #38b6ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.98)) 
+          drop-shadow(0 4px 22px rgba(0, 0, 0, 0.95)) 
+          drop-shadow(0 0 28px rgba(45, 212, 191, 0.45));
+}
+.hero-slide:nth-child(5) .trademark,
+.hero-slide.slide-health .trademark {
+  color: #2dd4bf;
 }
 
 /* Centered Elegant Description */
