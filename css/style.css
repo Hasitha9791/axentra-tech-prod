@@ -32,8 +32,8 @@
     rgba(15, 191, 123, 0.24) 0%,
     rgba(12, 24, 46, 0.92) 100%
   );
-  --glass-blur: blur(20px);
-  --glass-blur-lg: blur(28px);
+  --glass-blur: blur(12px);
+  --glass-blur-lg: blur(16px);
   --font-body: "Inter", sans-serif;
   --font-display: "Space Grotesk", sans-serif;
   --container-max: 1200px;
@@ -5636,6 +5636,21 @@ body.nav-open .social-side-dock {
 }
 
 @media (max-width: 768px) {
+  /* Mobile GPU & Compositor Performance Acceleration */
+  :root {
+    --glass-blur: blur(6px);
+    --glass-blur-lg: blur(8px);
+  }
+  body::after {
+    display: none !important;
+  }
+  body::before {
+    will-change: auto !important;
+  }
+  .particle {
+    display: none !important;
+  }
+
   /* Global Layout & Overflow Containment */
   html, body {
     width: 100%;

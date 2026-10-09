@@ -13,14 +13,14 @@ function initPreloader() {
   }
   document.body.style.overflow = "hidden";
   
-  // Smooth, snappy ticker
+  // Snappy, high-speed ticker
   const s = setInterval(() => {
     if (o < 90) {
-      i(o + (12 * Math.random() + 6));
+      i(o + (18 * Math.random() + 8));
     } else {
       clearInterval(s);
     }
-  }, 25);
+  }, 15);
 
   function a() {
     if (r) return;
@@ -32,18 +32,18 @@ function initPreloader() {
       document.body.style.overflow = "";
       setTimeout(() => {
         if (e) e.style.display = "none";
-      }, 600);
-    }, 200);
+      }, 400);
+    }, 120);
   }
 
   if (document.readyState === "interactive" || document.readyState === "complete") {
-    setTimeout(a, 250);
+    setTimeout(a, 80);
   } else {
-    document.addEventListener("DOMContentLoaded", () => setTimeout(a, 250));
-    window.addEventListener("load", () => setTimeout(a, 150));
+    document.addEventListener("DOMContentLoaded", () => setTimeout(a, 80));
+    window.addEventListener("load", () => setTimeout(a, 60));
   }
   // Hard fallback timeout so it never blocks mobile users
-  setTimeout(a, 850);
+  setTimeout(a, 400);
 }
 function initNavbar() {
   const e = document.getElementById("navbar");
@@ -118,8 +118,8 @@ function initHamburger() {
 }
 function initParticles() {
   const e = document.getElementById("particles");
-  if (!e) return;
-  const count = window.innerWidth < 768 ? 6 : 14;
+  if (!e || window.innerWidth < 768) return;
+  const count = 12;
   for (let t = 0; t < count; t++) {
     const t = document.createElement("div");
     t.classList.add("particle");
@@ -479,33 +479,25 @@ function initSmoothScroll() {
   });
 }
 function initActiveNavOnScroll() {
-  const e = document.querySelectorAll("section[id], div[id]"),
-    t = document.querySelectorAll(".nav-link");
-  let ticking = false;
-  const n = () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        const n = window.scrollY + 120;
-        e.forEach((e) => {
-          const o = e.offsetTop,
-            r = o + e.offsetHeight;
-          if (n >= o && n < r) {
-            t.forEach((t) => {
-              if (t.getAttribute("href") === `#${e.id}`) {
-                t.classList.add("active");
-              } else {
-                t.classList.remove("active");
-              }
-            });
-          }
-        });
-        ticking = false;
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
+  if (!sections.length || !navLinks.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach((link) => {
+            link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+          });
+        }
       });
-      ticking = true;
-    }
-  };
-  window.addEventListener("scroll", n, { passive: true });
-  n();
+    },
+    { rootMargin: "-25% 0px -55% 0px" }
+  );
+
+  sections.forEach((sec) => observer.observe(sec));
 }
 const CASE_STUDIES_DATA = {
   apexlendcore: {

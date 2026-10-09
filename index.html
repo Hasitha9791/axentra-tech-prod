@@ -125,12 +125,14 @@
   <!-- Preconnect CDN -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
   <link rel="preload" as="image" href="assets/logo1.png" />
+  <link rel="preload" as="image" href="assets/slide_enterprise_saas.jpg" fetchpriority="high" />
 
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Font Awesome Icons (Non-Render-Blocking Asynchronous Load) -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=3.9.6" />
+  <link rel="stylesheet" href="css/style.css?v=3.9.7" />
 
   <!-- Ultra-Bright Luminous Hero Accents (Direct inline ensures instant cache bypass) -->
   <style id="hero-live-accent-theme">
@@ -716,7 +718,7 @@
                 <div class="about-icon-badge">
                   <i class="fas fa-microchip"></i>
                 </div>
-                <img src="assets/logo1.png" alt="Axentra Tech" class="about-logo-large" />
+                <img src="assets/logo1.png" alt="Axentra Tech" class="about-logo-large" loading="lazy" decoding="async" width="260" height="160" />
                 <p class="about-tagline">Custom Software Company</p>
               </div>
               <div class="about-floating-card card-f1">
@@ -1054,7 +1056,7 @@
           <!-- Template 1: Bakery -->
           <div class="template-card">
             <div class="template-preview" data-lightbox="assets/Bakery.jpg" data-title="Bakery Website Template">
-              <img src="assets/Bakery.jpg" alt="Bakery Website Template Sample" loading="lazy" />
+              <img src="assets/Bakery.jpg" alt="Bakery Website Template Sample" loading="lazy" decoding="async" width="400" height="220" />
               <div class="template-overlay">
                 <span class="template-preview-btn"><i class="fas fa-expand"></i> Full Preview</span>
               </div>
@@ -1085,7 +1087,7 @@
           <!-- Template 2: Restaurant -->
           <div class="template-card">
             <div class="template-preview" data-lightbox="assets/Restaurant.jpg" data-title="Restaurant Website Template">
-              <img src="assets/Restaurant.jpg" alt="Restaurant Website Template Sample" loading="lazy" />
+              <img src="assets/Restaurant.jpg" alt="Restaurant Website Template Sample" loading="lazy" decoding="async" width="400" height="220" />
               <div class="template-overlay">
                 <span class="template-preview-btn"><i class="fas fa-expand"></i> Full Preview</span>
               </div>
@@ -1209,7 +1211,7 @@
           <!-- Template 6: Portfolio -->
           <div class="template-card">
             <div class="template-preview" data-lightbox="assets/Portfolio.jpg" data-title="Personal &amp; Agency Portfolio Website Template">
-              <img src="assets/Portfolio.jpg" alt="Portfolio Website Template Sample" loading="lazy" />
+              <img src="assets/Portfolio.jpg" alt="Portfolio Website Template Sample" loading="lazy" decoding="async" width="400" height="220" />
               <div class="template-overlay">
                 <span class="template-preview-btn"><i class="fas fa-expand"></i> Full Preview</span>
               </div>
@@ -1282,7 +1284,7 @@
           <article class="portfolio-card case-study-card portfolio-card--priority" data-category="fintech" data-case="apexlendcore" data-aos="fade-up" data-delay="0">
             <div class="priority-badge"><i class="fas fa-code"></i> Full Source Code Sale • CBSL Compliant</div>
             <div class="portfolio-img">
-              <img src="assets/Apex.jpeg" alt="Apex LendCore System Logo" class="portfolio-logo-img" />
+              <img src="assets/Apex.jpeg" alt="Apex LendCore System Logo" class="portfolio-logo-img" loading="lazy" decoding="async" width="200" height="200" />
               <div class="portfolio-overlay">
                 <span class="portfolio-status"><i class="fas fa-code"></i> 100% Full Source Code Sale</span>
               </div>
@@ -1355,7 +1357,7 @@
           <article class="portfolio-card case-study-card portfolio-card--priority" data-category="fintech" data-case="apexlendmobile" data-aos="fade-up" data-delay="100">
             <div class="priority-badge"><i class="fas fa-mobile-screen"></i> Offline-First • Active Build</div>
             <div class="portfolio-img">
-              <img src="assets/mobile.png" alt="Apex LendMobile Application Logo" class="portfolio-logo-img" />
+              <img src="assets/mobile.png" alt="Apex LendMobile Application Logo" class="portfolio-logo-img" loading="lazy" decoding="async" width="200" height="200" />
               <div class="portfolio-overlay">
                 <span class="portfolio-status"><i class="fas fa-circle-notch fa-spin"></i> Active Mobile Build</span>
               </div>
@@ -1427,7 +1429,7 @@
           <article class="portfolio-card case-study-card portfolio-card--priority" data-category="health" data-case="ayu" data-aos="fade-up" data-delay="0">
             <div class="priority-badge"><i class="fas fa-circle-check"></i> Completed &amp; Live</div>
             <div class="portfolio-img">
-              <img src="assets/ayu-logo.jpeg" alt="Ayu Health Suite Logo" class="portfolio-logo-img" />
+              <img src="assets/ayu-logo.jpeg" alt="Ayu Health Suite Logo" class="portfolio-logo-img" loading="lazy" decoding="async" width="200" height="200" />
               <div class="portfolio-overlay">
                 <a href="https://ayuhealthsuite.online/" target="_blank" rel="noopener noreferrer" class="portfolio-cta">
                   <span>Visit Live Platform</span>
@@ -1502,7 +1504,7 @@
           <article class="portfolio-card case-study-card portfolio-card--priority" data-category="hr" data-case="worktera" data-aos="fade-up" data-delay="150">
             <div class="priority-badge"><i class="fas fa-bolt"></i> Priority Enterprise Build</div>
             <div class="portfolio-img">
-              <img src="assets/worktera.jpg" alt="Worktera HRMS Logo" class="portfolio-logo-img" />
+              <img src="assets/worktera.jpg" alt="Worktera HRMS Logo" class="portfolio-logo-img" loading="lazy" decoding="async" width="200" height="200" />
               <div class="portfolio-overlay">
                 <span class="portfolio-status"><i class="fas fa-circle-notch fa-spin"></i> Active Client Build</span>
               </div>
@@ -2396,7 +2398,7 @@
     <!-- Teaser Prompt Pill -->
     <div class="chatbot-teaser" id="chatbot-teaser">
       <div class="teaser-avatar">
-        <img src="assets/robot_avatar.png" alt="AI Robot Assistant" class="teaser-robot-img" />
+        <img src="assets/robot_avatar.png" alt="AI Robot Assistant" class="teaser-robot-img" loading="lazy" decoding="async" width="36" height="36" />
       </div>
       <div class="teaser-content">
         <span class="teaser-title">Have questions?</span>
@@ -2409,7 +2411,7 @@
     <button class="chatbot-toggle" id="chatbot-toggle" aria-label="Open Axentra AI Chatbot" aria-expanded="false">
       <span class="chat-status-dot"></span>
       <div class="toggle-robot-wrap">
-        <img src="assets/robot_avatar.png" alt="AI Robot Assistant" class="toggle-robot-img chat-icon" />
+        <img src="assets/robot_avatar.png" alt="AI Robot Assistant" class="toggle-robot-img chat-icon" loading="lazy" decoding="async" width="56" height="56" />
         <span class="toggle-icon close-icon"><i class="fas fa-xmark"></i></span>
       </div>
       <div class="chatbot-shine"></div>
@@ -2422,7 +2424,7 @@
         <div class="chatbot-header-info">
           <div class="chatbot-avatar-wrap">
             <div class="chatbot-avatar">
-              <img src="assets/robot_avatar.png" alt="Axentra Robot Consultant" class="header-robot-img" />
+              <img src="assets/robot_avatar.png" alt="Axentra Robot Consultant" class="header-robot-img" loading="lazy" decoding="async" width="40" height="40" />
             </div>
             <span class="online-indicator"></span>
           </div>
@@ -2530,8 +2532,8 @@
   </button>
 
   <!-- EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
   <!-- Main JS -->
-  <script src="js/main.js?v=3.9.0"></script>
+  <script src="js/main.js?v=3.9.1" defer></script>
 </body>
 </html>
