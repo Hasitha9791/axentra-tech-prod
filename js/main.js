@@ -407,6 +407,31 @@ function initBackToTop() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }));
 }
+function initMobileStickyBar() {
+  const bar = document.getElementById("mobileStickyCtaBar");
+  if (!bar) return;
+
+  const hero = document.getElementById("home");
+  const getThreshold = () => {
+    return hero ? Math.max(hero.offsetHeight - 180, 280) : 300;
+  };
+
+  let ticking = false;
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const threshold = getThreshold();
+          bar.classList.toggle("visible", window.scrollY > threshold);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
+}
 function initFooterYear() {
   const e = document.getElementById("footer-year");
   e && (e.textContent = new Date().getFullYear());
@@ -1377,6 +1402,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initContactForm(),
     initNewsletterForm(),
     initBackToTop(),
+    initMobileStickyBar(),
     initFooterYear(),
     initSmoothScroll(),
     initActiveNavOnScroll(),

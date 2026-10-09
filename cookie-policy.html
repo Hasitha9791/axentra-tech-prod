@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=3.9.1" />
+  <link rel="stylesheet" href="css/style.css?v=3.9.2" />
 
   <!-- Policy Page Custom Styling Fallback (Bypasses local browser cache) -->
   <style>
@@ -124,6 +124,14 @@
       .policy-card {
         padding: 30px 20px;
         border-radius: 14px;
+      }
+    }
+    @media (max-width: 991px) {
+      .social-side-dock {
+        display: none !important;
+        pointer-events: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
       }
     }
   </style>
@@ -501,6 +509,6 @@
   <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <!-- Main JavaScript -->
-  <script src="js/main.js?v=3.8.6"></script>
+  <script src="js/main.js?v=3.8.7"></script>
 </body>
 </html>

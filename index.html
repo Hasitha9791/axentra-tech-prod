@@ -130,7 +130,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=3.9.1" />
+  <link rel="stylesheet" href="css/style.css?v=3.9.2" />
 
   <!-- Ultra-Bright Luminous Hero Accents (Direct inline ensures instant cache bypass) -->
   <style id="hero-live-accent-theme">
@@ -227,6 +227,101 @@
     .hero-slide.slide-health .trademark,
     .hero-slide:nth-child(5) .trademark {
       color: #99f6e4 !important;
+    }
+
+    /* Hide Floating Social Dock on Mobile / Tablet Screens */
+    @media (max-width: 991px) {
+      .social-side-dock {
+        display: none !important;
+        pointer-events: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+      }
+    }
+
+    /* Sticky Mobile Bottom Quick-Action Conversion Bar */
+    .mobile-sticky-cta-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 995;
+      background: rgba(6, 11, 22, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.6);
+      padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+      transform: translateY(120%);
+      opacity: 0;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-sticky-cta-bar {
+        display: block;
+      }
+      .mobile-sticky-cta-bar.visible {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+      body.nav-open .mobile-sticky-cta-bar {
+        display: none !important;
+      }
+      body {
+        padding-bottom: 64px;
+      }
+      .chatbot-container {
+        bottom: 74px !important;
+      }
+      .back-to-top {
+        bottom: 135px !important;
+      }
+    }
+
+    .mobile-sticky-cta-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 10px;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    .mobile-sticky-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 44px;
+      border-radius: 100px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none !important;
+      white-space: nowrap;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .mobile-sticky-btn:active {
+      transform: scale(0.97);
+    }
+    .btn-sticky-whatsapp {
+      background: #25d366;
+      color: #ffffff !important;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+    }
+    .btn-sticky-whatsapp i {
+      font-size: 1.15rem;
+    }
+    .btn-sticky-quote {
+      background: linear-gradient(135deg, #0fbf7b 0%, #00e5ff 100%);
+      color: #040810 !important;
+      box-shadow: 0 4px 18px rgba(0, 229, 255, 0.35);
+    }
+    .btn-sticky-quote i {
+      font-size: 0.95rem;
     }
   </style>
 </head>
@@ -2309,6 +2404,30 @@
     </button>
   </div>
 
+  <!-- ===== STICKY MOBILE CONVERSION BAR ===== -->
+  <aside class="mobile-sticky-cta-bar" id="mobileStickyCtaBar" aria-label="Mobile Quick Action Bar">
+    <div class="mobile-sticky-cta-inner">
+      <a
+        href="https://wa.me/94771757556?text=Hi%20Axentra%20Tech%2C%20I%20would%20like%20to%20inquire%20about%20your%20software%20services."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mobile-sticky-btn btn-sticky-whatsapp"
+        aria-label="Chat with Axentra Tech on WhatsApp"
+      >
+        <i class="fab fa-whatsapp"></i>
+        <span>WhatsApp</span>
+      </a>
+      <a
+        href="#contact"
+        class="mobile-sticky-btn btn-sticky-quote"
+        aria-label="Get a Free Quote"
+      >
+        <i class="fas fa-paper-plane"></i>
+        <span>Get Free Quote</span>
+      </a>
+    </div>
+  </aside>
+
   <!-- ===== BACK TO TOP ===== -->
   <button class="back-to-top" id="back-to-top" aria-label="Back to top">
     <i class="fas fa-chevron-up"></i>
@@ -2317,6 +2436,6 @@
   <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <!-- Main JS -->
-  <script src="js/main.js?v=3.8.6"></script>
+  <script src="js/main.js?v=3.8.7"></script>
 </body>
 </html>
