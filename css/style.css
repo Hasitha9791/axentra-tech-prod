@@ -5285,84 +5285,84 @@ body.nav-open .social-side-dock {
    Slide-by-Slide Adaptive Colors (Matching Individual Background Images)
    ==================================================================== */
 
-/* Slide 1 (Enterprise SaaS): Electric Cyan & Sky Blue (matches network grid & HUD holograms) */
+/* Slide 1 (Enterprise SaaS): Ultra-Bright Electric Cyan & Ice Blue */
 .hero-slide:nth-child(1) .gradient-text,
 .hero-slide.slide-saas .gradient-text {
-  color: #00f0ff;
-  background: linear-gradient(135deg, #00f0ff 0%, #38b6ff 55%, #60a5fa 100%);
+  color: #7dd3fc;
+  background: linear-gradient(135deg, #ffffff 0%, #cffafe 22%, #38bdf8 65%, #7dd3fc 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.98)) 
-          drop-shadow(0 4px 22px rgba(0, 0, 0, 0.95)) 
-          drop-shadow(0 0 28px rgba(0, 240, 255, 0.45));
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 1)) 
+          drop-shadow(0 4px 20px rgba(0, 0, 0, 0.96)) 
+          drop-shadow(0 0 35px rgba(56, 189, 248, 0.65));
 }
 .hero-slide:nth-child(1) .trademark,
 .hero-slide.slide-saas .trademark {
-  color: #00f0ff;
+  color: #a5f3fc;
 }
 
-/* Slide 2 (Apex LendCore Banking): Golden Amber & Emerald Wealth (matches financial vault & currency charts) */
+/* Slide 2 (Apex LendCore Banking): Ultra-Bright Radiant Champagne Gold & Light Mint */
 .hero-slide:nth-child(2) .gradient-text,
 .hero-slide.slide-banking .gradient-text {
-  color: #fbbf24;
-  background: linear-gradient(135deg, #fef08a 0%, #fbbf24 45%, #34d399 100%);
+  color: #fde047;
+  background: linear-gradient(135deg, #ffffff 0%, #fef08a 22%, #fde047 60%, #86efac 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.98)) 
-          drop-shadow(0 4px 22px rgba(0, 0, 0, 0.95)) 
-          drop-shadow(0 0 28px rgba(251, 191, 36, 0.45));
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 1)) 
+          drop-shadow(0 4px 20px rgba(0, 0, 0, 0.96)) 
+          drop-shadow(0 0 35px rgba(253, 224, 71, 0.65));
 }
 .hero-slide:nth-child(2) .trademark,
 .hero-slide.slide-banking .trademark {
-  color: #fbbf24;
+  color: #fef08a;
 }
 
-/* Slide 3 (Apex LendMobile Field Banking): Vivid Mint Emerald & Neon Cyan (matches mobile POS & field terminal stats) */
+/* Slide 3 (Apex LendMobile Field Banking): Ultra-Bright Mint Emerald & Luminous Aqua */
 .hero-slide:nth-child(3) .gradient-text,
 .hero-slide.slide-mobile .gradient-text {
-  color: #00f5a0;
-  background: linear-gradient(135deg, #10b981 0%, #00f5a0 50%, #00e5ff 100%);
+  color: #6ee7b7;
+  background: linear-gradient(135deg, #ffffff 0%, #a7f3d0 22%, #34d399 60%, #67e8f9 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.98)) 
-          drop-shadow(0 4px 22px rgba(0, 0, 0, 0.95)) 
-          drop-shadow(0 0 28px rgba(0, 245, 160, 0.45));
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 1)) 
+          drop-shadow(0 4px 20px rgba(0, 0, 0, 0.96)) 
+          drop-shadow(0 0 35px rgba(52, 211, 153, 0.65));
 }
 .hero-slide:nth-child(3) .trademark,
 .hero-slide.slide-mobile .trademark {
-  color: #00f5a0;
+  color: #a7f3d0;
 }
 
-/* Slide 4 (Custom Websites & Templates): Modern Electric Violet & Sky Blue (matches creative code editor & modern UI) */
+/* Slide 4 (Custom Websites & Templates): Ultra-Bright Lavender Violet & Radiant Sky Blue */
 .hero-slide:nth-child(4) .gradient-text,
 .hero-slide.slide-web .gradient-text {
-  color: #a78bfa;
-  background: linear-gradient(135deg, #c084fc 0%, #818cf8 50%, #38b6ff 100%);
+  color: #c084fc;
+  background: linear-gradient(135deg, #ffffff 0%, #ede9fe 22%, #c084fc 60%, #7dd3fc 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.98)) 
-          drop-shadow(0 4px 22px rgba(0, 0, 0, 0.95)) 
-          drop-shadow(0 0 28px rgba(129, 140, 248, 0.45));
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 1)) 
+          drop-shadow(0 4px 20px rgba(0, 0, 0, 0.96)) 
+          drop-shadow(0 0 35px rgba(192, 132, 252, 0.65));
 }
 .hero-slide:nth-child(4) .trademark,
 .hero-slide.slide-web .trademark {
-  color: #a78bfa;
+  color: #ddd6fe;
 }
 
-/* Slide 5 (Ayu Health Suite EMR): Clinical Turquoise & Aqua (matches digital healthcare tablet & pulse monitors) */
+/* Slide 5 (Ayu Health Suite EMR): Ultra-Bright Clinical Turquoise & Luminous Aqua */
 .hero-slide:nth-child(5) .gradient-text,
 .hero-slide.slide-health .gradient-text {
-  color: #2dd4bf;
-  background: linear-gradient(135deg, #2dd4bf 0%, #00e5ff 55%, #38b6ff 100%);
+  color: #5eead4;
+  background: linear-gradient(135deg, #ffffff 0%, #ccfbf1 22%, #2dd4bf 60%, #38bdf8 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.98)) 
-          drop-shadow(0 4px 22px rgba(0, 0, 0, 0.95)) 
-          drop-shadow(0 0 28px rgba(45, 212, 191, 0.45));
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 1)) 
+          drop-shadow(0 4px 20px rgba(0, 0, 0, 0.96)) 
+          drop-shadow(0 0 35px rgba(45, 212, 191, 0.65));
 }
 .hero-slide:nth-child(5) .trademark,
 .hero-slide.slide-health .trademark {
-  color: #2dd4bf;
+  color: #99f6e4;
 }
 
 /* Centered Elegant Description */
