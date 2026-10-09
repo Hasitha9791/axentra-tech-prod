@@ -5223,7 +5223,7 @@ body.nav-open .social-side-dock {
   pointer-events: none;
 }
 
-/* Centered Content Container with Soft Backdrop Diffusion for High Text Legibility */
+/* Centered Content Container */
 .hero-slide-content-center {
   position: relative;
   z-index: 3;
@@ -5233,11 +5233,7 @@ body.nav-open .social-side-dock {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 24px 32px;
-  background: radial-gradient(ellipse 95% 85% at 50% 48%, rgba(4, 8, 16, 0.75) 0%, rgba(4, 8, 16, 0.40) 65%, transparent 100%);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 28px;
+  padding: 0 16px;
   transform: translateY(20px);
   opacity: 0;
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
@@ -5564,8 +5560,7 @@ body.nav-open .social-side-dock {
     filter: brightness(1.2) contrast(1.08) saturate(1.15);
   }
   .hero-slide-content-center {
-    padding: 16px 12px;
-    border-radius: 20px;
+    padding: 0 8px;
   }
   .hero-cinematic-title {
     font-size: clamp(1.65rem, 6vw, 2.3rem);
