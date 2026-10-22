@@ -5352,28 +5352,11 @@ body.nav-open .social-side-dock {
   color: #a5f3fc !important;
 }
 
-/* Slide 2 (Apex LendCore Banking): Ultra-Bright Radiant Champagne Gold */
-.hero-slide-content-center .hero-accent-banking,
-.hero-slide.slide-banking .hero-accent-text,
-.hero-slide.slide-banking .gradient-text,
-.hero-slide:nth-child(2) .gradient-text {
-  color: #fef08a !important;
-  background: linear-gradient(135deg, #ffffff 0%, #fffbeb 30%, #fef08a 70%, #fde047 100%) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 24px rgba(254, 240, 138, 0.75)) !important;
-}
-.hero-slide.slide-banking .trademark,
-.hero-slide:nth-child(2) .trademark {
-  color: #fef08a !important;
-}
-
-/* Slide 3 (Apex LendMobile Field Banking): Ultra-Bright Spring Mint (Zero Dark Green) */
+/* Slide 2 (Apex LendMobile Field Banking): Ultra-Bright Spring Mint (Zero Dark Green) */
 .hero-slide-content-center .hero-accent-mobile,
 .hero-slide.slide-mobile .hero-accent-text,
 .hero-slide.slide-mobile .gradient-text,
-.hero-slide:nth-child(3) .gradient-text {
+.hero-slide:nth-child(2) .gradient-text {
   color: #a7f3d0 !important;
   background: linear-gradient(135deg, #ffffff 0%, #ecfdf5 30%, #a7f3d0 70%, #6ee7b7 100%) !important;
   -webkit-background-clip: text !important;
@@ -5382,15 +5365,15 @@ body.nav-open .social-side-dock {
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 24px rgba(110, 231, 183, 0.75)) !important;
 }
 .hero-slide.slide-mobile .trademark,
-.hero-slide:nth-child(3) .trademark {
+.hero-slide:nth-child(2) .trademark {
   color: #a7f3d0 !important;
 }
 
-/* Slide 4 (Custom Websites & Templates): Ultra-Bright Electric Lavender Violet */
+/* Slide 3 (Custom Websites & Templates): Ultra-Bright Electric Lavender Violet */
 .hero-slide-content-center .hero-accent-web,
 .hero-slide.slide-web .hero-accent-text,
 .hero-slide.slide-web .gradient-text,
-.hero-slide:nth-child(4) .gradient-text {
+.hero-slide:nth-child(3) .gradient-text {
   color: #e9d5ff !important;
   background: linear-gradient(135deg, #ffffff 0%, #faf5ff 30%, #e9d5ff 70%, #c084fc 100%) !important;
   -webkit-background-clip: text !important;
@@ -5399,15 +5382,15 @@ body.nav-open .social-side-dock {
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 24px rgba(233, 213, 255, 0.75)) !important;
 }
 .hero-slide.slide-web .trademark,
-.hero-slide:nth-child(4) .trademark {
+.hero-slide:nth-child(3) .trademark {
   color: #ddd6fe !important;
 }
 
-/* Slide 5 (Ayu Health Suite EMR): Ultra-Bright Clinical Turquoise Aqua */
+/* Slide 4 (Ayu Health Suite EMR): Ultra-Bright Clinical Turquoise Aqua */
 .hero-slide-content-center .hero-accent-health,
 .hero-slide.slide-health .hero-accent-text,
 .hero-slide.slide-health .gradient-text,
-.hero-slide:nth-child(5) .gradient-text {
+.hero-slide:nth-child(4) .gradient-text {
   color: #99f6e4 !important;
   background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 30%, #99f6e4 70%, #5eead4 100%) !important;
   -webkit-background-clip: text !important;
@@ -5416,7 +5399,7 @@ body.nav-open .social-side-dock {
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 24px rgba(153, 246, 228, 0.75)) !important;
 }
 .hero-slide.slide-health .trademark,
-.hero-slide:nth-child(5) .trademark {
+.hero-slide:nth-child(4) .trademark {
   color: #99f6e4 !important;
 }
 
@@ -5506,7 +5489,7 @@ body.nav-open .social-side-dock {
 
 .hero-tabs-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 8px;
   flex: 1;
 }
@@ -5632,7 +5615,7 @@ body.nav-open .social-side-dock {
    ============================================================ */
 @media (max-width: 1200px) {
   .hero-tabs-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
