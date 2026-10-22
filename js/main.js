@@ -538,42 +538,6 @@ const CASE_STUDIES_DATA = {
     ],
     tech: [".NET 8", "C#", "ASP.NET Core", "Clean Architecture / CQRS", "MS SQL Server", "PostgreSQL", "MediatR", "Dapper", "EF Core 8", "ClosedXML", "Docker", "React / Next.js"]
   },
-  apexlendmobile: {
-    tag: "Fintech & Mobile Banking",
-    status: '<i class="fas fa-mobile-screen"></i> Offline-First • Biometric & GPS Field Banking',
-    title: "Apex LendMobile – Offline-First Field Banking & Doorstep Lending App",
-    subtitle: "Biometric & GPS Geo-Fenced Mobile Suite for Rural Microfinance, Kendra Meetings & Thermal Printing",
-    liveUrl: "",
-    metrics: [
-      { num: "100%", label: "Offline-First Sync" },
-      { num: "GPS", label: "Geo-Fenced Audits" },
-      { num: "0", label: "Ghost Collections" },
-      { num: "ESC/POS", label: "Thermal Printing" }
-    ],
-    challenge: "Field officers and recovery agents conducting Kendra center meetings in remote rural areas faced zero cellular reception, paper collection sheets, till reconciliation discrepancies, and lack of physical payment receipts for borrowers.",
-    challengeList: [
-      "Zero cellular reception in rural villages preventing real-time access to active loan schedules.",
-      "Paper-based center collection sheets resulting in end-of-day till imbalances and delayed branch ledger updates.",
-      "Lack of instant physical payment proof for rural borrowers leading to disputes and fraud.",
-      "No geolocation verification to audit whether field officers actually visited customer doorsteps."
-    ],
-    solution: "Engineered Apex LendMobile — an offline-first mobile banking application with encrypted on-device SQLite storage, HMAC packet validation, Bluetooth ESC/POS thermal printing, on-glass signature capture, and GPS geo-fenced meeting verification syncing seamlessly with the Apex LendCore backend.",
-    solutionList: [
-      "100% Offline-First architecture with local encrypted SQLite DB and automated SyncOutbox pipeline to the .NET 8 core backend.",
-      "GPS Geo-fencing & timestamp verification for Kendra center meetings, doorstep collections, and follow-up visit logs.",
-      "Instant Bluetooth ESC/POS portable thermal printer pairing for physical branded receipts and automated SMS notifications.",
-      "Digital KYC document capture (NIC camera scanner, on-glass signature) and daily denomination cash count till reconciliation.",
-      "Hardware device binding (X-Device-UUID) with remote wipe capability for lost or stolen field officer devices."
-    ],
-    impact: "Brings modern core banking directly to rural doorsteps while completely eliminating cash collection fraud and administrative delays.",
-    impactList: [
-      "100% field operational continuity in zero-reception rural areas with automated zero-packet-loss sync.",
-      "Completely eliminated ghost collections with GPS-verified Kendra center roll-calls and instant thermal receipts.",
-      "Automated end-of-day field till balancing with zero branch ledger discrepancies.",
-      "Cross-platform support across Android and iOS with hardware-enforced encryption."
-    ],
-    tech: ["Flutter", "Dart", "Android / iOS", "SQLite (Encrypted)", "HMAC SHA-256", "Bluetooth ESC/POS", "GPS Geolocation", ".NET 8 Sync Gateway", "REST APIs"]
-  },
   ayu: {
     tag: "Healthcare SaaS",
     status: '<i class="fas fa-link"></i> Live in Production',
@@ -952,8 +916,8 @@ const CHATBOT_FAQ_DATA = [
     id: "casestudies",
     title: "Case Studies & Proof",
     icon: "fa-briefcase",
-    keywords: ["portfolio", "work", "case study", "case studies", "example", "past", "apex", "lendcore", "lendmobile", "lending", "banking", "microfinance", "cbsl", "ayu", "health", "worktera", "omnidesk", "live"],
-    response: "<strong><i class='fas fa-diagram-project' style='color:#00e5ff; margin-right:6px;'></i>Featured Production &amp; Enterprise Systems:</strong><br><br><i class='fas fa-landmark' style='color:#00e5ff; margin-right:6px;'></i><strong>Apex LendCore:</strong> CBSL-compliant Core Banking &amp; Microfinance loan management suite (.NET 8 &amp; React)<br><i class='fas fa-mobile-screen-button' style='color:#00e5ff; margin-right:6px;'></i><strong>Apex LendMobile:</strong> Offline-first biometric, GPS &amp; thermal printing field banking mobile app<br><i class='fas fa-heart-pulse' style='color:#00e5ff; margin-right:6px;'></i><strong>Ayu Health Suite:</strong> Live Cloud Clinic &amp; WhatsApp EMR platform (<a href='https://ayuhealthsuite.online/' target='_blank' style='color:#00e5ff;text-decoration:underline;'>Live Site</a>)<br><i class='fas fa-users-gear' style='color:#00e5ff; margin-right:6px;'></i><strong>Worktera HRMS:</strong> Enterprise workforce &amp; automated biometric payroll system<br><i class='fas fa-ticket' style='color:#00e5ff; margin-right:6px;'></i><strong>OmniDesk ITSM:</strong> Reactive helpdesk with WebSocket SLA orchestration",
+    keywords: ["portfolio", "work", "case study", "case studies", "example", "past", "apex", "lendcore", "lending", "banking", "microfinance", "cbsl", "ayu", "health", "worktera", "omnidesk", "live"],
+    response: "<strong><i class='fas fa-diagram-project' style='color:#00e5ff; margin-right:6px;'></i>Featured Production &amp; Enterprise Systems:</strong><br><br><i class='fas fa-landmark' style='color:#00e5ff; margin-right:6px;'></i><strong>Apex LendCore:</strong> CBSL-compliant Core Banking &amp; Microfinance loan management suite (.NET 8 &amp; React)<br><i class='fas fa-heart-pulse' style='color:#00e5ff; margin-right:6px;'></i><strong>Ayu Health Suite:</strong> Live Cloud Clinic &amp; WhatsApp EMR platform (<a href='https://ayuhealthsuite.online/' target='_blank' style='color:#00e5ff;text-decoration:underline;'>Live Site</a>)<br><i class='fas fa-users-gear' style='color:#00e5ff; margin-right:6px;'></i><strong>Worktera HRMS:</strong> Enterprise workforce &amp; automated biometric payroll system<br><i class='fas fa-ticket' style='color:#00e5ff; margin-right:6px;'></i><strong>OmniDesk ITSM:</strong> Reactive helpdesk with WebSocket SLA orchestration",
     cta: { text: "Explore Case Studies", href: "#portfolio" }
   },
   {
