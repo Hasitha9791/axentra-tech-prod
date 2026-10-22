@@ -572,76 +572,6 @@ const CASE_STUDIES_DATA = {
       "Over 10,000 automated patient alerts delivered in production."
     ],
     tech: ["React", "TypeScript", "Vite", "Node.js", "Express", "Supabase (PostgreSQL)", "WhatsApp Business API", "TailwindCSS"]
-  },
-  worktera: {
-    tag: "Enterprise HRMS",
-    status: '<i class="fas fa-mobile-alt"></i> Web + Mobile App',
-    title: "Worktera – Enterprise HRMS & Automated Payroll",
-    subtitle: "End-to-End Workforce Management, Biometric Gateway & Mobile Self-Service",
-    liveUrl: "",
-    metrics: [
-      { num: "85%", label: "Faster Payroll" },
-      { num: "500+", label: "Active Profiles" },
-      { num: "98%", label: "App Adoption" },
-      { num: "100%", label: "Tax Compliance" }
-    ],
-    challenge: "Enterprises and educational institutes with hundreds of staff spent over 5 days every month reconciling CSV attendance dumps from physical fingerprint scanners, calculating complex multi-tier overtime, and sorting paper leave request slips.",
-    challengeList: [
-      "Biometric fingerprint logs had to be manually extracted via USB and manipulated in spreadsheets.",
-      "Complex overtime formulas and tax bracket deductions caused frequent calculation errors.",
-      "Paper-based leave approval chains resulted in lost requests and delayed staffing decisions.",
-      "Employees lacked visibility into remaining leave balances and historical pay slips."
-    ],
-    solution: "Engineered a centralized Clean Architecture web suite in ASP.NET Core paired with a cross-platform Flutter mobile app, featuring automated hardware biometric sync, dynamic formula rule engine, and hierarchical approval workflows.",
-    solutionList: [
-      "Built with ASP.NET Core Web API, MS SQL Server, and an Angular admin portal for microsecond query response.",
-      "Automated edge biometric gateway syncing punch logs via TCP/IP directly to cloud databases in real time.",
-      "Flutter mobile companion app empowering employees to request leaves, view payslips, and check shifts.",
-      "Automated multi-tier payroll engine with one-click bank CSV batch transfers."
-    ],
-    impact: "Drastically accelerated human resource operations and completely eliminated paper-based administrative friction.",
-    impactList: [
-      "Monthly payroll processing cycle slashed by 85% (from 5 business days to 45 minutes).",
-      "Eliminated attendance tampering and buddy-punching with verified biometric gateway verification.",
-      "98% staff adoption on the Flutter mobile app within 3 weeks of release.",
-      "100% audit-proof leave and payroll compliance records."
-    ],
-    tech: ["Angular", "TypeScript", "ASP.NET Core", "C#", "MS SQL Server", "Flutter", "Docker", "JWT Auth"]
-  },
-  omnidesk: {
-    tag: "ITSM & Helpdesk",
-    status: '<i class="fas fa-layer-group"></i> Priority Enterprise Build',
-    title: "OmniDesk – Reactive IT Support & SLA Orchestration Hub",
-    subtitle: "Multi-tier Ticket Lifecycle Management, Real-time WebSockets & SLA Automation",
-    liveUrl: "",
-    metrics: [
-      { num: "60%", label: "Faster Resolution" },
-      { num: "99.4%", label: "SLA Compliance" },
-      { num: "40%", label: "Auto-Routing" },
-      { num: "3x", label: "Agent Output" }
-    ],
-    challenge: "High-growth organizations were losing track of internal IT requests and external client support issues due to scattered email inboxes, untracked Slack messages, and zero visibility into contract SLA deadlines.",
-    challengeList: [
-      "Critical server and application outage tickets sat unassigned for hours in shared mailboxes.",
-      "Contractual SLA response times were breached with no alert system for managers.",
-      "Support engineers lacked centralized history for recurring client system bugs.",
-      "No analytical visibility into ticket volume trends, agent workloads, or customer satisfaction."
-    ],
-    solution: "Constructed a reactive multi-tier helpdesk with WebSocket event dispatching, intelligent category routing algorithms, deadline escalation triggers, and a transparent client portal.",
-    solutionList: [
-      "Built on React + TypeScript with ASP.NET Core and SignalR WebSockets for zero-refresh real-time updates.",
-      "Automated email-to-ticket ingestion microservice with natural language category detection.",
-      "Configurable SLA countdown timers with tiered escalation notifications via email and web push.",
-      "Interactive customer-facing tracking portal for live ticket status and satisfaction ratings."
-    ],
-    impact: "Established a structured, measurable support pipeline that turned customer service into a competitive advantage.",
-    impactList: [
-      "Average ticket turnaround time dropped by 60% across all severity tiers.",
-      "Achieved 99.4% SLA adherence with zero unassigned priority incidents.",
-      "Tripled support agent throughput with automated categorization and canned macro responses.",
-      "Managerial oversight improved with live real-time KPI reporting dashboards."
-    ],
-    tech: ["React", "TypeScript", "ASP.NET Core", "SignalR (WebSockets)", "MS SQL Server", "Chart.js", "Redis"]
   }
 };
 
@@ -916,8 +846,8 @@ const CHATBOT_FAQ_DATA = [
     id: "casestudies",
     title: "Case Studies & Proof",
     icon: "fa-briefcase",
-    keywords: ["portfolio", "work", "case study", "case studies", "example", "past", "apex", "lendcore", "lending", "banking", "microfinance", "cbsl", "ayu", "health", "worktera", "omnidesk", "live"],
-    response: "<strong><i class='fas fa-diagram-project' style='color:#00e5ff; margin-right:6px;'></i>Featured Production &amp; Enterprise Systems:</strong><br><br><i class='fas fa-landmark' style='color:#00e5ff; margin-right:6px;'></i><strong>Apex LendCore:</strong> CBSL-compliant Core Banking &amp; Microfinance loan management suite (.NET 8 &amp; React)<br><i class='fas fa-heart-pulse' style='color:#00e5ff; margin-right:6px;'></i><strong>Ayu Health Suite:</strong> Live Cloud Clinic &amp; WhatsApp EMR platform (<a href='https://ayuhealthsuite.online/' target='_blank' style='color:#00e5ff;text-decoration:underline;'>Live Site</a>)<br><i class='fas fa-users-gear' style='color:#00e5ff; margin-right:6px;'></i><strong>Worktera HRMS:</strong> Enterprise workforce &amp; automated biometric payroll system<br><i class='fas fa-ticket' style='color:#00e5ff; margin-right:6px;'></i><strong>OmniDesk ITSM:</strong> Reactive helpdesk with WebSocket SLA orchestration",
+    keywords: ["portfolio", "work", "case study", "case studies", "example", "past", "ayu", "health", "clinic", "emr", "production", "live"],
+    response: "<strong><i class='fas fa-diagram-project' style='color:#00e5ff; margin-right:6px;'></i>Featured Production Case Study:</strong><br><br><i class='fas fa-heart-pulse' style='color:#00e5ff; margin-right:6px;'></i><strong>Ayu Health Suite:</strong> Live Cloud Clinic &amp; WhatsApp EMR platform (<a href='https://ayuhealthsuite.online/' target='_blank' style='color:#00e5ff;text-decoration:underline;'>Live Site</a>) — multi-tenant clinical management with digital prescriptions, automated WhatsApp alerts, and inventory control.<br><br><i class='fas fa-laptop-code' style='color:#00e5ff; margin-right:6px;'></i><strong>Custom Enterprise Solutions:</strong> We design and engineer tailored web portals, mobile apps, and scalable cloud systems.",
     cta: { text: "Explore Case Studies", href: "#portfolio" }
   },
   {
