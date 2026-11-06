@@ -1,0 +1,1709 @@
+/* ==========================================================================
+   AXENTRA TECH - COMPLETE FESTIVE HALLOWEEN EXPERIENCE
+   Deep Atmospheric Cyberpunk Halloween Aesthetics & Total Full-Site Harmony
+   ========================================================================== */
+
+:root {
+  --hw-orange: #ff7a00;
+  --hw-orange-glow: #ff9d00;
+  --hw-pumpkin: #ff5400;
+  --hw-purple: #9d4edd;
+  --hw-purple-deep: #3c096c;
+  --hw-green-toxic: #00ff88;
+  --hw-amber: #ffbe0b;
+  --hw-blood: #ff0054;
+  --hw-dark-night: #090414;
+}
+
+/* --------------------------------------------------------------------------
+   1. GLOBAL FULL-WEBSITE THEME OVERRIDES (Active on entire page)
+   -------------------------------------------------------------------------- */
+body.halloween-active {
+  --clr-primary: #ff7a00 !important;
+  --clr-primary-dark: #d95c00 !important;
+  --clr-primary-light: #ffbe0b !important;
+  --clr-accent: #c77dff !important;
+  --clr-bg: #090414 !important;
+  --clr-bg-2: #120722 !important;
+  --clr-bg-3: #1a0b30 !important;
+  --clr-surface: rgba(22, 9, 36, 0.88) !important;
+  --clr-border: rgba(255, 122, 0, 0.24) !important;
+  --clr-border-glass: rgba(255, 122, 0, 0.3) !important;
+  --clr-border-highlight: rgba(255, 190, 11, 0.45) !important;
+  --clr-border-2: rgba(255, 122, 0, 0.6) !important;
+  --grad-primary: linear-gradient(135deg, #ff7a00 0%, #ff5400 50%, #9d4edd 100%) !important;
+  --grad-hero: linear-gradient(135deg, rgba(16, 5, 28, 0.85) 0%, rgba(9, 3, 18, 0.92) 100%) !important;
+  --grad-card: linear-gradient(135deg, rgba(26, 10, 42, 0.92) 0%, rgba(12, 4, 20, 0.96) 100%) !important;
+  --grad-card-hover: linear-gradient(135deg, rgba(42, 16, 68, 0.96) 0%, rgba(20, 6, 32, 0.98) 100%) !important;
+  --grad-card-featured: linear-gradient(135deg, rgba(255, 122, 0, 0.22) 0%, rgba(18, 6, 30, 0.95) 100%) !important;
+  --shadow-glow: 0 0 35px rgba(255, 122, 0, 0.45) !important;
+  --shadow-glass: 0 16px 40px 0 rgba(0, 0, 0, 0.6), inset 0 1px 1px 0 rgba(255, 190, 11, 0.25), inset 0 -1px 1px 0 rgba(0, 0, 0, 0.4) !important;
+  --shadow-glass-hover: 0 24px 60px 0 rgba(0, 0, 0, 0.7), 0 0 35px rgba(255, 122, 0, 0.45), inset 0 1px 1px 0 rgba(255, 190, 11, 0.45) !important;
+  background-color: #07030e !important;
+}
+
+/* Atmospheric Halloween Background Across Every Scroll Depth */
+body.halloween-active::before {
+  background-image: 
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(255, 122, 0, 0.35), transparent 70%),
+    radial-gradient(ellipse 70% 50% at 92% 28%, rgba(157, 78, 221, 0.32), transparent 70%),
+    radial-gradient(ellipse 70% 50% at 8% 58%, rgba(255, 84, 0, 0.30), transparent 70%),
+    radial-gradient(ellipse 80% 60% at 88% 85%, rgba(157, 78, 221, 0.30), transparent 70%),
+    linear-gradient(180deg, rgba(14, 4, 24, 0.90) 0%, rgba(8, 2, 14, 0.95) 50%, rgba(5, 1, 10, 0.98) 100%),
+    url('../assets/modern_bg.jpg') !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. NAVBAR, LOGO & ULTRA-SLIM TOP PROMO ANNOUNCEMENT STRIP (MAX HERO VISIBILITY)
+   -------------------------------------------------------------------------- */
+body.halloween-active #navbar {
+  padding-top: 0 !important;
+  padding-bottom: 8px !important;
+}
+
+body.halloween-active #navbar.scrolled {
+  padding-top: 0 !important;
+  padding-bottom: 6px !important;
+}
+
+.hw-announcement-bar {
+  background: linear-gradient(90deg, #120422 0%, #290948 25%, #ff5400 50%, #290948 75%, #120422 100%);
+  background-size: 200% auto;
+  animation: hwGradientShift 8s ease infinite;
+  color: #ffffff;
+  padding: 0 12px !important;
+  height: 28px !important;
+  min-height: 28px !important;
+  max-height: 28px !important;
+  line-height: 28px !important;
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+  z-index: 10001;
+  box-shadow: 0 2px 10px rgba(255, 122, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 170, 0, 0.35);
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+
+body:not(.halloween-active) .hw-announcement-bar {
+  display: none !important;
+}
+
+.hw-announcement-inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+  max-width: var(--container-max, 1200px);
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  overflow: hidden !important;
+}
+
+.hw-announcement-badge {
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 190, 11, 0.85);
+  color: #ffbe0b;
+  padding: 1px 7px;
+  border-radius: 20px;
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 800;
+  flex-shrink: 0;
+  line-height: 1.35;
+}
+
+.hw-announcement-text {
+  color: #f8fafc;
+  font-size: 0.74rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hw-text-desktop {
+  display: inline;
+}
+
+.hw-text-mobile {
+  display: none;
+}
+
+.hw-btn-extra {
+  display: inline;
+}
+
+.hw-announcement-btn {
+  background: linear-gradient(135deg, #ff9e00 0%, #ff5400 100%);
+  color: #080310 !important;
+  padding: 1px 9px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 0.67rem;
+  line-height: 1.35;
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 0 10px rgba(255, 122, 0, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.hw-announcement-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 16px rgba(255, 158, 0, 0.85);
+}
+
+.hw-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 8px;
+  background: rgba(14, 5, 26, 0.85);
+  border: 1px solid rgba(255, 170, 0, 0.7);
+  border-radius: 30px;
+  color: #ffd166;
+  font-size: 0.65rem;
+  line-height: 1.35;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.hw-theme-toggle:hover {
+  background: rgba(45, 16, 78, 0.95);
+  border-color: #ff9e00;
+  box-shadow: 0 0 12px rgba(255, 158, 0, 0.45);
+  transform: scale(1.04);
+}
+
+@media (max-width: 991px) {
+  .hw-announcement-badge {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hw-announcement-bar {
+    height: 26px !important;
+    min-height: 26px !important;
+    max-height: 26px !important;
+    line-height: 26px !important;
+    padding: 0 8px !important;
+  }
+  .hw-announcement-inner {
+    justify-content: space-between !important;
+    gap: 6px !important;
+  }
+  .hw-theme-toggle {
+    display: none !important;
+  }
+  .hw-announcement-badge {
+    display: none !important;
+  }
+  .hw-text-desktop {
+    display: none !important;
+  }
+  .hw-text-mobile {
+    display: inline !important;
+  }
+  .hw-btn-extra {
+    display: none !important;
+  }
+  .hw-announcement-text {
+    font-size: 0.70rem !important;
+    max-width: calc(100vw - 105px) !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+  .hw-announcement-btn {
+    font-size: 0.65rem !important;
+    padding: 1px 7px !important;
+  }
+}
+
+.hw-toggle-icon {
+  font-size: 1rem;
+  display: inline-block;
+  animation: hwPumpkinBob 2.5s ease-in-out infinite;
+}
+
+@keyframes hwGradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes hwPumpkinBob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-2px) rotate(-8deg); }
+}
+
+/* Navbar Logo Spinning Ring & Accents */
+body.halloween-active .logo-circle::before {
+  background: conic-gradient(from 0deg, #ff7a00, #ffbe0b, #9d4edd, transparent 65%) !important;
+}
+
+body.halloween-active .logo-text em,
+body.halloween-active .footer-brand em {
+  background: linear-gradient(135deg, #ffbe0b 0%, #ff7a00 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+body.halloween-active .nav-link.active,
+body.halloween-active .nav-link:hover {
+  color: #ffbe0b !important;
+}
+
+body.halloween-active .nav-link.active::after,
+body.halloween-active .nav-link:hover::after {
+  background: linear-gradient(90deg, #ff7a00, #ffbe0b) !important;
+  box-shadow: 0 0 10px rgba(255, 122, 0, 0.8) !important;
+}
+
+/* Witch Hat on Navbar Logo */
+.nav-logo {
+  position: relative;
+}
+
+.hw-witch-hat-logo {
+  position: absolute;
+  top: -12px;
+  left: 14px;
+  width: 26px;
+  height: 26px;
+  pointer-events: none;
+  z-index: 10;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.9));
+  animation: hwHatTilt 3s ease-in-out infinite;
+}
+
+body:not(.halloween-active) .hw-witch-hat-logo {
+  display: none !important;
+}
+
+@keyframes hwHatTilt {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(6deg) scale(1.06); }
+}
+
+/* --------------------------------------------------------------------------
+   HALLOWEEN CORNER IMAGES (Webs, Hanging Spiders & Pumpkin Patch)
+   -------------------------------------------------------------------------- */
+.hw-web-corner {
+  position: fixed;
+  top: 0;
+  pointer-events: none;
+  z-index: 998;
+  width: 180px;
+  height: 180px;
+  opacity: 0.92;
+  filter: drop-shadow(0 2px 8px rgba(255, 122, 0, 0.35));
+  transition: opacity 0.4s ease;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+body:not(.halloween-active) .hw-web-corner {
+  display: none !important;
+}
+
+.hw-web-left {
+  left: 0;
+  animation: hwWebSwayL 8s ease-in-out infinite alternate;
+}
+
+.hw-web-right {
+  right: 0;
+  animation: hwWebSwayR 8s ease-in-out infinite alternate;
+}
+
+@keyframes hwWebSwayL {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(3px) rotate(1.5deg); }
+}
+
+@keyframes hwWebSwayR {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(3px) rotate(-1.5deg); }
+}
+
+/* Bottom Left Corner Carved Pumpkin Patch Image (Compositor-Accelerated, Zero Filter Repaints) */
+.hw-corner-pumpkins {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: auto;
+  width: 220px;
+  height: auto;
+  pointer-events: none;
+  z-index: 991;
+  filter: drop-shadow(0 -4px 14px rgba(255, 122, 0, 0.45));
+  animation: hwPumpkinGlowPulse 4s ease-in-out infinite alternate;
+  user-select: none;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+body:not(.halloween-active) .hw-corner-pumpkins {
+  display: none !important;
+}
+
+@keyframes hwPumpkinGlowPulse {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateY(-2px) scale(1.02);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 991px) {
+  .hw-web-corner {
+    width: 90px;
+    height: 90px;
+  }
+  .hw-corner-pumpkins {
+    width: 140px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hw-web-corner {
+    width: 60px !important;
+    height: 60px !important;
+    opacity: 0.82 !important;
+  }
+  .hw-corner-pumpkins {
+    bottom: 66px !important;
+    left: 0 !important;
+    right: auto !important;
+    width: 80px !important;
+    opacity: 0.85 !important;
+    z-index: 991 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hw-web-corner {
+    width: 48px !important;
+    height: 48px !important;
+    opacity: 0.75 !important;
+  }
+  .hw-corner-pumpkins {
+    bottom: 66px !important;
+    left: -4px !important;
+    width: 68px !important;
+    opacity: 0.75 !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   FLYING HALLOWEEN IMAGES ACROSS THE WEBSITE WALL
+   (Animated Flying Bats, Floating Ghosts, Flying Witch & Pumpkin Wisp)
+   -------------------------------------------------------------------------- */
+.hw-fly-wall {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 96;
+  overflow: hidden;
+  contain: layout paint;
+  transform: translateZ(0);
+}
+
+body:not(.halloween-active) .hw-fly-wall {
+  display: none !important;
+}
+
+.hw-fly-item {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  contain: layout paint;
+}
+
+/* 1. Flying Bats Across Website Wall */
+.hw-fly-bat-1 {
+  top: 14%;
+  left: -180px;
+  width: 110px;
+  animation: hwFlyPath1 20s linear infinite;
+  animation-delay: 0.5s;
+  filter: drop-shadow(0 2px 8px rgba(157, 78, 221, 0.65));
+}
+
+.hw-fly-bat-2,
+.hw-fly-bat-3 {
+  display: none !important;
+}
+
+/* 2. Floating Spectral Ghosts Across Website Wall */
+.hw-fly-ghost-1 {
+  top: 25%;
+  right: -130px;
+  width: 95px;
+  animation: hwDriftGhostLeft 28s ease-in-out infinite;
+  animation-delay: 2s;
+  filter: drop-shadow(0 2px 8px rgba(0, 245, 212, 0.5));
+}
+
+.hw-fly-ghost-2 {
+  display: none !important;
+}
+
+/* 3. Flying Witch on Broomstick Across Sky Wall */
+.hw-fly-witch {
+  top: 8%;
+  left: -200px;
+  width: 135px;
+  animation: hwFlyWitch 34s linear infinite;
+  animation-delay: 10s;
+  filter: drop-shadow(0 2px 8px rgba(255, 190, 11, 0.5));
+}
+
+/* 4. Floating Pumpkin Wisp */
+.hw-fly-pumpkin-wisp {
+  display: none !important;
+}
+
+/* Smooth Curved Flight Keyframes */
+@keyframes hwFlyPath1 {
+  0% {
+    transform: translate3d(0vw, 0px, 0) scale(0.85) rotate(10deg);
+    opacity: 0;
+  }
+  4% { opacity: 0.95; }
+  25% {
+    transform: translate3d(28vw, -30px, 0) scale(1.05) rotate(-6deg);
+  }
+  50% {
+    transform: translate3d(55vw, 25px, 0) scale(0.95) rotate(14deg);
+  }
+  75% {
+    transform: translate3d(82vw, -20px, 0) scale(1.1) rotate(-8deg);
+  }
+  96% { opacity: 0.95; }
+  100% {
+    transform: translate3d(115vw, 15px, 0) scale(0.85) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+@keyframes hwFlyPath2 {
+  0% {
+    transform: translate3d(0vw, 0px, 0) scale(0.8) rotate(-12deg);
+    opacity: 0;
+  }
+  4% { opacity: 0.9; }
+  30% {
+    transform: translate3d(32vw, 35px, 0) scale(1.0) rotate(8deg);
+  }
+  60% {
+    transform: translate3d(68vw, -25px, 0) scale(0.9) rotate(-10deg);
+  }
+  96% { opacity: 0.9; }
+  100% {
+    transform: translate3d(115vw, 20px, 0) scale(0.8) rotate(5deg);
+    opacity: 0;
+  }
+}
+
+@keyframes hwFlyPath3 {
+  0% {
+    transform: translate3d(0vw, 0px, 0) scale(0.9) rotate(8deg);
+    opacity: 0;
+  }
+  4% { opacity: 0.95; }
+  25% {
+    transform: translate3d(30vw, -40px, 0) scale(1.1) rotate(-8deg);
+  }
+  55% {
+    transform: translate3d(62vw, 30px, 0) scale(0.95) rotate(12deg);
+  }
+  80% {
+    transform: translate3d(90vw, -15px, 0) scale(1.05) rotate(-5deg);
+  }
+  96% { opacity: 0.95; }
+  100% {
+    transform: translate3d(115vw, 10px, 0) scale(0.9) rotate(8deg);
+    opacity: 0;
+  }
+}
+
+@keyframes hwDriftGhostLeft {
+  0% {
+    transform: translate3d(0vw, 0px, 0) scale(0.85);
+    opacity: 0;
+  }
+  5% { opacity: 0.85; }
+  25% {
+    transform: translate3d(-30vw, 35px, 0) scale(1.0) rotate(6deg);
+  }
+  50% {
+    transform: translate3d(-60vw, -30px, 0) scale(1.1) rotate(-6deg);
+  }
+  75% {
+    transform: translate3d(-85vw, 20px, 0) scale(0.95) rotate(4deg);
+  }
+  95% { opacity: 0.85; }
+  100% {
+    transform: translate3d(-115vw, -10px, 0) scale(0.85);
+    opacity: 0;
+  }
+}
+
+@keyframes hwDriftGhostRight {
+  0% {
+    transform: translate3d(0vw, 0px, 0) scale(0.8);
+    opacity: 0;
+  }
+  5% { opacity: 0.9; }
+  30% {
+    transform: translate3d(35vw, -45px, 0) scale(1.05) rotate(-8deg);
+  }
+  60% {
+    transform: translate3d(70vw, 25px, 0) scale(0.95) rotate(7deg);
+  }
+  95% { opacity: 0.9; }
+  100% {
+    transform: translate3d(115vw, -20px, 0) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes hwFlyWitch {
+  0% {
+    transform: translate3d(0vw, 0px, 0) scale(0.85) rotate(-5deg);
+    opacity: 0;
+  }
+  4% { opacity: 0.95; }
+  35% {
+    transform: translate3d(40vw, 20px, 0) scale(1.0) rotate(3deg);
+  }
+  70% {
+    transform: translate3d(75vw, -15px, 0) scale(0.95) rotate(-4deg);
+  }
+  96% { opacity: 0.95; }
+  100% {
+    transform: translate3d(118vw, 10px, 0) scale(0.85) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+@keyframes hwFloatUpWisp {
+  0% {
+    transform: translate3d(0, 0px, 0) scale(0.7);
+    opacity: 0;
+  }
+  8% { opacity: 0.9; }
+  30% {
+    transform: translate3d(25px, -35vh, 0) scale(1.0) rotate(8deg);
+  }
+  60% {
+    transform: translate3d(-20px, -70vh, 0) scale(1.08) rotate(-8deg);
+  }
+  90% { opacity: 0.9; }
+  100% {
+    transform: translate3d(15px, -105vh, 0) scale(0.7);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .hw-fly-bat-1 { width: 55px !important; }
+  .hw-fly-bat-2 { display: none !important; }
+  .hw-fly-bat-3 { display: none !important; }
+  .hw-fly-ghost-1 { width: 55px !important; }
+  .hw-fly-ghost-2 { display: none !important; }
+  .hw-fly-witch { display: none !important; }
+  .hw-fly-pumpkin-wisp { display: none !important; }
+}
+
+/* --------------------------------------------------------------------------
+   3. MARQUEE STRIP (Festive Halloween Styling)
+   -------------------------------------------------------------------------- */
+body.halloween-active .marquee-strip {
+  background: linear-gradient(90deg, #140526 0%, #290848 35%, #ff5400 50%, #290848 65%, #140526 100%) !important;
+  background-size: 200% auto;
+  animation: hwGradientShift 10s ease infinite;
+  border-top: 1px solid rgba(255, 122, 0, 0.45) !important;
+  border-bottom: 1px solid rgba(255, 122, 0, 0.45) !important;
+  box-shadow: 0 4px 22px rgba(255, 122, 0, 0.28) !important;
+}
+
+body.halloween-active .marquee-track span {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em;
+}
+
+body.halloween-active .marquee-track i {
+  color: #ffbe0b !important;
+  text-shadow: 0 0 10px rgba(255, 190, 11, 0.8) !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. STATS BAR
+   -------------------------------------------------------------------------- */
+body.halloween-active .stats-bar {
+  background: rgba(16, 6, 28, 0.88) !important;
+  border-top: 1px solid rgba(255, 122, 0, 0.3) !important;
+  border-bottom: 1px solid rgba(255, 122, 0, 0.3) !important;
+  backdrop-filter: blur(14px) !important;
+}
+
+body.halloween-active .stat-number,
+body.halloween-active .stat-plus {
+  background: linear-gradient(135deg, #ffffff 10%, #ffd166 40%, #ff7a00 85%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 0 14px rgba(255, 122, 0, 0.55)) !important;
+}
+
+body.halloween-active .stat-label {
+  color: #cbd5e1 !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. SECTION LABELS & GRADIENT HEADINGS ACROSS ALL SECTIONS
+   -------------------------------------------------------------------------- */
+body.halloween-active .section-label {
+  color: #ffbe0b !important;
+  background: linear-gradient(135deg, rgba(255, 122, 0, 0.18) 0%, rgba(157, 78, 221, 0.25) 100%) !important;
+  border: 1px solid rgba(255, 170, 0, 0.55) !important;
+  box-shadow: 0 0 18px rgba(255, 122, 0, 0.35) !important;
+}
+
+body.halloween-active .section-header .gradient-text,
+body.halloween-active .section-title .gradient-text,
+body.halloween-active h2.gradient-text,
+body.halloween-active .about-text .gradient-text,
+body.halloween-active .gradient-text-light {
+  background: linear-gradient(135deg, #ffffff 15%, #ffd166 40%, #ff7a00 75%, #ff3b00 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* Hero Slides: Opaque, Razor-Sharp & Luminous Subtitles (No Hollow Black Letters) */
+body.halloween-active .hero-slide.slide-halloween .hero-accent-halloween,
+body.halloween-active .hero-slide.slide-halloween .gradient-text {
+  color: #ffb703 !important;
+  -webkit-text-fill-color: #ffb703 !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.98), 0 4px 18px rgba(0, 0, 0, 0.95), 0 0 25px rgba(255, 122, 0, 0.95), 0 0 50px rgba(255, 183, 3, 0.85) !important;
+  filter: none !important;
+}
+
+body.halloween-active .hero-slide.slide-saas .hero-accent-saas,
+body.halloween-active .hero-slide.slide-saas .gradient-text {
+  color: #38bdf8 !important;
+  -webkit-text-fill-color: #38bdf8 !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.98), 0 4px 18px rgba(0, 0, 0, 0.95), 0 0 25px rgba(56, 189, 248, 0.92), 0 0 50px rgba(0, 229, 255, 0.78) !important;
+  filter: none !important;
+}
+
+body.halloween-active .hero-slide.slide-web .hero-accent-web,
+body.halloween-active .hero-slide.slide-web .gradient-text {
+  color: #c084fc !important;
+  -webkit-text-fill-color: #c084fc !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.98), 0 4px 18px rgba(0, 0, 0, 0.95), 0 0 25px rgba(192, 132, 252, 0.92), 0 0 50px rgba(147, 51, 234, 0.78) !important;
+  filter: none !important;
+}
+
+body.halloween-active .hero-slide.slide-health .hero-accent-health,
+body.halloween-active .hero-slide.slide-health .gradient-text {
+  color: #00f5d4 !important;
+  -webkit-text-fill-color: #00f5d4 !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.98), 0 4px 22px rgba(0, 0, 0, 0.98), 0 0 28px rgba(0, 245, 212, 0.95), 0 0 55px rgba(0, 245, 212, 0.80) !important;
+  filter: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. ALL CARDS ON THE ENTIRE WEBSITE (Default + Hover Visible Harmony)
+   -------------------------------------------------------------------------- */
+body.halloween-active .service-card,
+body.halloween-active .about-img-card,
+body.halloween-active .why-card,
+body.halloween-active .industry-card,
+body.halloween-active .template-card,
+body.halloween-active .portfolio-card,
+body.halloween-active .team-card,
+body.halloween-active .testimonial-card,
+body.halloween-active .contact-card,
+body.halloween-active .contact-info,
+body.halloween-active .contact-form,
+body.halloween-active .tech-item,
+body.halloween-active .process-step .step-content {
+  background: linear-gradient(145deg, rgba(26, 10, 42, 0.94) 0%, rgba(12, 4, 22, 0.97) 100%) !important;
+  border: 1px solid rgba(255, 122, 0, 0.35) !important;
+  border-top: 1px solid rgba(255, 190, 11, 0.55) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.55) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transform: translateZ(0);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+body.halloween-active .service-card:hover,
+body.halloween-active .why-card:hover,
+body.halloween-active .industry-card:hover,
+body.halloween-active .template-card:hover,
+body.halloween-active .portfolio-card:hover,
+body.halloween-active .team-card:hover,
+body.halloween-active .testimonial-card:hover,
+body.halloween-active .process-step:hover .step-content {
+  border-color: rgba(255, 170, 0, 0.85) !important;
+  border-top-color: #ffbe0b !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 35px rgba(255, 122, 0, 0.5) !important;
+  transform: translateY(-5px) !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. ALL ICONS & ICON HOLDERS ACROSS THE WHOLE WEBSITE
+   -------------------------------------------------------------------------- */
+body.halloween-active .service-icon,
+body.halloween-active .value-icon,
+body.halloween-active .step-icon,
+body.halloween-active .why-icon,
+body.halloween-active .industry-icon,
+body.halloween-active .contact-icon,
+body.halloween-active .about-icon-badge {
+  background: linear-gradient(135deg, rgba(255, 122, 0, 0.22) 0%, rgba(157, 78, 221, 0.32) 100%) !important;
+  border: 1px solid rgba(255, 170, 0, 0.55) !important;
+  color: #ffbe0b !important;
+  box-shadow: 0 0 18px rgba(255, 122, 0, 0.35) !important;
+}
+
+body.halloween-active .service-card:hover .service-icon,
+body.halloween-active .why-card:hover .why-icon,
+body.halloween-active .industry-card:hover .industry-icon,
+body.halloween-active .value-item:hover .value-icon {
+  background: linear-gradient(135deg, #ff7a00, #ff5400) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 24px rgba(255, 122, 0, 0.8) !important;
+  transform: scale(1.1) !important;
+}
+
+/* --------------------------------------------------------------------------
+   8. ALL BUTTONS ACROSS THE ENTIRE WEBSITE
+   -------------------------------------------------------------------------- */
+body.halloween-active .btn-primary,
+body.halloween-active .btn-cinematic-primary,
+body.halloween-active .nav-cta,
+body.halloween-active .btn-full {
+  background: linear-gradient(135deg, #ff7a00 0%, #ff5400 45%, #9d4edd 100%) !important;
+  border: 1px solid rgba(255, 200, 100, 0.5) !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 24px rgba(255, 122, 0, 0.45) !important;
+}
+
+body.halloween-active .btn-primary:hover,
+body.halloween-active .btn-cinematic-primary:hover,
+body.halloween-active .nav-cta:hover,
+body.halloween-active .btn-full:hover {
+  background: linear-gradient(135deg, #ff9100 0%, #ff7a00 45%, #c77dff 100%) !important;
+  box-shadow: 0 10px 35px rgba(255, 122, 0, 0.75) !important;
+  transform: translateY(-2px) scale(1.03) !important;
+}
+
+body.halloween-active .btn-outline {
+  border-color: rgba(255, 122, 0, 0.6) !important;
+  color: #ffbe0b !important;
+}
+
+body.halloween-active .btn-outline:hover {
+  background: rgba(255, 122, 0, 0.18) !important;
+  border-color: #ffbe0b !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 18px rgba(255, 122, 0, 0.4) !important;
+}
+
+/* --------------------------------------------------------------------------
+   9. ABOUT SECTION VISUAL FLOATING CARDS
+   -------------------------------------------------------------------------- */
+body.halloween-active .about-floating-card {
+  background: rgba(28, 10, 46, 0.92) !important;
+  border: 1px solid rgba(255, 170, 0, 0.55) !important;
+  color: #ffd166 !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 18px rgba(255, 122, 0, 0.35) !important;
+}
+
+body.halloween-active .about-floating-card i {
+  color: #ffbe0b !important;
+}
+
+/* --------------------------------------------------------------------------
+   10. SERVICES SECTION BADGES & LINKS
+   -------------------------------------------------------------------------- */
+body.halloween-active .service-badge {
+  background: linear-gradient(135deg, #ff7a00 0%, #9d4edd 100%) !important;
+  box-shadow: 0 4px 14px rgba(255, 122, 0, 0.6) !important;
+  border: 1px solid rgba(255, 200, 100, 0.6) !important;
+}
+
+body.halloween-active .service-features li i {
+  color: #ffbe0b !important;
+}
+
+body.halloween-active .service-link {
+  color: #ffaa00 !important;
+}
+
+body.halloween-active .service-link:hover {
+  color: #ffbe0b !important;
+  text-shadow: 0 0 10px rgba(255, 190, 11, 0.7) !important;
+}
+
+/* --------------------------------------------------------------------------
+   11. PROCESS SECTION TIMELINE & NUMBERS
+   -------------------------------------------------------------------------- */
+body.halloween-active .step-number {
+  color: rgba(255, 122, 0, 0.45) !important;
+  text-shadow: 0 0 15px rgba(255, 122, 0, 0.35) !important;
+}
+
+body.halloween-active .process-timeline::before {
+  background: linear-gradient(180deg, #ff7a00, #9d4edd, #ff7a00) !important;
+  box-shadow: 0 0 14px rgba(255, 122, 0, 0.6) !important;
+}
+
+/* --------------------------------------------------------------------------
+   12. TECHNOLOGIES GRID (All 19+ Tech Tiles)
+   -------------------------------------------------------------------------- */
+body.halloween-active .tech-item {
+  background: rgba(26, 10, 42, 0.82) !important;
+  border: 1px solid rgba(255, 122, 0, 0.32) !important;
+}
+
+body.halloween-active .tech-item:hover {
+  background: linear-gradient(135deg, rgba(45, 16, 75, 0.95) 0%, rgba(20, 6, 32, 0.98) 100%) !important;
+  border-color: #ffaa00 !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 22px rgba(255, 122, 0, 0.45) !important;
+  transform: translateY(-4px) !important;
+}
+
+body.halloween-active .tech-item:hover i,
+body.halloween-active .tech-item:hover span {
+  color: #ffbe0b !important;
+}
+
+/* --------------------------------------------------------------------------
+   13. TEMPLATES SECTION (Cards, Pill Row & Custom Banner)
+   -------------------------------------------------------------------------- */
+body.halloween-active .template-feature-pill {
+  background: rgba(26, 10, 42, 0.88) !important;
+  border: 1px solid rgba(255, 122, 0, 0.42) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+}
+
+body.halloween-active .template-feature-pill i {
+  color: #ffbe0b !important;
+}
+
+body.halloween-active .template-badge {
+  background: rgba(255, 122, 0, 0.18) !important;
+  color: #ffbe0b !important;
+  border: 1px solid rgba(255, 170, 0, 0.5) !important;
+}
+
+body.halloween-active .template-tags span {
+  background: rgba(255, 122, 0, 0.14) !important;
+  border: 1px solid rgba(255, 122, 0, 0.35) !important;
+  color: #ffd166 !important;
+}
+
+body.halloween-active .template-tags span i {
+  color: #ffaa00 !important;
+}
+
+body.halloween-active .templates-custom-banner {
+  background: linear-gradient(135deg, rgba(42, 14, 68, 0.95) 0%, rgba(18, 6, 30, 0.98) 100%) !important;
+  border: 1px solid rgba(255, 122, 0, 0.55) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 28px rgba(255, 122, 0, 0.3) !important;
+}
+
+.template-card--halloween {
+  border: 1px solid rgba(255, 122, 0, 0.65) !important;
+  background: linear-gradient(145deg, rgba(34, 12, 54, 0.95) 0%, rgba(16, 5, 26, 0.98) 100%) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55), 0 0 25px rgba(255, 122, 0, 0.35) !important;
+}
+
+/* --------------------------------------------------------------------------
+   14. PORTFOLIO & CASE STUDIES
+   -------------------------------------------------------------------------- */
+body.halloween-active .active-dev-banner {
+  background: rgba(28, 10, 46, 0.92) !important;
+  border: 1px solid rgba(255, 170, 0, 0.5) !important;
+  box-shadow: 0 4px 18px rgba(255, 122, 0, 0.25) !important;
+}
+
+body.halloween-active .dev-pulse {
+  background: #ff7a00 !important;
+  box-shadow: 0 0 12px #ff7a00 !important;
+}
+
+body.halloween-active .priority-badge {
+  background: linear-gradient(135deg, #ff7a00, #ff5400) !important;
+  box-shadow: 0 4px 14px rgba(255, 122, 0, 0.6) !important;
+}
+
+body.halloween-active .portfolio-tag {
+  background: rgba(255, 122, 0, 0.16) !important;
+  border: 1px solid rgba(255, 170, 0, 0.45) !important;
+  color: #ffbe0b !important;
+}
+
+body.halloween-active .metric-chip {
+  background: rgba(18, 6, 30, 0.88) !important;
+  border: 1px solid rgba(255, 122, 0, 0.35) !important;
+}
+
+body.halloween-active .metric-val {
+  color: #ffbe0b !important;
+  text-shadow: 0 0 12px rgba(255, 190, 11, 0.6) !important;
+}
+
+body.halloween-active .case-point {
+  border-left-color: #ff7a00 !important;
+}
+
+body.halloween-active .case-icon-problem {
+  color: #ff5400 !important;
+}
+
+body.halloween-active .case-tech-tags span {
+  background: rgba(255, 122, 0, 0.12) !important;
+  border: 1px solid rgba(255, 122, 0, 0.3) !important;
+  color: #ffd166 !important;
+}
+
+/* --------------------------------------------------------------------------
+   15. TEAM SECTION (Avatars Decorated with Festive Floating Pumpkin Badges!)
+   -------------------------------------------------------------------------- */
+body.halloween-active .team-avatar {
+  border: 2px solid #ff7a00 !important;
+  box-shadow: 0 0 20px rgba(255, 122, 0, 0.5) !important;
+  position: relative !important;
+}
+
+body.halloween-active .team-avatar::after {
+  content: "🎃";
+  position: absolute;
+  top: -12px;
+  right: -8px;
+  font-size: 1.15rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+  animation: hwPumpkinBob 2.5s ease-in-out infinite;
+}
+
+body.halloween-active .team-role {
+  color: #ffaa00 !important;
+}
+
+body.halloween-active .team-social a:hover {
+  background: linear-gradient(135deg, #ff7a00, #ff5400) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+  box-shadow: 0 0 14px rgba(255, 122, 0, 0.6) !important;
+}
+
+/* --------------------------------------------------------------------------
+   16. TESTIMONIALS SECTION
+   -------------------------------------------------------------------------- */
+body.halloween-active .testimonial-rating i {
+  color: #ffbe0b !important;
+  text-shadow: 0 0 10px rgba(255, 190, 11, 0.7) !important;
+}
+
+body.halloween-active .client-avatar {
+  border: 2px solid #ff7a00 !important;
+  box-shadow: 0 0 14px rgba(255, 122, 0, 0.5) !important;
+}
+
+body.halloween-active .slider-nav-btn {
+  background: rgba(26, 10, 42, 0.9) !important;
+  border-color: rgba(255, 122, 0, 0.45) !important;
+  color: #ffbe0b !important;
+}
+
+body.halloween-active .slider-nav-btn:hover {
+  background: linear-gradient(135deg, #ff7a00, #ff5400) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(255, 122, 0, 0.7) !important;
+}
+
+body.halloween-active .testimonial-dots .dot.active {
+  background: #ff7a00 !important;
+  box-shadow: 0 0 10px #ff7a00 !important;
+}
+
+/* --------------------------------------------------------------------------
+   17. CTA BANNER & CONTACT FORM
+   -------------------------------------------------------------------------- */
+body.halloween-active .cta-banner {
+  background: linear-gradient(135deg, rgba(38, 12, 62, 0.95) 0%, rgba(14, 4, 24, 0.98) 100%) !important;
+  border-top: 1px solid rgba(255, 122, 0, 0.45) !important;
+  border-bottom: 1px solid rgba(255, 122, 0, 0.45) !important;
+}
+
+body.halloween-active .cta-orb-1 {
+  background: radial-gradient(circle, rgba(255, 122, 0, 0.35) 0%, transparent 70%) !important;
+}
+
+body.halloween-active .cta-orb-2 {
+  background: radial-gradient(circle, rgba(157, 78, 221, 0.35) 0%, transparent 70%) !important;
+}
+
+body.halloween-active .contact-form input,
+body.halloween-active .contact-form select,
+body.halloween-active .contact-form textarea {
+  background: rgba(14, 5, 24, 0.88) !important;
+  border: 1px solid rgba(255, 122, 0, 0.35) !important;
+  color: #f8fafc !important;
+}
+
+body.halloween-active .contact-form input:focus,
+body.halloween-active .contact-form select:focus,
+body.halloween-active .contact-form textarea:focus {
+  border-color: #ff7a00 !important;
+  box-shadow: 0 0 16px rgba(255, 122, 0, 0.45) !important;
+}
+
+body.halloween-active .contact-social .social-btn:hover {
+  background: linear-gradient(135deg, #ff7a00, #ff5400) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+  box-shadow: 0 0 16px rgba(255, 122, 0, 0.7) !important;
+}
+
+/* --------------------------------------------------------------------------
+   18. FOOTER
+   -------------------------------------------------------------------------- */
+body.halloween-active .footer {
+  background: linear-gradient(180deg, #10041d 0%, #06020c 100%) !important;
+  border-top: 1px solid rgba(255, 122, 0, 0.45) !important;
+}
+
+body.halloween-active .footer-social a:hover {
+  background: linear-gradient(135deg, #ff7a00, #ff5400) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 16px rgba(255, 122, 0, 0.7) !important;
+}
+
+body.halloween-active .footer-links a:hover {
+  color: #ffbe0b !important;
+  padding-left: 6px !important;
+}
+
+/* --------------------------------------------------------------------------
+   19. FLOATING PUMPKIN MASCOT WIDGET (Permanently Removed per user request)
+   -------------------------------------------------------------------------- */
+.hw-floating-pumpkin,
+#hwFloatingPumpkin,
+.hw-pumpkin-tag,
+.hw-pumpkin-avatar,
+[class*="hw-floating-pumpkin"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+.hw-burst-particle {
+  position: fixed;
+  pointer-events: none;
+  font-size: 1.5rem;
+  z-index: 9999;
+  animation: hwParticleFly 1.2s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes hwParticleFly {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+  100% { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1.3) rotate(var(--rot)); opacity: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   20. FLOATING DOCK & BACK TO TOP
+   -------------------------------------------------------------------------- */
+body.halloween-active .social-dock-btn:hover {
+  border-color: #ff7a00 !important;
+  box-shadow: 0 0 15px rgba(255, 122, 0, 0.5) !important;
+  color: #ffaa00 !important;
+}
+
+body.halloween-active .back-to-top {
+  background: linear-gradient(135deg, #ff7a00, #9d4edd) !important;
+  box-shadow: 0 6px 20px rgba(255, 122, 0, 0.45) !important;
+  border-color: rgba(255, 190, 11, 0.5) !important;
+}
+
+body.halloween-active .back-to-top:hover {
+  box-shadow: 0 8px 30px rgba(255, 122, 0, 0.75) !important;
+  transform: translateY(-4px) scale(1.08) !important;
+}
+
+/* Preloader */
+body.halloween-active .preloader-bar span {
+  background: linear-gradient(90deg, #ff7a00, #9d4edd) !important;
+  box-shadow: 0 0 12px rgba(255, 122, 0, 0.9) !important;
+}
+
+body.halloween-active .preloader-logo::before {
+  background: conic-gradient(from 0deg, #ff7a00, #9d4edd, transparent 60%) !important;
+}
+
+/* ==========================================================================
+   21. HALLOWEEN 50% OFF BEST OFFER NOTIFICATION MODAL (LARGE SIMPLE UI/UX)
+   ========================================================================== */
+.hw-promo-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  background: rgba(4, 2, 10, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.hw-promo-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hw-simple-modal {
+  position: relative;
+  max-width: 580px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #0f061c;
+  border: 1.5px solid rgba(255, 122, 0, 0.6);
+  border-top: 2.5px solid #ffbe0b;
+  border-radius: 24px;
+  box-shadow: 0 28px 75px rgba(0, 0, 0, 0.88), 0 0 45px rgba(255, 122, 0, 0.35);
+  transform: translateY(20px) scale(0.96);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.hw-simple-modal::-webkit-scrollbar {
+  width: 6px;
+}
+.hw-simple-modal::-webkit-scrollbar-track {
+  background: rgba(15, 6, 28, 0.6);
+}
+.hw-simple-modal::-webkit-scrollbar-thumb {
+  background: rgba(255, 122, 0, 0.5);
+  border-radius: 4px;
+}
+
+.hw-promo-overlay.active .hw-simple-modal {
+  transform: translateY(0) scale(1);
+}
+
+/* Close Button on Top-Right */
+.hw-promo-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(10, 4, 18, 0.82);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.hw-promo-close:hover {
+  background: rgba(255, 122, 0, 0.9);
+  border-color: #ffbe0b;
+  color: #000000;
+  transform: rotate(90deg) scale(1.08);
+}
+
+/* Image Header Wrap - Large & Impactful */
+.hw-simple-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  background: #140726;
+  flex-shrink: 0;
+}
+
+.hw-simple-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.hw-simple-modal:hover .hw-simple-img {
+  transform: scale(1.04);
+}
+
+.hw-simple-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 6, 28, 0.15) 0%, rgba(15, 6, 28, 0.8) 80%, #0f061c 100%);
+  pointer-events: none;
+}
+
+.hw-simple-discount-badge {
+  position: absolute;
+  bottom: 14px;
+  left: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #ff7a00 0%, #ff5400 100%);
+  color: #ffffff;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 18px rgba(255, 122, 0, 0.6);
+  border: 1px solid rgba(255, 230, 160, 0.45);
+}
+
+/* Body Content */
+.hw-simple-body {
+  padding: 22px 26px 26px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hw-promo-head-block {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.hw-promo-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 122, 0, 0.18);
+  border: 1px solid rgba(255, 190, 11, 0.6);
+  color: #ffd166;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.70rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.hw-promo-pill-tag i {
+  color: #ffbe0b;
+  font-size: 0.75rem;
+}
+
+.hw-simple-title {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.25;
+  margin: 0 0 4px;
+}
+
+.hw-simple-desc {
+  font-size: 0.86rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.hw-simple-desc strong {
+  color: #ffbe0b;
+}
+
+/* Dedicated High-Impact 50% OFF & Starting Price Highlight Showcase */
+.hw-promo-deal-highlight {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: linear-gradient(135deg, rgba(255, 122, 0, 0.16) 0%, rgba(26, 10, 44, 0.95) 50%, rgba(157, 78, 221, 0.20) 100%);
+  border: 1.5px solid #ffbe0b;
+  border-radius: 18px;
+  padding: 14px 18px;
+  margin: 12px 0 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.55), inset 0 0 20px rgba(255, 122, 0, 0.12), 0 0 25px rgba(255, 190, 11, 0.18);
+  gap: 14px;
+}
+
+.hw-deal-badge-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 1;
+}
+
+.hw-deal-percent {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 2.3rem;
+  font-weight: 900;
+  line-height: 0.95;
+  background: linear-gradient(135deg, #ffffff 10%, #ffd166 45%, #ff7a00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 20px rgba(255, 122, 0, 0.7);
+}
+
+.hw-deal-off {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  color: #ffbe0b;
+  line-height: 1.1;
+  text-shadow: 0 0 10px rgba(255, 190, 11, 0.6);
+}
+
+.hw-deal-limited {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  background: linear-gradient(90deg, #ff7a00, #ff5400);
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-top: 5px;
+  box-shadow: 0 2px 8px rgba(255, 122, 0, 0.4);
+}
+
+.hw-deal-divider {
+  width: 1px;
+  height: 64px;
+  background: linear-gradient(180deg, transparent, rgba(255, 190, 11, 0.8), transparent);
+}
+
+.hw-deal-price-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 1.3;
+}
+
+.hw-deal-price-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #ffd166;
+  margin-bottom: 2px;
+}
+
+.hw-deal-price-figure {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  line-height: 1;
+}
+
+.hw-deal-currency {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ff7a00;
+  letter-spacing: 0.02em;
+}
+
+.hw-deal-amount {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 2.3rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+  text-shadow: 0 2px 14px rgba(255, 122, 0, 0.65), 0 0 25px rgba(255, 190, 11, 0.4);
+}
+
+.hw-deal-upwards {
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #00ff88;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 5px;
+}
+
+/* 4 Checkmark Pills in Clean 2x2 Grid */
+.hw-simple-perks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.hw-perk-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 122, 0, 0.1);
+  border: 1px solid rgba(255, 122, 0, 0.32);
+  border-radius: 12px;
+  padding: 10px 14px;
+  color: #f1f5f9;
+}
+
+.hw-perk-pill i {
+  color: #00ff88;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.hw-perk-pill strong {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+}
+
+.hw-perk-pill small {
+  display: block;
+  font-size: 0.70rem;
+  color: #94a3b8;
+}
+
+/* Large Clean CTA Buttons */
+.hw-simple-cta-btn {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: #ffffff !important;
+  font-size: 0.98rem;
+  font-weight: 800;
+  padding: 14px 22px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none !important;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 12px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.hw-simple-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.65);
+}
+
+.hw-simple-sub-btn {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 4px 0;
+  transition: color 0.2s ease;
+  text-align: center;
+}
+
+.hw-simple-sub-btn:hover {
+  color: #ffbe0b;
+}
+
+.hw-simple-sub-btn i {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.hw-simple-sub-btn:hover i {
+  transform: translateX(3px);
+}
+
+@media (max-width: 600px) {
+  .hw-promo-overlay {
+    padding: 10px;
+  }
+  .hw-simple-modal {
+    max-width: calc(100vw - 20px) !important;
+    max-height: 88vh !important;
+    border-radius: 18px !important;
+  }
+  .hw-promo-close {
+    top: 10px !important;
+    right: 10px !important;
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 0.9rem !important;
+  }
+  .hw-simple-img-wrap {
+    height: 135px !important;
+  }
+  .hw-simple-discount-badge {
+    bottom: 8px !important;
+    left: 10px !important;
+    padding: 4px 10px !important;
+    font-size: 0.65rem !important;
+  }
+  .hw-simple-body {
+    padding: 14px 14px 16px !important;
+  }
+  .hw-promo-head-block {
+    margin-bottom: 8px !important;
+  }
+  .hw-promo-pill-tag {
+    font-size: 0.64rem !important;
+    padding: 2px 8px !important;
+    margin-bottom: 4px !important;
+  }
+  .hw-simple-title {
+    font-size: 1.15rem !important;
+    line-height: 1.25 !important;
+    margin: 0 0 3px !important;
+  }
+  .hw-simple-desc {
+    font-size: 0.78rem !important;
+    line-height: 1.4 !important;
+  }
+  .hw-promo-deal-highlight {
+    padding: 10px 12px !important;
+    margin: 10px 0 12px !important;
+    gap: 8px !important;
+    border-radius: 14px !important;
+  }
+  .hw-deal-percent {
+    font-size: 1.85rem !important;
+  }
+  .hw-deal-off {
+    font-size: 0.92rem !important;
+  }
+  .hw-deal-limited {
+    font-size: 0.58rem !important;
+    padding: 1px 6px !important;
+  }
+  .hw-deal-divider {
+    height: 48px !important;
+  }
+  .hw-deal-price-label {
+    font-size: 0.65rem !important;
+  }
+  .hw-deal-currency {
+    font-size: 0.88rem !important;
+  }
+  .hw-deal-amount {
+    font-size: 1.85rem !important;
+  }
+  .hw-deal-upwards {
+    font-size: 0.68rem !important;
+  }
+  .hw-simple-perks {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+    margin-bottom: 12px !important;
+  }
+  .hw-perk-pill {
+    padding: 7px 9px !important;
+    border-radius: 9px !important;
+    gap: 8px !important;
+  }
+  .hw-perk-pill i {
+    font-size: 0.9rem !important;
+  }
+  .hw-perk-pill strong {
+    font-size: 0.76rem !important;
+    line-height: 1.2 !important;
+  }
+  .hw-perk-pill small {
+    font-size: 0.64rem !important;
+  }
+  .hw-simple-cta-btn {
+    font-size: 0.84rem !important;
+    padding: 11px 14px !important;
+    white-space: normal !important;
+    text-align: center !important;
+    line-height: 1.3 !important;
+    margin-bottom: 8px !important;
+  }
+  .hw-simple-sub-btn {
+    font-size: 0.76rem !important;
+    padding: 4px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .hw-simple-perks {
+    grid-template-columns: 1fr !important;
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "axentra-tech",
+  "version": "5.0.0",
+  "description": "Axentra Tech - Software Development & Solutions Website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "axentra",
+    "software",
+    "web",
+    "mobile"
+  ],
+  "author": "Axentra Tech",
+  "license": "ISC"
+}

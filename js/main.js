@@ -395,17 +395,24 @@ function initTemplateLightbox() {
 }
 function initBackToTop() {
   const e = document.getElementById("back-to-top");
-  e &&
-    (window.addEventListener(
-      "scroll",
-      () => {
-        e.classList.toggle("visible", window.scrollY > 400);
-      },
-      { passive: !0 },
-    ),
-    e.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }));
+  if (!e) return;
+  let ticking = false;
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          e.classList.toggle("visible", window.scrollY > 400);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    },
+    { passive: true },
+  );
+  e.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 }
 function initMobileStickyBar() {
   const bar = document.getElementById("mobileStickyCtaBar");
@@ -1555,31 +1562,41 @@ function initTechKineticCanvas() {
   let isVisible = true;
 
   // Modern tech node palette (Electric Cyan, Cyber Emerald, Radiant Mint, Neon Azure)
-  const PALETTE = [
+  const PALETTE_DEFAULT = [
     { r: 0, g: 229, b: 255 },
     { r: 15, g: 191, b: 123 },
     { r: 56, g: 239, b: 125 },
     { r: 56, g: 189, b: 248 }
   ];
 
+  // Festive Halloween Cyberpunk palette (Pumpkin Orange, Golden Amber, Cyber Purple, Fiery Orange)
+  const PALETTE_HALLOWEEN = [
+    { r: 255, g: 122, b: 0 },
+    { r: 255, g: 190, b: 11 },
+    { r: 157, g: 78, b: 221 },
+    { r: 255, g: 59, b: 0 }
+  ];
+
+  function getActivePalette() {
+    return document.body.classList.contains("halloween-active") ? PALETTE_HALLOWEEN : PALETTE_DEFAULT;
+  }
+
   let particles = [];
   const mouse = { x: -9999, y: -9999, radius: 120, active: false };
 
   function resize() {
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    dpr = 1;
     width = window.innerWidth;
     height = window.innerHeight;
-    canvas.width = Math.floor(width * dpr);
-    canvas.height = Math.floor(height * dpr);
+    canvas.width = width;
+    canvas.height = height;
     canvas.style.width = width + "px";
     canvas.style.height = height + "px";
-    ctx.scale(dpr, dpr);
   }
 
   function getParticleCount() {
-    if (width < 640) return 20;
-    if (width < 1024) return 32;
-    return 48;
+    if (width < 768) return 10;
+    return 18;
   }
 
   class KineticNode {
@@ -1588,7 +1605,7 @@ function initTechKineticCanvas() {
     }
 
     init(randomPos) {
-      this.radius = Math.random() * 2.4 + 2.2;
+      this.radius = Math.random() * 2.0 + 1.8;
       if (randomPos) {
         this.x = Math.random() * (width - this.radius * 2) + this.radius;
         this.y = Math.random() * (height - this.radius * 2) + this.radius;
@@ -1598,15 +1615,15 @@ function initTechKineticCanvas() {
       }
 
       // Ping-pong velocity vector
-      const speed = Math.random() * 0.7 + 0.6;
+      const speed = Math.random() * 0.6 + 0.5;
       const angle = Math.random() * Math.PI * 2;
       this.vx = Math.cos(angle) * speed;
       this.vy = Math.sin(angle) * speed;
 
-      this.color = PALETTE[Math.floor(Math.random() * PALETTE.length)];
+      const palette = getActivePalette();
+      this.color = palette[Math.floor(Math.random() * palette.length)];
       this.pulse = Math.random() * Math.PI * 2;
       this.pulseSpeed = Math.random() * 0.03 + 0.015;
-      this.glowRadius = this.radius * 3.2;
     }
 
     update() {
@@ -1629,22 +1646,16 @@ function initTechKineticCanvas() {
         this.vy = -this.vy;
       }
 
-      // Cursor Ricochet (Digital paddle interaction)
+      // Cursor Ricochet
       if (mouse.active) {
         const dx = this.x - mouse.x;
         const dy = this.y - mouse.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < mouse.radius && dist > 0) {
-          const force = (1 - dist / mouse.radius) * 1.6;
-          const normalX = dx / dist;
-          const normalY = dy / dist;
-          this.vx += normalX * force * 0.35;
-          this.vy += normalY * force * 0.35;
-          const currentSpeed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
-          if (currentSpeed > 3.0) {
-            this.vx = (this.vx / currentSpeed) * 3.0;
-            this.vy = (this.vy / currentSpeed) * 3.0;
-          }
+        const distSq = dx * dx + dy * dy;
+        if (distSq < 14400 && distSq > 0) {
+          const dist = Math.sqrt(distSq);
+          const force = (1 - dist / 120) * 1.2;
+          this.vx += (dx / dist) * force * 0.3;
+          this.vy += (dy / dist) * force * 0.3;
         }
       }
 
@@ -1656,31 +1667,10 @@ function initTechKineticCanvas() {
       const alpha = 0.65 + Math.sin(this.pulse) * 0.25;
       const c = this.color;
 
-      // Soft glowing aura
-      const grad = ctx.createRadialGradient(
-        this.x, this.y, 0,
-        this.x, this.y, this.glowRadius
-      );
-      grad.addColorStop(0, `rgba(${c.r}, ${c.g}, ${c.b}, ${alpha * 0.45})`);
-      grad.addColorStop(0.5, `rgba(${c.r}, ${c.g}, ${c.b}, ${alpha * 0.15})`);
-      grad.addColorStop(1, `rgba(${c.r}, ${c.g}, ${c.b}, 0)`);
-
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.glowRadius, 0, Math.PI * 2);
-      ctx.fillStyle = grad;
-      ctx.fill();
-
-      // Glowing ping-pong sphere core
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255, 255, 255, ${Math.min(1, alpha + 0.3)})`;
+      ctx.fillStyle = `rgba(${c.r}, ${c.g}, ${c.b}, ${alpha})`;
       ctx.fill();
-
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius + 0.8, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(${c.r}, ${c.g}, ${c.b}, ${alpha})`;
-      ctx.lineWidth = 1;
-      ctx.stroke();
     }
   }
 
@@ -1691,34 +1681,48 @@ function initTechKineticCanvas() {
       particles.push(new KineticNode());
     }
   }
+  window.refreshKineticPalette = spawnParticles;
 
   function drawConnections() {
-    const maxDist = width < 768 ? 95 : 130;
+    const maxDist = width < 768 ? 85 : 115;
+    const maxDistSq = maxDist * maxDist;
     const len = particles.length;
+    const isHw = document.body.classList.contains("halloween-active");
 
+    ctx.beginPath();
     for (let i = 0; i < len; i++) {
       const p1 = particles[i];
       for (let j = i + 1; j < len; j++) {
         const p2 = particles[j];
         const dx = p1.x - p2.x;
         const dy = p1.y - p2.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-
-        if (dist < maxDist) {
-          const alpha = (1 - dist / maxDist) * 0.28;
-          ctx.beginPath();
+        if (dx * dx + dy * dy < maxDistSq) {
           ctx.moveTo(p1.x, p1.y);
           ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = `rgba(0, 229, 255, ${alpha})`;
-          ctx.lineWidth = 0.85;
-          ctx.stroke();
         }
       }
     }
+    ctx.strokeStyle = isHw ? "rgba(255, 122, 0, 0.22)" : "rgba(0, 229, 255, 0.18)";
+    ctx.lineWidth = 0.85;
+    ctx.stroke();
   }
 
+  // Auto-pause canvas when scrolled past the hero section
+  let inHeroViewport = true;
+  function updateViewportCheck() {
+    const shouldBeActive = window.scrollY < window.innerHeight;
+    if (shouldBeActive !== inHeroViewport) {
+      inHeroViewport = shouldBeActive;
+      if (inHeroViewport && isVisible) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = requestAnimationFrame(loop);
+      }
+    }
+  }
+  window.addEventListener("scroll", updateViewportCheck, { passive: true });
+
   function loop() {
-    if (!isVisible) return;
+    if (!isVisible || !inHeroViewport) return;
     ctx.clearRect(0, 0, width, height);
 
     drawConnections();

@@ -115,133 +115,450 @@
   <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png" />
   <link rel="manifest" href="site.webmanifest" />
-  <meta name="theme-color" content="#0fbf7b" />
+  <meta name="theme-color" content="#ff7a00" />
 
-  <!-- Google Fonts -->
+  <!-- Performance Preconnects & DNS Prefetching -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Preconnect CDN -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-  <link rel="preload" as="image" href="assets/logo1.png" />
-  <link rel="preload" as="image" href="assets/slide_enterprise_saas.jpg" fetchpriority="high" />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+
+  <!-- Preload Critical LCP Hero Image & Brand Assets -->
+  <link rel="preload" as="image" href="assets/halloween_hero_banner.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/logo1.png" fetchpriority="high" />
+
+  <!-- Asynchronous Non-Blocking Google Fonts with display: swap -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" /></noscript>
 
   <!-- Font Awesome Icons (Non-Render-Blocking Asynchronous Load) -->
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=3.9.7" />
+  <link rel="stylesheet" href="css/style.css?v=5.3" />
 
-  <!-- Ultra-Bright Luminous Hero Accents (Direct inline ensures instant cache bypass) -->
+  <!-- Halloween Festive Season Stylesheet -->
+  <link rel="stylesheet" href="css/halloween.css?v=5.3" />
+
+  <!-- Ultra-Bright Luminous Hero Accents (High Contrast & Legibility) -->
   <style id="hero-live-accent-theme">
+    body.halloween-active #navbar {
+      padding-top: 0 !important;
+      padding-bottom: 4px !important;
+    }
+    body.halloween-active #navbar.scrolled {
+      padding-top: 0 !important;
+      padding-bottom: 4px !important;
+    }
+    body.halloween-active .nav-container {
+      padding-top: 4px !important;
+      padding-bottom: 4px !important;
+    }
+    body.halloween-active .hero-slide {
+      padding-top: 76px !important;
+      padding-bottom: 70px !important;
+    }
+    @media (max-width: 768px) {
+      body.halloween-active .hero-slide {
+        padding-top: 66px !important;
+        padding-bottom: 50px !important;
+      }
+    }
+
+    /* Ultra-Slim Header Banner: Strictly 1 Line, No Second Row, Max Hero Visibility */
+    .hw-announcement-bar {
+      height: 28px !important;
+      min-height: 28px !important;
+      max-height: 28px !important;
+      line-height: 28px !important;
+      padding: 0 12px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      overflow: hidden !important;
+      white-space: nowrap !important;
+      font-size: 0.74rem !important;
+    }
+    .hw-announcement-inner {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 10px !important;
+      height: 100% !important;
+      width: 100% !important;
+      max-width: 1200px !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+    }
+    .hw-announcement-inner * {
+      white-space: nowrap !important;
+    }
+    .hw-announcement-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      padding: 1px 7px !important;
+      font-size: 0.65rem !important;
+      line-height: 1.3 !important;
+      flex-shrink: 0 !important;
+    }
+    .hw-announcement-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      padding: 2px 10px !important;
+      font-size: 0.68rem !important;
+      line-height: 1.3 !important;
+      flex-shrink: 0 !important;
+    }
+    .hw-theme-toggle {
+      display: inline-flex !important;
+      align-items: center !important;
+      padding: 1px 8px !important;
+      font-size: 0.65rem !important;
+      line-height: 1.3 !important;
+      flex-shrink: 0 !important;
+    }
+    @media (max-width: 991px) {
+      .hw-announcement-badge { display: none !important; }
+      .hw-announcement-bar { height: 26px !important; min-height: 26px !important; max-height: 26px !important; line-height: 26px !important; }
+    }
+    @media (max-width: 768px) {
+      .hw-announcement-bar { height: 26px !important; min-height: 26px !important; max-height: 26px !important; line-height: 26px !important; padding: 0 8px !important; }
+      .hw-theme-toggle { display: none !important; }
+      .hw-btn-extra { display: none !important; }
+      .hw-text-desktop { display: none !important; }
+      .hw-text-mobile { display: inline !important; }
+    }
+    @media (max-width: 420px) {
+      .hw-announcement-bar { height: 24px !important; min-height: 24px !important; max-height: 24px !important; line-height: 24px !important; font-size: 0.68rem !important; }
+    }
+
+    /* Inlined Deal Highlight for Immediate Render */
+    .hw-promo-deal-highlight {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background: linear-gradient(135deg, rgba(255, 122, 0, 0.16) 0%, rgba(26, 10, 44, 0.95) 50%, rgba(157, 78, 221, 0.20) 100%);
+      border: 1.5px solid #ffbe0b;
+      border-radius: 18px;
+      padding: 14px 18px;
+      margin: 12px 0 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.55), inset 0 0 20px rgba(255, 122, 0, 0.12), 0 0 25px rgba(255, 190, 11, 0.18);
+      gap: 14px;
+    }
+    .hw-deal-badge-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex: 1;
+    }
+    .hw-deal-percent {
+      font-family: var(--font-display, 'Space Grotesk', sans-serif);
+      font-size: 2.3rem;
+      font-weight: 900;
+      line-height: 0.95;
+      background: linear-gradient(135deg, #ffffff 10%, #ffd166 45%, #ff7a00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 20px rgba(255, 122, 0, 0.7);
+    }
+    .hw-deal-off {
+      font-family: var(--font-display, 'Space Grotesk', sans-serif);
+      font-size: 1.15rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      color: #ffbe0b;
+      line-height: 1.1;
+      text-shadow: 0 0 10px rgba(255, 190, 11, 0.6);
+    }
+    .hw-deal-limited {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ffffff;
+      background: linear-gradient(90deg, #ff7a00, #ff5400);
+      padding: 2px 8px;
+      border-radius: 12px;
+      margin-top: 5px;
+      box-shadow: 0 2px 8px rgba(255, 122, 0, 0.4);
+    }
+    .hw-deal-divider {
+      width: 1px;
+      height: 64px;
+      background: linear-gradient(180deg, transparent, rgba(255, 190, 11, 0.8), transparent);
+    }
+    .hw-deal-price-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex: 1.3;
+    }
+    .hw-deal-price-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #ffd166;
+      margin-bottom: 2px;
+    }
+    .hw-deal-price-figure {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 6px;
+      line-height: 1;
+    }
+    .hw-deal-currency {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #ff7a00;
+      letter-spacing: 0.02em;
+    }
+    .hw-deal-amount {
+      font-family: var(--font-display, 'Space Grotesk', sans-serif);
+      font-size: 2.3rem;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1;
+      text-shadow: 0 2px 14px rgba(255, 122, 0, 0.65), 0 0 25px rgba(255, 190, 11, 0.4);
+    }
+    .hw-deal-upwards {
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: #00ff88;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 5px;
+    }
+    @media (max-width: 600px) {
+      .hw-promo-deal-highlight {
+        padding: 12px 10px;
+        gap: 8px;
+      }
+      .hw-deal-percent,
+      .hw-deal-amount {
+        font-size: 1.75rem;
+      }
+      .hw-deal-off {
+        font-size: 0.95rem;
+      }
+      .hw-deal-currency {
+        font-size: 0.88rem;
+      }
+      .hw-deal-price-label,
+      .hw-deal-upwards {
+        font-size: 0.65rem;
+      }
+      .hw-deal-divider {
+        height: 52px;
+      }
+    }
+    @media (max-width: 380px) {
+      .hw-promo-deal-highlight {
+        flex-direction: column;
+        gap: 12px;
+        padding: 12px 8px;
+      }
+      .hw-deal-divider {
+        width: 80%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255, 190, 11, 0.8), transparent);
+      }
+    }
+
+    /* Lightweight Content Card Rendering - No heavy backdrop filter, no 100+ separate GPU layers */
+    .service-card,
+    .why-card,
+    .industry-card,
+    .template-card,
+    .portfolio-card,
+    .team-card,
+    .testimonial-card,
+    .contact-card,
+    .contact-info,
+    .contact-form,
+    .tech-item,
+    .process-step .step-content,
+    .about-img-card,
+    .glass-card,
+    .stat-card {
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+
+    /* Strip GPU mask composition from fixed background layers */
+    body::after {
+      mask-image: none !important;
+      -webkit-mask-image: none !important;
+      opacity: 0.55 !important;
+    }
+
+    /* Promote fixed layers to dedicated GPU compositor textures */
+    .hw-web-corner,
+    .hw-corner-pumpkins,
+    .hw-announcement-bar,
+    .mobile-sticky-cta-bar,
+    #navbar,
+    .tech-canvas {
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    /* Lightweight shadows for festive corners */
+    .hw-web-corner {
+      filter: drop-shadow(0 2px 8px rgba(255, 122, 0, 0.35)) !important;
+    }
+    .hw-corner-pumpkins {
+      filter: drop-shadow(0 -4px 14px rgba(255, 122, 0, 0.45)) !important;
+    }
+
+    /* Replace CPU-heavy orb filter blur with pure radial gradients */
+    .hero-orb {
+      filter: none !important;
+      will-change: transform;
+    }
+    .orb-1 {
+      background: radial-gradient(circle, rgba(15, 191, 123, 0.12) 0%, transparent 70%) !important;
+    }
+    .orb-2 {
+      background: radial-gradient(circle, rgba(0, 229, 255, 0.08) 0%, transparent 70%) !important;
+    }
+    .orb-3 {
+      background: radial-gradient(circle, rgba(15, 191, 123, 0.06) 0%, transparent 70%) !important;
+    }
+
+    /* Hard suppress any old floating mascot tags */
+    .hw-floating-pumpkin,
+    #hwFloatingPumpkin,
+    .hw-pumpkin-tag,
+    .hw-pumpkin-avatar,
+    [class*="hw-floating-pumpkin"] {
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      width: 0 !important;
+      height: 0 !important;
+      overflow: hidden !important;
+    }
+
     .hero-cinematic-title .hero-accent-text,
     .hero-cinematic-title .gradient-text {
       display: inline-block;
       font-weight: 800;
       letter-spacing: -0.01em;
-      -webkit-text-fill-color: transparent;
-      -webkit-background-clip: text;
-      background-clip: text;
+      background: none !important;
+      -webkit-background-clip: initial !important;
+      background-clip: initial !important;
+      filter: none !important;
     }
 
-    /* Balanced Hero Image Brightness & Vignette for Supreme Text Visibility */
     .hero-slide-bg {
-      filter: brightness(0.92) contrast(1.08) saturate(1.10) !important;
+      filter: brightness(0.90) contrast(1.10) saturate(1.12) !important;
     }
     .hero-slide-overlay {
       background: 
-        radial-gradient(ellipse 85% 75% at 50% 48%, rgba(4, 8, 18, 0.52) 0%, rgba(4, 8, 18, 0.38) 55%, rgba(4, 8, 18, 0.82) 100%),
-        linear-gradient(180deg, rgba(4, 8, 18, 0.82) 0%, rgba(4, 8, 18, 0.22) 20%, rgba(4, 8, 18, 0.28) 75%, rgba(4, 8, 18, 0.94) 100%) !important;
+      radial-gradient(ellipse 85% 75% at 50% 48%, rgba(3, 6, 15, 0.68) 0%, rgba(3, 6, 15, 0.52) 55%, rgba(3, 6, 15, 0.88) 100%),
+      linear-gradient(180deg, rgba(3, 6, 15, 0.85) 0%, rgba(3, 6, 15, 0.30) 20%, rgba(3, 6, 15, 0.35) 75%, rgba(3, 6, 15, 0.95) 100%) !important;
     }
     .hero-cinematic-title {
-      text-shadow: 0 4px 28px rgba(0, 0, 0, 0.98), 0 2px 10px rgba(0, 0, 0, 0.95) !important;
+      color: #ffffff !important;
+      text-shadow: 0 3px 20px rgba(0, 0, 0, 0.98), 0 2px 6px rgba(0, 0, 0, 0.95) !important;
     }
 
-    /* Slide 1: Ultra-Bright Diamond Ice-Cyan */
+    /* Slide 1: Festive Cyberpunk Halloween Luminous Pumpkin Orange & Amber */
+    .hero-slide-content-center .hero-accent-halloween,
+    .hero-slide.slide-halloween .hero-accent-text,
+    .hero-slide.slide-halloween .gradient-text {
+      color: #ffb703 !important;
+      -webkit-text-fill-color: #ffb703 !important;
+      background: none !important;
+      -webkit-background-clip: initial !important;
+      background-clip: initial !important;
+      text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.98),
+        0 4px 18px rgba(0, 0, 0, 0.95),
+        0 0 25px rgba(255, 122, 0, 0.95),
+        0 0 50px rgba(255, 183, 3, 0.85) !important;
+      filter: none !important;
+    }
+    .hero-slide.slide-halloween .trademark {
+      color: #ffb703 !important;
+      text-shadow: 0 0 16px rgba(255, 122, 0, 0.85) !important;
+    }
+
+    /* Slide 2: Ultra-Bright Diamond Ice-Cyan (Enterprise SaaS) */
     .hero-slide-content-center .hero-accent-saas,
     .hero-slide.slide-saas .hero-accent-text,
-    .hero-slide.slide-saas .gradient-text,
-    .hero-slide:nth-child(1) .gradient-text {
-      color: #67e8f9 !important;
-      background: linear-gradient(135deg, #ffffff 0%, #e0f7ff 30%, #67e8f9 70%, #38bdf8 100%) !important;
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      background-clip: text !important;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 24px rgba(103, 232, 249, 0.75)) !important;
+    .hero-slide.slide-saas .gradient-text {
+      color: #38bdf8 !important;
+      -webkit-text-fill-color: #38bdf8 !important;
+      background: none !important;
+      -webkit-background-clip: initial !important;
+      background-clip: initial !important;
+      text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.98),
+        0 4px 18px rgba(0, 0, 0, 0.95),
+        0 0 25px rgba(56, 189, 248, 0.92),
+        0 0 50px rgba(0, 229, 255, 0.78) !important;
+      filter: none !important;
     }
-    .hero-slide.slide-saas .trademark,
-    .hero-slide:nth-child(1) .trademark {
-      color: #a5f3fc !important;
-    }
-
-    /* Slide 2: Ultra-Bright Radiant Champagne Gold */
-    .hero-slide-content-center .hero-accent-banking,
-    .hero-slide.slide-banking .hero-accent-text,
-    .hero-slide.slide-banking .gradient-text,
-    .hero-slide:nth-child(2) .gradient-text {
-      color: #fef08a !important;
-      background: linear-gradient(135deg, #ffffff 0%, #fffbeb 30%, #fef08a 70%, #fde047 100%) !important;
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      background-clip: text !important;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 24px rgba(254, 240, 138, 0.75)) !important;
-    }
-    .hero-slide.slide-banking .trademark,
-    .hero-slide:nth-child(2) .trademark {
-      color: #fef08a !important;
+    .hero-slide.slide-saas .trademark {
+      color: #38bdf8 !important;
+      text-shadow: 0 0 16px rgba(56, 189, 248, 0.8) !important;
     }
 
-    /* Slide 3: Ultra-Bright Luminous Spring Mint (Zero Dark Green) */
-    .hero-slide-content-center .hero-accent-mobile,
-    .hero-slide.slide-mobile .hero-accent-text,
-    .hero-slide.slide-mobile .gradient-text,
-    .hero-slide:nth-child(3) .gradient-text {
-      color: #a7f3d0 !important;
-      background: linear-gradient(135deg, #ffffff 0%, #ecfdf5 30%, #a7f3d0 70%, #6ee7b7 100%) !important;
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      background-clip: text !important;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 24px rgba(110, 231, 183, 0.75)) !important;
-    }
-    .hero-slide.slide-mobile .trademark,
-    .hero-slide:nth-child(3) .trademark {
-      color: #a7f3d0 !important;
-    }
-
-    /* Slide 4: Ultra-Bright Electric Lavender Violet */
+    /* Slide 3: Ultra-Bright Electric Lavender Violet (Web Development) */
     .hero-slide-content-center .hero-accent-web,
     .hero-slide.slide-web .hero-accent-text,
-    .hero-slide.slide-web .gradient-text,
-    .hero-slide:nth-child(4) .gradient-text {
-      color: #e9d5ff !important;
-      background: linear-gradient(135deg, #ffffff 0%, #faf5ff 30%, #e9d5ff 70%, #c084fc 100%) !important;
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      background-clip: text !important;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 24px rgba(233, 213, 255, 0.75)) !important;
+    .hero-slide.slide-web .gradient-text {
+      color: #c084fc !important;
+      -webkit-text-fill-color: #c084fc !important;
+      background: none !important;
+      -webkit-background-clip: initial !important;
+      background-clip: initial !important;
+      text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.98),
+        0 4px 18px rgba(0, 0, 0, 0.95),
+        0 0 25px rgba(192, 132, 252, 0.92),
+        0 0 50px rgba(147, 51, 234, 0.78) !important;
+      filter: none !important;
     }
-    .hero-slide.slide-web .trademark,
-    .hero-slide:nth-child(4) .trademark {
-      color: #ddd6fe !important;
+    .hero-slide.slide-web .trademark {
+      color: #c084fc !important;
+      text-shadow: 0 0 16px rgba(192, 132, 252, 0.8) !important;
     }
 
-    /* Slide 5: Ultra-Bright Clinical Turquoise Aqua */
+    /* Slide 4: Ayu Health Suite: Ultra-Bright Clinical Turquoise Mint (100% Crisp Visibility) */
     .hero-slide-content-center .hero-accent-health,
     .hero-slide.slide-health .hero-accent-text,
-    .hero-slide.slide-health .gradient-text,
-    .hero-slide:nth-child(5) .gradient-text {
-      color: #99f6e4 !important;
-      background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 30%, #99f6e4 70%, #5eead4 100%) !important;
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      background-clip: text !important;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 24px rgba(153, 246, 228, 0.75)) !important;
+    .hero-slide.slide-health .gradient-text {
+      color: #00f5d4 !important;
+      -webkit-text-fill-color: #00f5d4 !important;
+      background: none !important;
+      -webkit-background-clip: initial !important;
+      background-clip: initial !important;
+      text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.98),
+        0 4px 22px rgba(0, 0, 0, 0.98),
+        0 0 28px rgba(0, 245, 212, 0.95),
+        0 0 55px rgba(0, 245, 212, 0.80) !important;
+      filter: none !important;
     }
-    .hero-slide.slide-health .trademark,
-    .hero-slide:nth-child(5) .trademark {
-      color: #99f6e4 !important;
+    .hero-slide.slide-health .trademark {
+      color: #00f5d4 !important;
+      text-shadow: 0 0 16px rgba(0, 245, 212, 0.85) !important;
     }
 
     /* Hide Floating Social Dock on Mobile / Tablet Screens */
@@ -338,11 +655,231 @@
     .btn-sticky-quote i {
       font-size: 0.95rem;
     }
+
+    /* Critical Inlined Halloween Corners & Flying Animation System */
+    .hw-web-corner {
+      position: fixed;
+      top: 0;
+      pointer-events: none;
+      z-index: 998;
+      width: 180px;
+      height: 180px;
+      opacity: 0.95;
+      filter: drop-shadow(0 0 16px rgba(255, 122, 0, 0.45));
+      transition: opacity 0.4s ease;
+    }
+    body:not(.halloween-active) .hw-web-corner {
+      display: none !important;
+    }
+    .hw-web-left {
+      left: 0;
+      animation: hwWebSwayL 8s ease-in-out infinite alternate;
+    }
+    .hw-web-right {
+      right: 0;
+      animation: hwWebSwayR 8s ease-in-out infinite alternate;
+    }
+    @keyframes hwWebSwayL {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(4px) rotate(1.5deg); }
+    }
+    @keyframes hwWebSwayR {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(4px) rotate(-1.5deg); }
+    }
+
+    .hw-corner-pumpkins {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: auto;
+      width: 200px;
+      height: auto;
+      pointer-events: none;
+      z-index: 991;
+      filter: drop-shadow(0 -3px 10px rgba(255, 122, 0, 0.4));
+      animation: hwPumpkinGlowPulse 4s ease-in-out infinite alternate;
+      user-select: none;
+      transform: translateZ(0);
+    }
+    body:not(.halloween-active) .hw-corner-pumpkins {
+      display: none !important;
+    }
+    /* GPU-Only Keyframe Animation - Zero software filter recalculations */
+    @keyframes hwPumpkinGlowPulse {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1);
+        opacity: 0.92;
+      }
+      100% {
+        transform: translate3d(0, -2px, 0) scale(1.02);
+        opacity: 1;
+      }
+    }
+
+    .hw-fly-wall {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 96;
+      overflow: hidden;
+    }
+    body:not(.halloween-active) .hw-fly-wall {
+      display: none !important;
+    }
+    .hw-fly-item {
+      position: absolute;
+      pointer-events: none;
+      user-select: none;
+      will-change: transform;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+    }
+    .hw-fly-bat-1 {
+      top: 14%;
+      left: -180px;
+      width: 95px;
+      animation: hwFlyPath1 22s linear infinite;
+      animation-delay: 0.5s;
+    }
+    .hw-fly-bat-2,
+    .hw-fly-bat-3 {
+      display: none !important;
+    }
+    .hw-fly-ghost-1 {
+      top: 25%;
+      right: -130px;
+      width: 85px;
+      animation: hwDriftGhostLeft 28s ease-in-out infinite;
+      animation-delay: 2s;
+    }
+    .hw-fly-ghost-2 {
+      display: none !important;
+    }
+    .hw-fly-witch {
+      top: 8%;
+      left: -200px;
+      width: 120px;
+      animation: hwFlyWitch 34s linear infinite;
+      animation-delay: 10s;
+    }
+    .hw-fly-pumpkin-wisp {
+      display: none !important;
+    }
+
+    @keyframes hwFlyPath1 {
+      0% { transform: translate3d(0vw, 0px, 0) scale(0.85) rotate(10deg); opacity: 0; }
+      4% { opacity: 0.95; }
+      25% { transform: translate3d(28vw, -30px, 0) scale(1.05) rotate(-6deg); }
+      50% { transform: translate3d(55vw, 25px, 0) scale(0.95) rotate(14deg); }
+      75% { transform: translate3d(82vw, -20px, 0) scale(1.1) rotate(-8deg); }
+      96% { opacity: 0.95; }
+      100% { transform: translate3d(115vw, 15px, 0) scale(0.85) rotate(10deg); opacity: 0; }
+    }
+    @keyframes hwFlyPath2 {
+      0% { transform: translate3d(0vw, 0px, 0) scale(0.8) rotate(-12deg); opacity: 0; }
+      4% { opacity: 0.9; }
+      30% { transform: translate3d(32vw, 35px, 0) scale(1.0) rotate(8deg); }
+      60% { transform: translate3d(68vw, -25px, 0) scale(0.9) rotate(-10deg); }
+      96% { opacity: 0.9; }
+      100% { transform: translate3d(115vw, 20px, 0) scale(0.8) rotate(5deg); opacity: 0; }
+    }
+    @keyframes hwFlyPath3 {
+      0% { transform: translate3d(0vw, 0px, 0) scale(0.9) rotate(8deg); opacity: 0; }
+      4% { opacity: 0.95; }
+      25% { transform: translate3d(30vw, -40px, 0) scale(1.1) rotate(-8deg); }
+      55% { transform: translate3d(62vw, 30px, 0) scale(0.95) rotate(12deg); }
+      80% { transform: translate3d(90vw, -15px, 0) scale(1.05) rotate(-5deg); }
+      96% { opacity: 0.95; }
+      100% { transform: translate3d(115vw, 10px, 0) scale(0.9) rotate(8deg); opacity: 0; }
+    }
+    @keyframes hwDriftGhostLeft {
+      0% { transform: translate3d(0vw, 0px, 0) scale(0.85); opacity: 0; }
+      5% { opacity: 0.85; }
+      25% { transform: translate3d(-30vw, 35px, 0) scale(1.0) rotate(6deg); }
+      50% { transform: translate3d(-60vw, -30px, 0) scale(1.1) rotate(-6deg); }
+      75% { transform: translate3d(-85vw, 20px, 0) scale(0.95) rotate(4deg); }
+      95% { opacity: 0.85; }
+      100% { transform: translate3d(-115vw, -10px, 0) scale(0.85); opacity: 0; }
+    }
+    @keyframes hwDriftGhostRight {
+      0% { transform: translate3d(0vw, 0px, 0) scale(0.8); opacity: 0; }
+      5% { opacity: 0.9; }
+      30% { transform: translate3d(35vw, -45px, 0) scale(1.05) rotate(-8deg); }
+      60% { transform: translate3d(70vw, 25px, 0) scale(0.95) rotate(7deg); }
+      95% { opacity: 0.9; }
+      100% { transform: translate3d(115vw, -20px, 0) scale(0.8); opacity: 0; }
+    }
+    @keyframes hwFlyWitch {
+      0% { transform: translate3d(0vw, 0px, 0) scale(0.85) rotate(-5deg); opacity: 0; }
+      4% { opacity: 0.95; }
+      35% { transform: translate3d(40vw, 20px, 0) scale(1.0) rotate(3deg); }
+      70% { transform: translate3d(75vw, -15px, 0) scale(0.95) rotate(-4deg); }
+      96% { opacity: 0.95; }
+      100% { transform: translate3d(118vw, 10px, 0) scale(0.85) rotate(0deg); opacity: 0; }
+    }
+    @keyframes hwFloatUpWisp {
+      0% { transform: translate3d(0, 0px, 0) scale(0.7); opacity: 0; }
+      8% { opacity: 0.9; }
+      30% { transform: translate3d(25px, -35vh, 0) scale(1.0) rotate(8deg); }
+      60% { transform: translate3d(-20px, -70vh, 0) scale(1.08) rotate(-8deg); }
+      90% { opacity: 0.9; }
+      100% { transform: translate3d(15px, -105vh, 0) scale(0.7); opacity: 0; }
+    }
+
+    @media (max-width: 991px) {
+      .hw-web-corner { width: 90px; height: 90px; }
+      .hw-corner-pumpkins { width: 140px; }
+    }
+
+    @media (max-width: 768px) {
+      .hw-web-corner { width: 60px !important; height: 60px !important; opacity: 0.82 !important; }
+      .hw-corner-pumpkins {
+        bottom: 66px !important;
+        left: 0 !important;
+        right: auto !important;
+        width: 80px !important;
+        opacity: 0.85 !important;
+        z-index: 991 !important;
+      }
+      .hw-fly-bat-1 { width: 55px !important; }
+      .hw-fly-bat-2 { display: none !important; }
+      .hw-fly-bat-3 { display: none !important; }
+      .hw-fly-ghost-1 { width: 55px !important; }
+      .hw-fly-ghost-2 { display: none !important; }
+      .hw-fly-witch { display: none !important; }
+      .hw-fly-pumpkin-wisp { display: none !important; }
+    }
+
+    @media (max-width: 480px) {
+      .hw-web-corner { width: 48px !important; height: 48px !important; opacity: 0.75 !important; }
+      .hw-corner-pumpkins {
+        bottom: 66px !important;
+        left: -4px !important;
+        width: 68px !important;
+        opacity: 0.75 !important;
+      }
+    }
   </style>
 </head>
-<body>
+<body class="halloween-active">
   <!-- High-Tech Kinetic Background (Bouncing Digital Node & Cyber Synapse Matrix) -->
   <canvas id="tech-canvas" class="tech-canvas" aria-hidden="true"></canvas>
+
+  <!-- ===== HALLOWEEN CORNER IMAGES (PERMANENT IN DOM) ===== -->
+  <img src="assets/hw_corner_web_left.svg" alt="Halloween Spiderweb Left" class="hw-web-corner hw-web-left" aria-hidden="true" />
+  <img src="assets/hw_corner_web_right.svg" alt="Halloween Spiderweb Right" class="hw-web-corner hw-web-right" aria-hidden="true" />
+  <img src="assets/hw_corner_pumpkin_patch.svg" alt="Halloween Pumpkin Patch" class="hw-corner-pumpkins" aria-hidden="true" />
+
+  <!-- ===== FLYING HALLOWEEN IMAGES ACROSS THE WEBSITE WALL ===== -->
+  <div class="hw-fly-wall" aria-hidden="true">
+    <img src="assets/hw_flying_bat.svg" class="hw-fly-item hw-fly-bat-1" alt="Flying Bat" />
+    <img src="assets/hw_flying_bat.svg" class="hw-fly-item hw-fly-bat-2" alt="Flying Bat" />
+    <img src="assets/hw_flying_bat.svg" class="hw-fly-item hw-fly-bat-3" alt="Flying Bat" />
+    <img src="assets/hw_floating_ghost.svg" class="hw-fly-item hw-fly-ghost-1" alt="Floating Ghost" />
+    <img src="assets/hw_floating_ghost.svg" class="hw-fly-item hw-fly-ghost-2" alt="Floating Ghost" />
+    <img src="assets/hw_flying_witch.svg" class="hw-fly-item hw-fly-witch" alt="Flying Witch" />
+    <img src="assets/hw_floating_pumpkin.svg" class="hw-fly-item hw-fly-pumpkin-wisp" alt="Floating Pumpkin Wisp" />
+  </div>
 
   <!-- ===== PRELOADER ===== -->
   <div id="preloader">
@@ -355,7 +892,7 @@
         <div class="preloader-glow"></div>
         <img src="assets/logo1.png" alt="Axentra Tech" />
       </div>
-      <p class="preloader-tagline">Custom Software Development</p>
+      <p class="preloader-tagline">🎃 Spooky Season • Custom Software Development</p>
       <div class="preloader-bar">
         <span></span>
       </div>
@@ -363,12 +900,28 @@
     </div>
   </div>
 
-  <!-- ===== NAVIGATION ===== -->
+  <!-- ===== NAVIGATION (WITH SEAMLESS TOP HALLOWEEN BANNER) ===== -->
   <header id="navbar" role="banner">
+    <!-- Seamless Festive Announcement Strip (Ultra-Slim 28px Single-Line Bar) -->
+    <aside class="hw-announcement-bar" role="banner" aria-label="Halloween Celebration">
+      <div class="hw-announcement-inner">
+        <span class="hw-announcement-badge"><i class="fas fa-ghost"></i> 50% OFF</span>
+        <span class="hw-announcement-text">
+          <span class="hw-text-desktop">🎃 <strong>Halloween Deal:</strong> Websites from <strong>8,000 LKR</strong> (Free Hosting, Domain, UI/UX &amp; SEO)</span>
+          <span class="hw-text-mobile">🎃 <strong>50% OFF:</strong> Web from <strong>8,000 LKR</strong></span>
+        </span>
+        <a href="#halloween-offer" class="hw-announcement-btn open-halloween-modal"><i class="fas fa-gift"></i> <span>Claim</span><span class="hw-btn-extra"> 50% OFF</span></a>
+        <button class="hw-theme-toggle" id="hwThemeToggle" title="Toggle Halloween Mode" aria-label="Toggle Halloween Theme">
+          <span class="hw-toggle-icon">🎃</span>
+          <span>Theme: <strong id="hwToggleStatus">ON</strong></span>
+        </button>
+      </div>
+    </aside>
+
     <nav class="nav-container" aria-label="Main Navigation">
       <a href="#home" class="nav-logo" aria-label="Axentra Tech Home">
         <div class="logo-circle">
-          <img src="assets/logo1.png" alt="Axentra Tech Logo" />
+          <img src="assets/logo1.png" alt="Axentra Tech Logo" width="44" height="44" decoding="async" />
         </div>
         <span class="logo-text">Axentra<em>Tech</em></span>
       </a>
@@ -502,8 +1055,27 @@
       <!-- Full-Bleed Background Slides Track -->
       <div class="hero-slider-container" id="showcaseSlider" role="region" aria-roledescription="carousel" aria-label="Axentra Software Showcase">
 
-        <!-- Slide 1: Enterprise Custom Software Engineering (Business Overview) -->
-        <div class="hero-slide active slide-saas" role="group" aria-roledescription="slide" aria-label="1 of 5: Custom Software That Powers Your Business">
+        <!-- Slide 1: Halloween Special Edition (High-Tech Spooky Showcase) -->
+        <div class="hero-slide active slide-halloween" role="group" aria-roledescription="slide" aria-label="1 of 4: Halloween Festive Tech Specials">
+          <div class="hero-slide-bg" style="background-image: url('assets/halloween_hero_banner.jpg');"></div>
+          <div class="hero-slide-overlay" style="background: radial-gradient(circle at center, rgba(16, 6, 28, 0.55) 0%, rgba(6, 2, 14, 0.88) 100%);"></div>
+          <div class="hero-slide-content-center">
+            <h1 class="hero-cinematic-title">
+              Spooktacular Software<br />
+              <span class="gradient-text hero-accent-text hero-accent-halloween">Hauntingly Good Engineering</span>
+            </h1>
+            <p class="hero-cinematic-desc">
+              Elevate your business this spooky season with Axentra Tech. Get up to 50% OFF on Business, Commercial &amp; Portfolio Websites with Free Hosting, Free Domain, Modern UI/UX &amp; Basic SEO!
+            </p>
+            <div class="hero-cinematic-actions">
+              <a href="#templates" class="btn btn-cinematic-primary">Explore Halloween Specials <i class="fas fa-arrow-right"></i></a>
+              <a href="https://wa.me/94771757556?text=Hi%20Axentra%20Tech%2C%20I%20am%20interested%20in%20the%20Halloween%20Special%20Offer." target="_blank" rel="noopener noreferrer" class="btn btn-cinematic-outline">Claim Spooky Deal <i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Enterprise Custom Software Engineering (Business Overview) -->
+        <div class="hero-slide slide-saas" role="group" aria-roledescription="slide" aria-label="2 of 4: Custom Software That Powers Your Business">
           <div class="hero-slide-bg" style="background-image: url('assets/slide_enterprise_saas.jpg');"></div>
           <div class="hero-slide-overlay"></div>
           <div class="hero-slide-content-center">
@@ -521,46 +1093,8 @@
           </div>
         </div>
 
-        <!-- Slide 2: Apex LendCore (Core Banking & 100% Full Code Sale) -->
-        <div class="hero-slide slide-banking" role="group" aria-roledescription="slide" aria-label="2 of 5: Apex LendCore Core Banking & Microfinance">
-          <div class="hero-slide-bg" style="background-image: url('assets/slide_core_banking.jpg');"></div>
-          <div class="hero-slide-overlay"></div>
-          <div class="hero-slide-content-center">
-            <h1 class="hero-cinematic-title">
-              Apex LendCore<span class="trademark">™</span><br />
-              <span class="gradient-text hero-accent-text hero-accent-banking">Core Banking Platform</span>
-            </h1>
-            <p class="hero-cinematic-desc">
-              CBSL-compliant core banking system with 100% full source code ownership. Zero recurring license fees, automated loan underwriting, and complete IP control.
-            </p>
-            <div class="hero-cinematic-actions">
-              <a href="#portfolio" class="btn btn-cinematic-primary">Explore Platform <i class="fas fa-arrow-right"></i></a>
-              <a href="https://wa.me/94771757556?text=Hi%20Axentra%20Tech%2C%20I%20am%20interested%20in%20purchasing%20the%20Full%20Source%20Code%20for%20Apex%20LendCore." target="_blank" rel="noopener noreferrer" class="btn btn-cinematic-outline">Buy Full Source Code <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 3: Apex LendMobile (Field Banking & Offline Sync) -->
-        <div class="hero-slide slide-mobile" role="group" aria-roledescription="slide" aria-label="3 of 5: Apex LendMobile Field Banking & Doorstep Lending">
-          <div class="hero-slide-bg" style="background-image: url('assets/slide_mobile_fintech.jpg');"></div>
-          <div class="hero-slide-overlay"></div>
-          <div class="hero-slide-content-center">
-            <h1 class="hero-cinematic-title">
-              Apex LendMobile<span class="trademark">™</span><br />
-              <span class="gradient-text hero-accent-text hero-accent-mobile">Field Banking &amp; Doorstep App</span>
-            </h1>
-            <p class="hero-cinematic-desc">
-              High-performance field banking application with encrypted offline SQLite queue, GPS geo-fence audit tracking, and instant Bluetooth thermal receipt printing.
-            </p>
-            <div class="hero-cinematic-actions">
-              <a href="#portfolio" class="btn btn-cinematic-primary">View Mobile App <i class="fas fa-arrow-right"></i></a>
-              <a href="https://wa.me/94771757556?text=Hi%20Axentra%20Tech%2C%20I%20am%20interested%20in%20Apex%20LendMobile." target="_blank" rel="noopener noreferrer" class="btn btn-cinematic-outline">Request App Demo <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 4: Custom Website Development & Sample Templates -->
-        <div class="hero-slide slide-web" role="group" aria-roledescription="slide" aria-label="4 of 5: Custom Website Development & Sample Templates">
+        <!-- Slide 3: Custom Website Development & Sample Templates -->
+        <div class="hero-slide slide-web" role="group" aria-roledescription="slide" aria-label="3 of 4: Custom Website Development & Sample Templates">
           <div class="hero-slide-bg" style="background-image: url('assets/slide_web_development.jpg');"></div>
           <div class="hero-slide-overlay"></div>
           <div class="hero-slide-content-center">
@@ -578,10 +1112,10 @@
           </div>
         </div>
 
-        <!-- Slide 5: Ayu Health Suite (Cloud Clinic & EMR) -->
-        <div class="hero-slide slide-health" role="group" aria-roledescription="slide" aria-label="5 of 5: Ayu Health Suite Cloud Clinic & EMR">
+        <!-- Slide 4: Ayu Health Suite (Cloud Clinic & EMR) -->
+        <div class="hero-slide slide-health" role="group" aria-roledescription="slide" aria-label="4 of 4: Ayu Health Suite Cloud Clinic & EMR">
           <div class="hero-slide-bg" style="background-image: url('assets/slide_healthcare_emr.jpg');"></div>
-          <div class="hero-slide-overlay"></div>
+          <div class="hero-slide-overlay" style="background: radial-gradient(circle at center, rgba(3, 7, 18, 0.76) 0%, rgba(3, 7, 18, 0.92) 100%);"></div>
           <div class="hero-slide-content-center">
             <h1 class="hero-cinematic-title">
               Ayu Health Suite<span class="trademark">™</span><br />
@@ -602,9 +1136,17 @@
       <!-- Bottom Interactive Navigation Bar (Tabs & 7s Progress Bars) -->
       <div class="hero-bottom-nav-bar">
         <div class="hero-nav-wrapper">
-          <!-- 5 Quick-Switch Tabs -->
+          <!-- 4 Quick-Switch Tabs -->
           <div class="hero-tabs-grid" role="tablist" aria-label="Software Capabilities">
             <button class="showcase-tab-btn active" role="tab" aria-selected="true" data-index="0">
+              <span class="tab-icon"><i class="fas fa-ghost"></i></span>
+              <span class="tab-text">
+                <strong>Halloween Edition</strong>
+                <small>Special Tech Offers</small>
+              </span>
+              <span class="tab-progress-line"></span>
+            </button>
+            <button class="showcase-tab-btn" role="tab" aria-selected="false" data-index="1">
               <span class="tab-icon"><i class="fas fa-layer-group"></i></span>
               <span class="tab-text">
                 <strong>Custom Software</strong>
@@ -612,23 +1154,7 @@
               </span>
               <span class="tab-progress-line"></span>
             </button>
-            <button class="showcase-tab-btn" role="tab" aria-selected="false" data-index="1">
-              <span class="tab-icon"><i class="fas fa-university"></i></span>
-              <span class="tab-text">
-                <strong>Apex LendCore</strong>
-                <small>Core Banking • Full Code Sale</small>
-              </span>
-              <span class="tab-progress-line"></span>
-            </button>
             <button class="showcase-tab-btn" role="tab" aria-selected="false" data-index="2">
-              <span class="tab-icon"><i class="fas fa-mobile-screen"></i></span>
-              <span class="tab-text">
-                <strong>Apex LendMobile</strong>
-                <small>Field Banking • Offline Sync</small>
-              </span>
-              <span class="tab-progress-line"></span>
-            </button>
-            <button class="showcase-tab-btn" role="tab" aria-selected="false" data-index="3">
               <span class="tab-icon"><i class="fas fa-laptop-code"></i></span>
               <span class="tab-text">
                 <strong>Web Development</strong>
@@ -636,7 +1162,7 @@
               </span>
               <span class="tab-progress-line"></span>
             </button>
-            <button class="showcase-tab-btn" role="tab" aria-selected="false" data-index="4">
+            <button class="showcase-tab-btn" role="tab" aria-selected="false" data-index="3">
               <span class="tab-icon"><i class="fas fa-heart-pulse"></i></span>
               <span class="tab-text">
                 <strong>Ayu Health Suite</strong>
@@ -662,27 +1188,19 @@
     <!-- ===== MARQUEE STRIP ===== -->
     <div class="marquee-strip" aria-hidden="true">
       <div class="marquee-track">
-        <span>Custom Software Development</span><i class="fas fa-circle"></i>
-        <span>Web Application Development</span><i class="fas fa-circle"></i>
-        <span>Mobile App Development</span><i class="fas fa-circle"></i>
-        <span>Enterprise Software Solutions</span><i class="fas fa-circle"></i>
-        <span>React &amp; Node.js</span><i class="fas fa-circle"></i>
-        <span>Flutter &amp; React Native</span><i class="fas fa-circle"></i>
-        <span>E-Commerce Platforms</span><i class="fas fa-circle"></i>
-        <span>UI/UX Design</span><i class="fas fa-circle"></i>
-        <span>API &amp; Backend Development</span><i class="fas fa-circle"></i>
-        <span>Cloud &amp; DevOps</span><i class="fas fa-circle"></i>
+        <span>🎃 Spooky Season 2026 Active</span><i class="fas fa-ghost"></i>
+        <span>🦇 Up to 20% OFF Custom Software &amp; Web Apps</span><i class="fas fa-wand-magic-sparkles"></i>
+        <span>👻 Next-Gen Core Banking &amp; Fintech Systems</span><i class="fas fa-bolt"></i>
+        <span>🍬 Ayu Health Suite™ Cloud Clinic &amp; EMR</span><i class="fas fa-heart-pulse"></i>
+        <span>🕷️ 100% Full Source Code Ownership • Zero Royalties</span><i class="fas fa-shield-halved"></i>
+        <span>🧙 High-Converting Ready Business Templates</span><i class="fas fa-star"></i>
         <!-- Duplicate for seamless loop -->
-        <span>Custom Software Development</span><i class="fas fa-circle"></i>
-        <span>Web Application Development</span><i class="fas fa-circle"></i>
-        <span>Mobile App Development</span><i class="fas fa-circle"></i>
-        <span>Enterprise Software Solutions</span><i class="fas fa-circle"></i>
-        <span>React &amp; Node.js</span><i class="fas fa-circle"></i>
-        <span>Flutter &amp; React Native</span><i class="fas fa-circle"></i>
-        <span>E-Commerce Platforms</span><i class="fas fa-circle"></i>
-        <span>UI/UX Design</span><i class="fas fa-circle"></i>
-        <span>API &amp; Backend Development</span><i class="fas fa-circle"></i>
-        <span>Cloud &amp; DevOps</span><i class="fas fa-circle"></i>
+        <span>🎃 Spooky Season 2026 Active</span><i class="fas fa-ghost"></i>
+        <span>🦇 Up to 20% OFF Custom Software &amp; Web Apps</span><i class="fas fa-wand-magic-sparkles"></i>
+        <span>👻 Next-Gen Core Banking &amp; Fintech Systems</span><i class="fas fa-bolt"></i>
+        <span>🍬 Ayu Health Suite™ Cloud Clinic &amp; EMR</span><i class="fas fa-heart-pulse"></i>
+        <span>🕷️ 100% Full Source Code Ownership • Zero Royalties</span><i class="fas fa-shield-halved"></i>
+        <span>🧙 High-Converting Ready Business Templates</span><i class="fas fa-star"></i>
       </div>
     </div>
 
@@ -739,7 +1257,7 @@
           </div>
 
           <div class="about-content" data-aos="fade-left">
-            <div class="section-label">About Us</div>
+            <div class="section-label"><i class="fas fa-ghost"></i> About Axentra Tech • Spooky Season</div>
             <h2 class="section-title">Building Software That <span class="gradient-text">Transforms</span> Businesses</h2>
             <p class="about-text">
               Axentra Tech is a full-cycle software engineering firm. We bridge the gap between business strategy and technical execution, turning complex operational challenges into secure, scalable digital products.
@@ -785,7 +1303,7 @@
     <section id="services" class="section services-section" aria-label="Our Services">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
-          <div class="section-label">What We Do</div>
+          <div class="section-label"><i class="fas fa-wand-magic-sparkles"></i> Core Services • Halloween Tech Deals</div>
           <h2 class="section-title">Our Core <span class="gradient-text">Services</span></h2>
           <p class="section-subtitle">From web applications and mobile apps to enterprise platforms and cloud solutions — we deliver software that solves real business problems.</p>
         </div>
@@ -937,7 +1455,7 @@
     <section id="process" class="section process-section" aria-label="Our Process">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
-          <div class="section-label">How We Work</div>
+          <div class="section-label"><i class="fas fa-hat-wizard"></i> How We Work • Potion &amp; Code</div>
           <h2 class="section-title">Our <span class="gradient-text">Development Process</span></h2>
           <p class="section-subtitle">A proven methodology that ensures on-time delivery and exceptional quality every time.</p>
         </div>
@@ -986,7 +1504,7 @@
     <section class="section tech-section" aria-label="Technologies We Use">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
-          <div class="section-label">Tech Stack</div>
+          <div class="section-label"><i class="fas fa-microchip"></i> High-Tech Spellbook &amp; Stack</div>
           <h2 class="section-title">Technologies We <span class="gradient-text">Master</span></h2>
         </div>
         <div class="tech-grid" data-aos="fade-up">
@@ -1055,6 +1573,37 @@
         </div>
 
         <div class="templates-grid" data-aos="fade-up">
+          <!-- Featured Template: Halloween Special Event & eCommerce -->
+          <div class="template-card template-card--halloween">
+            <div class="template-preview" data-lightbox="assets/halloween_template_showcase.jpg" data-title="Halloween Festival &amp; Treats eCommerce Template">
+              <img src="assets/halloween_template_showcase.jpg" alt="Halloween Festival and eCommerce Template Sample" loading="lazy" decoding="async" width="400" height="220" />
+              <div class="template-overlay">
+                <span class="template-preview-btn"><i class="fas fa-expand"></i> Full Preview</span>
+              </div>
+            </div>
+            <div class="template-info">
+              <div class="template-meta">
+                <span class="template-category" style="color: #ffaa00;"><i class="fas fa-ghost"></i> Spooky Season / eCommerce</span>
+                <span class="template-badge" style="background: rgba(255, 122, 0, 0.2); color: #ffaa00; border-color: rgba(255, 122, 0, 0.4);">🎃 Seasonal Special</span>
+              </div>
+              <h3>Spooky Fest &amp; Halloween Treats Template</h3>
+              <p>Atmospheric dark luxury layout for Halloween promotions, themed restaurant menus, event ticket bookings, and online spooky treat ordering.</p>
+              <div class="template-tags">
+                <span><i class="fas fa-check"></i> Event Tickets</span>
+                <span><i class="fab fa-whatsapp"></i> WhatsApp Order</span>
+                <span><i class="fas fa-wand-magic-sparkles"></i> Glow UI</span>
+              </div>
+              <div class="template-actions-row">
+                <button type="button" class="btn btn-outline btn-xs" data-lightbox="assets/halloween_template_showcase.jpg" data-title="Halloween Festival &amp; Treats eCommerce Template">
+                  <i class="fas fa-eye"></i> Full Preview
+                </button>
+                <a href="https://wa.me/94771757556?text=Hi%20Axentra%20Tech%2C%20I%20am%20interested%20in%20the%20Halloween%20Special%20Website%20Template." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xs" style="background: #ff7a00; border-color: #ff7a00; color: #060b16;">
+                  <i class="fab fa-whatsapp"></i> Get Website
+                </a>
+              </div>
+            </div>
+          </div>
+
           <!-- Template 1: Bakery -->
           <div class="template-card">
             <div class="template-preview" data-lightbox="assets/Bakery.jpg" data-title="Bakery Website Template">
@@ -1120,7 +1669,7 @@
           <!-- Template 3: Bakery & Restaurant -->
           <div class="template-card">
             <div class="template-preview" data-lightbox="assets/Bakery & Restaurant.jpg" data-title="Bakery &amp; Restaurant Website Template">
-              <img src="assets/Bakery & Restaurant.jpg" alt="Bakery and Restaurant Website Template Sample" loading="lazy" />
+              <img src="assets/Bakery & Restaurant.jpg" alt="Bakery and Restaurant Website Template Sample" loading="lazy" decoding="async" width="400" height="220" />
               <div class="template-overlay">
                 <span class="template-preview-btn"><i class="fas fa-expand"></i> Full Preview</span>
               </div>
@@ -1151,7 +1700,7 @@
           <!-- Template 4: Bakery & Restaurant Style 2 -->
           <div class="template-card">
             <div class="template-preview" data-lightbox="assets/Bakery & Restaurant 2.jpg" data-title="Bakery &amp; Restaurant – Style 2 Template">
-              <img src="assets/Bakery & Restaurant 2.jpg" alt="Bakery and Restaurant Template Style 2 Sample" loading="lazy" />
+              <img src="assets/Bakery & Restaurant 2.jpg" alt="Bakery and Restaurant Template Style 2 Sample" loading="lazy" decoding="async" width="400" height="220" />
               <div class="template-overlay">
                 <span class="template-preview-btn"><i class="fas fa-expand"></i> Full Preview</span>
               </div>
@@ -1182,7 +1731,7 @@
           <!-- Template 5: Hair & Beauty Salon -->
           <div class="template-card">
             <div class="template-preview" data-lightbox="assets/Hair & Beauty Salon.jpg" data-title="Hair &amp; Beauty Salon Website Template">
-              <img src="assets/Hair & Beauty Salon.jpg" alt="Hair and Beauty Salon Website Template Sample" loading="lazy" />
+              <img src="assets/Hair & Beauty Salon.jpg" alt="Hair and Beauty Salon Website Template Sample" loading="lazy" decoding="async" width="400" height="220" />
               <div class="template-overlay">
                 <span class="template-preview-btn"><i class="fas fa-expand"></i> Full Preview</span>
               </div>
@@ -1260,18 +1809,9 @@
     <section id="portfolio" class="section portfolio-section" aria-label="Engineering Case Studies">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
-          <div class="section-label">Engineering Case Studies</div>
+          <div class="section-label"><i class="fas fa-wand-magic-sparkles"></i> Proven Case Studies &amp; Systems • Spooky Season</div>
           <h2 class="section-title">Proven <span class="gradient-text">Client Case Studies</span> &amp; Systems</h2>
           <p class="section-subtitle">Discover how Axentra Tech architects mission-critical web platforms, enterprise software, and mobile apps — solving complex operational challenges with measurable business ROI.</p>
-        </div>
-
-        <!-- Case Study Category Filters -->
-        <div class="portfolio-filters" data-aos="fade-up">
-          <button class="filter-btn active" data-filter="all">All Case Studies</button>
-          <button class="filter-btn" data-filter="fintech">Fintech &amp; Digital Lending</button>
-          <button class="filter-btn" data-filter="health">Healthcare SaaS</button>
-          <button class="filter-btn" data-filter="hr">Enterprise HR &amp; Payroll</button>
-          <button class="filter-btn" data-filter="support">ITSM &amp; Support</button>
         </div>
 
         <!-- Active Development & Guarantee Banner -->
@@ -1280,154 +1820,9 @@
           <span><strong>Engineering Guarantee:</strong> All systems are engineered with modular microservice architectures, encrypted databases, and 100% intellectual property ownership upon milestone release.</span>
         </div>
 
-        <div class="portfolio-grid" data-aos="fade-up">
+        <div class="portfolio-grid portfolio-grid--single" data-aos="fade-up">
 
-          <!-- CASE STUDY 1: Apex LendCore Lending Platform (Full Source Code Sale) -->
-          <article class="portfolio-card case-study-card portfolio-card--priority" data-category="fintech" data-case="apexlendcore" data-aos="fade-up" data-delay="0">
-            <div class="priority-badge"><i class="fas fa-code"></i> Full Source Code Sale • CBSL Compliant</div>
-            <div class="portfolio-img">
-              <img src="assets/Apex.jpeg" alt="Apex LendCore System Logo" class="portfolio-logo-img" loading="lazy" decoding="async" width="200" height="200" />
-              <div class="portfolio-overlay">
-                <span class="portfolio-status"><i class="fas fa-code"></i> 100% Full Source Code Sale</span>
-              </div>
-            </div>
-            <div class="portfolio-info">
-              <div class="portfolio-tag-row">
-                <span class="portfolio-tag portfolio-tag--codesale"><i class="fas fa-code-branch"></i> 100% Full Code Sale</span>
-                <span class="portfolio-tag">Fintech &amp; Core Banking</span>
-                <span class="portfolio-tag portfolio-tag--mobile"><i class="fas fa-landmark"></i> CBSL Compliant</span>
-              </div>
-              <h3>Apex LendCore – Next-Gen Core Banking &amp; Loan Management</h3>
-
-              <!-- Key Impact Metrics Bar -->
-              <div class="case-metrics-grid">
-                <div class="metric-chip">
-                  <span class="metric-val">100%</span>
-                  <span class="metric-lbl">Source Code Sale</span>
-                </div>
-                <div class="metric-chip">
-                  <span class="metric-val">CBSL</span>
-                  <span class="metric-lbl">Compliant Core</span>
-                </div>
-                <div class="metric-chip">
-                  <span class="metric-val">&lt; 5m</span>
-                  <span class="metric-lbl">Loan Origination</span>
-                </div>
-              </div>
-
-              <!-- Problem -> Solution -> Impact Matrix -->
-              <div class="case-breakdown">
-                <div class="case-point">
-                  <div class="case-point-header">
-                    <i class="fas fa-file-code case-icon-solution" style="color: #fbbf24;"></i>
-                    <strong style="color: #fbbf24;">Full Source Code Ownership Model</strong>
-                  </div>
-                  <p>We sell the <strong>100% Complete Source Code</strong> (.NET 8 C# Web API, React Web Dashboard, PostgreSQL/MS SQL schemas, and Docker scripts) with complete IP rights, self-hosted on-premise deployment, zero vendor lock-in, and no per-user recurring license fees.</p>
-                </div>
-
-                <div class="case-point">
-                  <div class="case-point-header">
-                    <i class="fas fa-microchip case-icon-solution"></i>
-                    <strong>Solution &amp; Architecture</strong>
-                  </div>
-                  <p>Architected a high-concurrency Core Banking engine in C# / .NET 8 with Clean Architecture &amp; CQRS (MediatR), automated Sri Lankan NIC validation, CRIB batch generation, Four-Eyes maker-checker approvals, and ClosedXML legacy data migration staging.</p>
-                </div>
-
-                <div class="case-point">
-                  <div class="case-point-header">
-                    <i class="fas fa-chart-line case-icon-impact"></i>
-                    <strong>Measurable Business Impact</strong>
-                  </div>
-                  <p>Reduced loan decisioning turnaround to under 5 minutes, achieved 100% regulatory compliance with CBSL and IFRS 9 ECL provisioning, and enabled zero-downtime spreadsheet migration with full in-house source code control.</p>
-                </div>
-              </div>
-
-              <div class="project-tech-stack">
-                <span>.NET 8</span><span>C#</span><span>ASP.NET Core</span><span>CQRS &amp; MediatR</span><span>MS SQL / Postgres</span><span>ClosedXML</span><span>Docker</span><span>React</span>
-              </div>
-
-              <div class="case-card-actions">
-                <button class="btn-case-deepdive" data-open-case="apexlendcore">
-                  <span>Explore Full Source Code &amp; Architecture</span>
-                  <i class="fas fa-arrow-right"></i>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- CASE STUDY 2: Apex LendMobile Field Banking App -->
-          <article class="portfolio-card case-study-card portfolio-card--priority" data-category="fintech" data-case="apexlendmobile" data-aos="fade-up" data-delay="100">
-            <div class="priority-badge"><i class="fas fa-mobile-screen"></i> Offline-First • Active Build</div>
-            <div class="portfolio-img">
-              <img src="assets/mobile.png" alt="Apex LendMobile Application Logo" class="portfolio-logo-img" loading="lazy" decoding="async" width="200" height="200" />
-              <div class="portfolio-overlay">
-                <span class="portfolio-status"><i class="fas fa-circle-notch fa-spin"></i> Active Mobile Build</span>
-              </div>
-            </div>
-            <div class="portfolio-info">
-              <div class="portfolio-tag-row">
-                <span class="portfolio-tag">Fintech &amp; Mobile Banking</span>
-                <span class="portfolio-tag portfolio-tag--mobile"><i class="fas fa-wifi"></i> Offline-First Sync</span>
-              </div>
-              <h3>Apex LendMobile – Offline-First Field Banking &amp; Doorstep Lending</h3>
-
-              <!-- Key Impact Metrics Bar -->
-              <div class="case-metrics-grid">
-                <div class="metric-chip">
-                  <span class="metric-val">100%</span>
-                  <span class="metric-lbl">Offline-First Sync</span>
-                </div>
-                <div class="metric-chip">
-                  <span class="metric-val">GPS</span>
-                  <span class="metric-lbl">Geo-Fenced Audits</span>
-                </div>
-                <div class="metric-chip">
-                  <span class="metric-val">0</span>
-                  <span class="metric-lbl">Ghost Collections</span>
-                </div>
-              </div>
-
-              <!-- Problem -> Solution -> Impact Matrix -->
-              <div class="case-breakdown">
-                <div class="case-point">
-                  <div class="case-point-header">
-                    <i class="fas fa-triangle-exclamation case-icon-problem"></i>
-                    <strong>The Challenge</strong>
-                  </div>
-                  <p>Rural microfinance field officers and recovery agents operating in zero-reception areas suffered from paper collection sheets, till reconciliation discrepancies, and lack of physical payment receipts.</p>
-                </div>
-
-                <div class="case-point">
-                  <div class="case-point-header">
-                    <i class="fas fa-microchip case-icon-solution"></i>
-                    <strong>Solution &amp; Architecture</strong>
-                  </div>
-                  <p>Engineered an offline-first mobile app with local encrypted SQLite storage, automated SyncOutbox pipeline with HMAC hash verification, Bluetooth ESC/POS thermal printing, on-glass signature capture, and GPS geo-fenced roll-calls.</p>
-                </div>
-
-                <div class="case-point">
-                  <div class="case-point-header">
-                    <i class="fas fa-chart-line case-icon-impact"></i>
-                    <strong>Measurable Business Impact</strong>
-                  </div>
-                  <p>Guaranteed 100% operational continuity in zero-connectivity rural zones, eliminated ghost collections through GPS-verified roll-calls, and automated end-of-day till reconciliation.</p>
-                </div>
-              </div>
-
-              <div class="project-tech-stack">
-                <span>Flutter</span><span>Dart</span><span>Android / iOS</span><span>SQLite (Encrypted)</span><span>HMAC Sync</span><span>Bluetooth ESC/POS</span><span>GPS</span>
-              </div>
-
-              <div class="case-card-actions">
-                <button class="btn-case-deepdive" data-open-case="apexlendmobile">
-                  <span>Explore Full Architecture Breakdown</span>
-                  <i class="fas fa-arrow-right"></i>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- CASE STUDY 3: Ayu Health Suite -->
+          <!-- FEATURED CASE STUDY: Ayu Health Suite -->
           <article class="portfolio-card case-study-card portfolio-card--priority" data-category="health" data-case="ayu" data-aos="fade-up" data-delay="0">
             <div class="priority-badge"><i class="fas fa-circle-check"></i> Completed &amp; Live</div>
             <div class="portfolio-img">
@@ -1502,152 +1897,6 @@
             </div>
           </article>
 
-          <!-- CASE STUDY 2: Worktera HRMS & Payroll Platform -->
-          <article class="portfolio-card case-study-card portfolio-card--priority" data-category="hr" data-case="worktera" data-aos="fade-up" data-delay="150">
-            <div class="priority-badge"><i class="fas fa-bolt"></i> Priority Enterprise Build</div>
-            <div class="portfolio-img">
-              <img src="assets/worktera.jpg" alt="Worktera HRMS Logo" class="portfolio-logo-img" loading="lazy" decoding="async" width="200" height="200" />
-              <div class="portfolio-overlay">
-                <span class="portfolio-status"><i class="fas fa-circle-notch fa-spin"></i> Active Client Build</span>
-              </div>
-            </div>
-            <div class="portfolio-info">
-              <div class="portfolio-tag-row">
-                <span class="portfolio-tag">Enterprise HRMS</span>
-                <span class="portfolio-tag portfolio-tag--mobile"><i class="fas fa-mobile-alt"></i> Web + Mobile App</span>
-              </div>
-              <h3>Worktera – Enterprise HRMS &amp; Automated Payroll</h3>
-
-              <!-- Key Impact Metrics Bar -->
-              <div class="case-metrics-grid">
-                <div class="metric-chip">
-                  <span class="metric-val">85%</span>
-                  <span class="metric-lbl">Faster Payroll Cycles</span>
-                </div>
-                <div class="metric-chip">
-                  <span class="metric-val">500+</span>
-                  <span class="metric-lbl">Active Employees</span>
-                </div>
-                <div class="metric-chip">
-                  <span class="metric-val">98%</span>
-                  <span class="metric-lbl">Mobile App Adoption</span>
-                </div>
-              </div>
-
-              <!-- Problem -> Solution -> Impact Matrix -->
-              <div class="case-breakdown">
-                <div class="case-point">
-                  <div class="case-point-header">
-                    <i class="fas fa-triangle-exclamation case-icon-problem"></i>
-                    <strong>The Challenge</strong>
-                  </div>
-                  <p>Institutes and enterprises spent 5+ days every month manually reconciling biometric attendance CSVs, shift overtime, tax brackets, and paper-based leave slips.</p>
-                </div>
-
-                <div class="case-point">
-                  <div class="case-point-header">
-                    <i class="fas fa-microchip case-icon-solution"></i>
-                    <strong>Solution &amp; Architecture</strong>
-                  </div>
-                  <p>Engineered an ASP.NET Core &amp; Angular web suite with SQL Server transactional indexing, automated hardware biometric gateway sync, and a Flutter cross-platform mobile self-service app.</p>
-                </div>
-
-                <div class="case-point">
-                  <div class="case-point-header">
-                    <i class="fas fa-chart-line case-icon-impact"></i>
-                    <strong>Measurable Business Impact</strong>
-                  </div>
-                  <p>Cut monthly payroll execution from 5 days to 45 minutes, eliminated attendance buddy-punching, and achieved 98% paperless leave management.</p>
-                </div>
-              </div>
-
-              <div class="project-tech-stack">
-                <span>Angular</span><span>TypeScript</span><span>ASP.NET Core</span><span>MS SQL Server</span><span>Flutter</span><span>Docker</span>
-              </div>
-
-              <div class="case-card-actions">
-                <button class="btn-case-deepdive" data-open-case="worktera">
-                  <span>Explore Full Architecture Breakdown</span>
-                  <i class="fas fa-arrow-right"></i>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- CASE STUDY 3: OmniDesk ITSM Support Hub -->
-          <article class="portfolio-card case-study-card portfolio-card--priority" data-category="support" data-case="omnidesk" data-aos="fade-up" data-delay="300">
-            <div class="priority-badge"><i class="fas fa-bolt"></i> Priority Enterprise Build</div>
-            <div class="portfolio-img">
-              <div class="portfolio-placeholder helpdesk-bg">
-                <i class="fas fa-headset"></i>
-              </div>
-              <div class="portfolio-overlay">
-                <span class="portfolio-status"><i class="fas fa-circle-notch fa-spin"></i> Active Client Build</span>
-              </div>
-            </div>
-            <div class="portfolio-info">
-              <div class="portfolio-tag-row">
-                <span class="portfolio-tag">ITSM &amp; Helpdesk</span>
-                <span class="portfolio-tag portfolio-tag--mobile"><i class="fas fa-layer-group"></i> Multi-tier SLA</span>
-              </div>
-              <h3>OmniDesk – Reactive IT Support &amp; SLA Hub</h3>
-
-              <!-- Key Impact Metrics Bar -->
-              <div class="case-metrics-grid">
-                <div class="metric-chip">
-                  <span class="metric-val">60%</span>
-                  <span class="metric-lbl">Faster Resolution</span>
-                </div>
-                <div class="metric-chip">
-                  <span class="metric-val">99.4%</span>
-                  <span class="metric-lbl">SLA Compliance</span>
-                </div>
-                <div class="metric-chip">
-                  <span class="metric-val">3x</span>
-                  <span class="metric-lbl">Agent Throughput</span>
-                </div>
-              </div>
-
-              <!-- Problem -> Solution -> Impact Matrix -->
-              <div class="case-breakdown">
-                <div class="case-point">
-                  <div class="case-point-header">
-                    <i class="fas fa-triangle-exclamation case-icon-problem"></i>
-                    <strong>The Challenge</strong>
-                  </div>
-                  <p>Customer inquiries and internal IT tickets were scattered across email threads with no SLA visibility, causing breached contracts and delayed bug fixes.</p>
-                </div>
-
-                <div class="case-point">
-                  <div class="case-point-header">
-                    <i class="fas fa-microchip case-icon-solution"></i>
-                    <strong>Solution &amp; Architecture</strong>
-                  </div>
-                  <p>Constructed a real-time reactive support platform with WebSocket event dispatching, intelligent category routing, SLA escalation triggers, and a dedicated customer ticket tracking portal.</p>
-                </div>
-
-                <div class="case-point">
-                  <div class="case-point-header">
-                    <i class="fas fa-chart-line case-icon-impact"></i>
-                    <strong>Measurable Business Impact</strong>
-                  </div>
-                  <p>Achieved 99.4% SLA adherence, decreased first-response time from 4 hours to 12 minutes, and tripled agent ticket resolution capacity.</p>
-                </div>
-              </div>
-
-              <div class="project-tech-stack">
-                <span>React</span><span>TypeScript</span><span>ASP.NET Core</span><span>SignalR WebSockets</span><span>MS SQL</span>
-              </div>
-
-              <div class="case-card-actions">
-                <button class="btn-case-deepdive" data-open-case="omnidesk">
-                  <span>Explore Full Architecture Breakdown</span>
-                  <i class="fas fa-arrow-right"></i>
-                </button>
-              </div>
-            </div>
-          </article>
-
         </div>
       </div>
     </section>
@@ -1708,23 +1957,6 @@
                   <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
                 <blockquote class="testimonial-quote">
-                  "The Worktera HRMS build revolutionized how we handle staff overtime and biometric punch logs. The engineering team at Axentra Tech is proactive, transparent, and delivers enterprise-grade architecture with zero fluff. Highly recommended."
-                </blockquote>
-                <div class="testimonial-client">
-                  <div class="client-avatar av-purple">RH</div>
-                  <div class="client-info">
-                    <h4>R. H. Jayasinghe</h4>
-                    <span>Head of Operations &amp; HR</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Testimonial 4 -->
-              <div class="testimonial-card">
-                <div class="testimonial-rating">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <blockquote class="testimonial-quote">
                   "Axentra Tech's solutions architects helped us build a reliable, high-speed multi-warehouse ERP. Their communication was flawless, sprints were delivered on time, and our inventory accuracy is now at an all-time high."
                 </blockquote>
                 <div class="testimonial-client">
@@ -1751,7 +1983,7 @@
     <section class="section why-section" aria-label="Why Choose Axentra Tech">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
-          <div class="section-label">Why Choose Us</div>
+          <div class="section-label"><i class="fas fa-shield-halved"></i> Why Choose Us • No Tricks, Just Treats</div>
           <h2 class="section-title">Our <span class="gradient-text">Commitment</span> to You</h2>
           <p class="section-subtitle">We combine technical excellence with a genuine commitment to your success &mdash; every project, every line of code, every deadline.</p>
         </div>
@@ -1849,7 +2081,7 @@
     <section id="team" class="section team-section" aria-label="Our Team">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
-          <div class="section-label">Meet The Team</div>
+          <div class="section-label"><i class="fas fa-users"></i> Meet The Engineers Behind Axentra</div>
           <h2 class="section-title">The <span class="gradient-text">People</span> Behind Axentra Tech</h2>
           <p class="section-subtitle">The passionate people driving Axentra Tech forward — turning ideas into powerful digital solutions.</p>
         </div>
@@ -1901,19 +2133,6 @@
               <p>Keeps projects on track, on time, and within scope — coordinating teams, managing timelines, and ensuring seamless communication between clients and developers.</p>
               <div class="team-social">
                 <a href="https://www.linkedin.com/company/axentra-tech-software-solutions" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-              </div>
-            </div>
-          </article>
-
-          <article class="team-card" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-avatar av-orange">DN</div>
-            <div class="team-info">
-              <h3>Didula Nanayakkara</h3>
-              <span class="team-role">RPA &amp; Automation Tech Lead</span>
-              <p>Specialist in Robotic Process Automation (RPA) and workflow engineering. Designs and deploys intelligent software bots that automate repetitive tasks, reduce error rates, and streamline operations.</p>
-              <div class="team-social">
-                <a href="https://www.linkedin.com/company/axentra-tech-software-solutions" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
               </div>
             </div>
           </article>
@@ -1970,7 +2189,7 @@
     <section id="contact" class="section contact-section" aria-label="Contact Us">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
-          <div class="section-label">Get In Touch</div>
+          <div class="section-label">🎃 Spooky Season 20% OFF • Get In Touch</div>
           <h2 class="section-title">Let's <span class="gradient-text">Start a Conversation</span></h2>
           <p class="section-subtitle">Have a project in mind? We'd love to hear about it. Fill out the form and we'll get back to you within 24 hours.</p>
         </div>
@@ -2036,6 +2255,7 @@
                 <label for="service">Service Interested In</label>
                 <select id="service" name="service">
                   <option value="" disabled selected>Select a service</option>
+                  <option value="Halloween Special Project">🎃 Halloween Special Project (20% Off)</option>
                   <option value="Web Development">Web Development</option>
                   <option value="Mobile App Development">Mobile App Development</option>
                   <option value="E-Commerce Development">E-Commerce Development</option>
@@ -2080,7 +2300,6 @@
       </div>
     </section>
 
-
   </main>
 
   <!-- ===== FOOTER ===== -->
@@ -2090,7 +2309,7 @@
         <div class="footer-brand">
           <a href="#home" class="footer-logo">
             <div class="logo-circle logo-circle--md">
-              <img src="assets/logo1.png" alt="Axentra Tech" />
+              <img src="assets/logo1.png" alt="Axentra Tech" width="48" height="48" loading="lazy" decoding="async" />
             </div>
             <span>Axentra<em>Tech</em></span>
           </a>
@@ -2111,10 +2330,12 @@
             <li><a href="#services">E-Commerce Development</a></li>
             <li><a href="#services">UI/UX Design</a></li>
             <li><a href="#services">Custom Software Development</a></li>
-            <li><a href="#services">Maintenance & Support</a></li>            <li><a href="#services">Web Hosting &amp; Domain</a></li>
+            <li><a href="#services">Maintenance & Support</a></li>
+            <li><a href="#services">Web Hosting &amp; Domain</a></li>
             <li><a href="#services">SSL Certification</a></li>
             <li><a href="#services">Business Email Setup</a></li>
-            <li><a href="#services">Basic SEO</a></li>          </ul>
+            <li><a href="#services">Basic SEO</a></li>
+          </ul>
         </div>
 
         <div class="footer-links">
@@ -2281,9 +2502,8 @@
           <div class="input-wrap">
             <i class="fas fa-layer-group input-icon"></i>
             <select id="quote-service" name="service">
+              <option value="Halloween Special Offer">🎃 Halloween Special Offer (Up to 20% Off)</option>
               <option value="Custom Software Development">Custom Software Development</option>
-              <option value="Apex LendCore (Core Banking Full Source)">Apex LendCore™ (Core Banking Full Code Sale)</option>
-              <option value="Apex LendMobile (Field Banking App)">Apex LendMobile™ (Field Banking &amp; Offline Sync)</option>
               <option value="Custom Website & Templates">Custom Website &amp; Ready Business Templates</option>
               <option value="Ayu Health Suite (Clinic EMR)">Ayu Health Suite™ (Clinic &amp; EMR Platform)</option>
               <option value="Mobile App Development">Mobile App Development (iOS &amp; Android)</option>
@@ -2323,6 +2543,108 @@
           </div>
         </div>
       </form>
+    </div>
+  </div>
+
+  <!-- ===== HALLOWEEN 50% OFF BEST OFFER NOTIFICATION MODAL (LARGE SIMPLE UI/UX) ===== -->
+  <div class="hw-promo-overlay" id="hwPromoModal" role="dialog" aria-modal="true" aria-labelledby="hwPromoTitle" style="display: none;">
+    <div class="hw-promo-card hw-simple-modal">
+      <!-- Close Button -->
+      <button class="hw-promo-close" id="hwPromoClose" aria-label="Close Halloween Offer Notification">
+        <i class="fas fa-xmark"></i>
+      </button>
+
+      <!-- Proper Showcase Header Image with Gradient Vignette & Festive Tag -->
+      <div class="hw-simple-img-wrap">
+        <img src="assets/halloween_template_showcase.jpg" alt="Halloween Business &amp; Portfolio Website Templates" class="hw-simple-img" width="580" height="230" loading="lazy" decoding="async" />
+        <div class="hw-simple-img-overlay"></div>
+        <div class="hw-simple-discount-badge">
+          <span class="hw-badge-fire">🎃</span>
+          <span>50% OFF HALLOWEEN DEAL</span>
+        </div>
+      </div>
+
+      <!-- Clean, Simple & Spacious Content -->
+      <div class="hw-simple-body">
+        <div class="hw-promo-head-block">
+          <div class="hw-promo-pill-tag">
+            <i class="fas fa-ghost"></i>
+            <span>HALLOWEEN BEST OFFER PACKAGE</span>
+          </div>
+          <h3 id="hwPromoTitle" class="hw-simple-title">
+            Business, Commercial &amp; Portfolio Websites
+          </h3>
+          <p class="hw-simple-desc">
+            All-in-one festive package starting at a fraction of standard cost.
+          </p>
+        </div>
+
+        <!-- Prominent 50% OFF & Starting Price Highlight Banner -->
+        <div class="hw-promo-deal-highlight">
+          <!-- 50% OFF Showcase -->
+          <div class="hw-deal-badge-box">
+            <span class="hw-deal-percent">50%</span>
+            <span class="hw-deal-off">OFF</span>
+            <span class="hw-deal-limited"><i class="fas fa-bolt"></i> BEST OFFER</span>
+          </div>
+
+          <!-- Vertical Glow Divider -->
+          <div class="hw-deal-divider"></div>
+
+          <!-- Starting Price Showcase -->
+          <div class="hw-deal-price-box">
+            <span class="hw-deal-price-label">Starting From</span>
+            <div class="hw-deal-price-figure">
+              <span class="hw-deal-currency">LKR</span>
+              <span class="hw-deal-amount">8,000</span>
+            </div>
+            <span class="hw-deal-upwards">to upwards</span>
+          </div>
+        </div>
+
+        <!-- 4 Core Perks in Clean Checkmark Pills -->
+        <div class="hw-simple-perks">
+          <div class="hw-perk-pill">
+            <i class="fas fa-circle-check"></i>
+            <div>
+              <strong>Free Web Hosting</strong>
+              <small>1-Year Cloud SSD</small>
+            </div>
+          </div>
+          <div class="hw-perk-pill">
+            <i class="fas fa-circle-check"></i>
+            <div>
+              <strong>Free Domain Name</strong>
+              <small>.com / .lk / Custom</small>
+            </div>
+          </div>
+          <div class="hw-perk-pill">
+            <i class="fas fa-circle-check"></i>
+            <div>
+              <strong>Modern UI/UX Design</strong>
+              <small>Bespoke &amp; Responsive</small>
+            </div>
+          </div>
+          <div class="hw-perk-pill">
+            <i class="fas fa-circle-check"></i>
+            <div>
+              <strong>Basic SEO Setup</strong>
+              <small>Google Indexing Ready</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Large, Focused Action Buttons -->
+        <a href="https://wa.me/94771757556?text=Hi%20Axentra%20Tech%2C%20I%20want%20to%20claim%20the%20Halloween%2050%25%20OFF%20Web%20Package%20(Business%2C%20Commercial%20%26%20Portfolio)%20starting%20from%208%2C000%20LKR%20upwards%20with%20Free%20Hosting%2C%20Free%20Domain%2C%20Modern%20UI%2FUX%2C%20and%20Basic%20SEO." target="_blank" rel="noopener noreferrer" class="hw-simple-cta-btn">
+          <i class="fab fa-whatsapp"></i>
+          <span>Claim 50% OFF (Starting 8,000 LKR) on WhatsApp</span>
+        </a>
+
+        <button type="button" class="hw-simple-sub-btn open-quote-modal" id="hwPromoQuoteBtn">
+          <span>Or request a free project quote</span>
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -2395,16 +2717,18 @@
     </div>
   </aside>
 
+
+
   <!-- ===== AI SMART FAQ CHATBOT ASSISTANT ===== -->
   <div class="chatbot-container" id="chatbot-container">
     <!-- Teaser Prompt Pill -->
     <div class="chatbot-teaser" id="chatbot-teaser">
       <div class="teaser-avatar">
-        <img src="assets/robot_avatar.png" alt="AI Robot Assistant" class="teaser-robot-img" loading="lazy" decoding="async" width="36" height="36" />
+        <img src="assets/cyber_pumpkin_mascot.jpg" alt="AI Robot Assistant" class="teaser-robot-img" loading="lazy" decoding="async" width="36" height="36" />
       </div>
       <div class="teaser-content">
-        <span class="teaser-title">Have questions?</span>
-        <span class="teaser-text">Ask our AI consultant about pricing, services &amp; tech!</span>
+        <span class="teaser-title">🎃 Spooky Deals Active!</span>
+        <span class="teaser-text">Ask our Cyber-Pumpkin AI about 20% off Halloween tech packages!</span>
       </div>
       <button class="teaser-close" id="teaser-close" aria-label="Dismiss chat prompt">&times;</button>
     </div>
@@ -2413,7 +2737,7 @@
     <button class="chatbot-toggle" id="chatbot-toggle" aria-label="Open Axentra AI Chatbot" aria-expanded="false">
       <span class="chat-status-dot"></span>
       <div class="toggle-robot-wrap">
-        <img src="assets/robot_avatar.png" alt="AI Robot Assistant" class="toggle-robot-img chat-icon" loading="lazy" decoding="async" width="56" height="56" />
+        <img src="assets/cyber_pumpkin_mascot.jpg" alt="AI Robot Assistant" class="toggle-robot-img chat-icon" loading="lazy" decoding="async" width="56" height="56" />
         <span class="toggle-icon close-icon"><i class="fas fa-xmark"></i></span>
       </div>
       <div class="chatbot-shine"></div>
@@ -2426,13 +2750,13 @@
         <div class="chatbot-header-info">
           <div class="chatbot-avatar-wrap">
             <div class="chatbot-avatar">
-              <img src="assets/robot_avatar.png" alt="Axentra Robot Consultant" class="header-robot-img" loading="lazy" decoding="async" width="40" height="40" />
+              <img src="assets/cyber_pumpkin_mascot.jpg" alt="Axentra Robot Consultant" class="header-robot-img" loading="lazy" decoding="async" width="40" height="40" />
             </div>
             <span class="online-indicator"></span>
           </div>
           <div class="chatbot-title-group">
-            <h3 class="chatbot-name">Axentra Virtual Consultant</h3>
-            <span class="chatbot-status">Online • Instant FAQ &amp; Estimation</span>
+            <h3 class="chatbot-name">Axentra Cyber-Pumpkin AI</h3>
+            <span class="chatbot-status">Online • Halloween Specials &amp; Instant Estimation</span>
           </div>
         </div>
         <div class="chatbot-header-actions">
@@ -2508,7 +2832,7 @@
   <aside class="mobile-sticky-cta-bar" id="mobileStickyCtaBar" aria-label="Mobile Quick Action Bar">
     <div class="mobile-sticky-cta-inner">
       <a
-        href="https://wa.me/94771757556?text=Hi%20Axentra%20Tech%2C%20I%20would%20like%20to%20inquire%20about%20your%20software%20services."
+        href="https://wa.me/94771757556?text=Hi%20Axentra%20Tech%2C%20I%20would%20like%20to%20inquire%20about%20your%20Halloween%20special%20discounts."
         target="_blank"
         rel="noopener noreferrer"
         class="mobile-sticky-btn btn-sticky-whatsapp"
@@ -2523,10 +2847,12 @@
         aria-label="Get a Free Quote"
       >
         <i class="fas fa-paper-plane"></i>
-        <span>Get Free Quote</span>
+        <span>Halloween Deals</span>
       </a>
     </div>
   </aside>
+
+
 
   <!-- ===== BACK TO TOP ===== -->
   <button class="back-to-top" id="back-to-top" aria-label="Back to top">
@@ -2536,6 +2862,8 @@
   <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
   <!-- Main JS -->
-  <script src="js/main.js?v=3.9.1" defer></script>
+  <script src="js/main.js?v=5.3" defer></script>
+  <!-- Halloween Festive Interactive JS -->
+  <script src="js/halloween.js?v=5.3" defer></script>
 </body>
 </html>

@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 220" width="280" height="220" fill="none">
+  <defs>
+    <radialGradient id="pGrad1" cx="45%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#ffd166" />
+      <stop offset="50%" stop-color="#ff7a00" />
+      <stop offset="85%" stop-color="#d00000" />
+      <stop offset="100%" stop-color="#4a0404" />
+    </radialGradient>
+    <radialGradient id="pGrad2" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#ffbe0b" />
+      <stop offset="55%" stop-color="#fb8500" />
+      <stop offset="90%" stop-color="#9d0208" />
+      <stop offset="100%" stop-color="#370617" />
+    </radialGradient>
+    <radialGradient id="candleGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="35%" stop-color="#fff3b0" />
+      <stop offset="75%" stop-color="#ffb703" />
+      <stop offset="100%" stop-color="#fb8500" />
+    </radialGradient>
+    <filter id="jackGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Creeping Vines & Roots in Corner -->
+  <path d="M 0 220 Q 40 180 80 190 Q 130 200 170 215" stroke="#3c096c" stroke-width="4.5" stroke-linecap="round" />
+  <path d="M 0 205 Q 35 150 75 145 Q 115 140 150 170" stroke="#ff7a00" stroke-width="2.2" stroke-linecap="round" opacity="0.6" />
+  <path d="M 50 160 Q 30 110 0 100" stroke="#7209b7" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Background Smaller Pumpkin (Left) -->
+  <g transform="translate(45, 120)">
+    <!-- Stem -->
+    <path d="M 0 -22 C 3 -32 12 -34 16 -38 C 12 -31 8 -26 5 -22 Z" fill="#2d6a4f" />
+    <!-- Ribs -->
+    <ellipse cx="0" cy="0" rx="36" ry="28" fill="url(#pGrad2)" />
+    <ellipse cx="-16" cy="0" rx="20" ry="27" fill="none" stroke="rgba(0,0,0,0.22)" stroke-width="1.8" />
+    <ellipse cx="16" cy="0" rx="20" ry="27" fill="none" stroke="rgba(0,0,0,0.22)" stroke-width="1.8" />
+    <!-- Carved Glowing Face -->
+    <g filter="url(#jackGlow)">
+      <!-- Left Eye -->
+      <polygon points="-16,-6 -6,-3 -12,4" fill="url(#candleGlow)" />
+      <!-- Right Eye -->
+      <polygon points="16,-6 6,-3 12,4" fill="url(#candleGlow)" />
+      <!-- Nose -->
+      <polygon points="0,-1 -3,3 3,3" fill="url(#candleGlow)" />
+      <!-- Evil Smile -->
+      <path d="M -20 10 Q 0 22 20 10 Q 12 14 0 14 Q -12 14 -20 10 Z" fill="url(#candleGlow)" />
+    </g>
+  </g>
+
+  <!-- Main Prominent Foreground Pumpkin (Right) -->
+  <g transform="translate(145, 135)">
+    <!-- Stem with Tendril -->
+    <path d="M -2 -34 C 2 -48 14 -50 20 -55 C 15 -46 9 -38 5 -34 Z" fill="#2d6a4f" stroke="#52b788" stroke-width="1" />
+    <path d="M 16 -48 Q 28 -52 32 -42 Q 36 -32 26 -30" stroke="#52b788" stroke-width="1.8" fill="none" stroke-linecap="round" />
+    <!-- Main Shell -->
+    <ellipse cx="0" cy="0" rx="55" ry="44" fill="url(#pGrad1)" />
+    <!-- Distinct Lobes / Ribs -->
+    <ellipse cx="-26" cy="0" rx="30" ry="42" fill="none" stroke="rgba(0,0,0,0.25)" stroke-width="2.5" />
+    <ellipse cx="26" cy="0" rx="30" ry="42" fill="none" stroke="rgba(0,0,0,0.25)" stroke-width="2.5" />
+    <ellipse cx="0" cy="0" rx="18" ry="43" fill="none" stroke="rgba(0,0,0,0.18)" stroke-width="2" />
+
+    <!-- Glowing Carved Face -->
+    <g filter="url(#jackGlow)">
+      <!-- Tri-Angular Sinister Eyes -->
+      <polygon points="-26,-12 -10,-8 -18,4" fill="url(#candleGlow)" stroke="#ffffff" stroke-width="0.8" />
+      <polygon points="26,-12 10,-8 18,4" fill="url(#candleGlow)" stroke="#ffffff" stroke-width="0.8" />
+      <!-- Nose -->
+      <polygon points="0,-4 -5,3 5,3" fill="url(#candleGlow)" />
+      <!-- Jagged Fang-Filled Grin -->
+      <path d="M -32 14 Q -18 20 -10 16 L -7 20 L -4 16 Q 0 17 4 16 L 7 20 L 10 16 Q 18 20 32 14 Q 24 28 0 28 Q -24 28 -32 14 Z" fill="url(#candleGlow)" stroke="#ffffff" stroke-width="0.8" />
+    </g>
+
+    <!-- Cyber Circuit Traces on Pumpkin Skin -->
+    <path d="M -40 -15 L -48 -8 L -48 10" stroke="#00f5d4" stroke-width="1.2" stroke-linecap="round" opacity="0.75" />
+    <circle cx="-48" cy="10" r="1.5" fill="#00f5d4" />
+    <path d="M 40 -15 L 48 -8 L 48 10" stroke="#00f5d4" stroke-width="1.2" stroke-linecap="round" opacity="0.75" />
+    <circle cx="48" cy="10" r="1.5" fill="#00f5d4" />
+  </g>
+
+  <!-- Baby Mini Pumpkin in front -->
+  <g transform="translate(230, 175)">
+    <path d="M 0 -14 C 2 -20 6 -22 10 -24 C 7 -19 5 -16 3 -14 Z" fill="#2d6a4f" />
+    <ellipse cx="0" cy="0" rx="24" ry="18" fill="url(#pGrad2)" />
+    <g filter="url(#jackGlow)">
+      <polygon points="-10,-4 -4,-2 -8,2" fill="url(#candleGlow)" />
+      <polygon points="10,-4 4,-2 8,2" fill="url(#candleGlow)" />
+      <path d="M -12 6 Q 0 14 12 6 Q 6 9 0 9 Q -6 9 -12 6 Z" fill="url(#candleGlow)" />
+    </g>
+  </g>
+</svg>

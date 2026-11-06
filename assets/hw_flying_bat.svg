@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 90" width="160" height="90" fill="none">
+  <defs>
+    <filter id="batGlow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <linearGradient id="batWingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3c096c" />
+      <stop offset="50%" stop-color="#18042b" />
+      <stop offset="100%" stop-color="#0b0214" />
+    </linearGradient>
+  </defs>
+
+  <g filter="url(#batGlow)">
+    <!-- Left Wing -->
+    <path d="M 80 40 
+             C 70 20, 50 10, 15 15 
+             C 10 25, 12 35, 18 45 
+             C 30 42, 42 48, 48 58 
+             C 58 54, 68 58, 72 65 
+             C 76 56, 78 48, 80 40 Z" 
+          fill="url(#batWingGrad)" stroke="#9d4edd" stroke-width="1.6" />
+    <!-- Left Wing Rib Bones -->
+    <path d="M 80 38 Q 45 22 15 15" stroke="#ff7a00" stroke-width="1.2" opacity="0.8" />
+    <path d="M 68 36 Q 42 38 18 45" stroke="#ff7a00" stroke-width="1" opacity="0.6" />
+    <path d="M 72 45 Q 60 52 48 58" stroke="#ff7a00" stroke-width="0.9" opacity="0.6" />
+
+    <!-- Right Wing -->
+    <path d="M 80 40 
+             C 90 20, 110 10, 145 15 
+             C 150 25, 148 35, 142 45 
+             C 130 42, 118 48, 112 58 
+             C 102 54, 92 58, 88 65 
+             C 84 56, 82 48, 80 40 Z" 
+          fill="url(#batWingGrad)" stroke="#9d4edd" stroke-width="1.6" />
+    <!-- Right Wing Rib Bones -->
+    <path d="M 80 38 Q 115 22 145 15" stroke="#ff7a00" stroke-width="1.2" opacity="0.8" />
+    <path d="M 92 36 Q 118 38 142 45" stroke="#ff7a00" stroke-width="1" opacity="0.6" />
+    <path d="M 88 45 Q 100 52 112 58" stroke="#ff7a00" stroke-width="0.9" opacity="0.6" />
+
+    <!-- Bat Body -->
+    <ellipse cx="80" cy="48" rx="7" ry="15" fill="#120422" stroke="#ff7a00" stroke-width="1.4" />
+    <!-- Bat Head -->
+    <circle cx="80" cy="32" r="7.5" fill="#18052e" stroke="#ff7a00" stroke-width="1.4" />
+    <!-- Pointed Ears -->
+    <polygon points="74,28 72,18 78,26" fill="#3c096c" stroke="#ff7a00" stroke-width="1" />
+    <polygon points="86,28 88,18 82,26" fill="#3c096c" stroke="#ff7a00" stroke-width="1" />
+    <!-- Glowing Red/Amber Eyes -->
+    <circle cx="77" cy="32" r="1.6" fill="#ff0054" />
+    <circle cx="83" cy="32" r="1.6" fill="#ff0054" />
+    <circle cx="77.3" cy="31.8" r="0.6" fill="#ffffff" />
+    <circle cx="83.3" cy="31.8" r="0.6" fill="#ffffff" />
+    <!-- Little Vampire Fangs -->
+    <polygon points="78,36 79,39 80,36" fill="#ffffff" />
+    <polygon points="81,36 82,39 83,36" fill="#ffffff" />
+  </g>
+</svg>
