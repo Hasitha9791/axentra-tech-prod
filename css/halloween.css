@@ -1707,3 +1707,253 @@ body.halloween-active .preloader-logo::before {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* ==========================================================================
+   HALLOWEEN THEME RESPONSIVE ABOUT SECTION (< 992px)
+   ========================================================================== */
+@media (min-width: 992px) {
+  .about-floating-badges-row {
+    display: contents;
+  }
+}
+
+@media (max-width: 991px) {
+  body.halloween-active .about-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 32px !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  body.halloween-active .about-visual {
+    order: 1 !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  body.halloween-active .about-image-wrap {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 12px 0 0 !important;
+    margin: 0 auto !important;
+  }
+
+  body.halloween-active .about-img-card {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    height: auto !important;
+    min-height: auto !important;
+    padding: 24px 20px 20px !important;
+    margin: 0 auto !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65), 0 0 20px rgba(255, 122, 0, 0.25) !important;
+    border: 1px solid rgba(255, 170, 0, 0.45) !important;
+    border-radius: 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  body.halloween-active .about-img-card:hover {
+    transform: none !important;
+  }
+
+  body.halloween-active .about-floating-badges-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    margin-top: 14px !important;
+  }
+
+  body.halloween-active .about-floating-card {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    animation: none !important;
+    padding: 7px 14px !important;
+    font-size: 0.78rem !important;
+    font-weight: 600 !important;
+    border-radius: 50px !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+
+  body.halloween-active .about-content {
+    order: 2 !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+  }
+}
+
+/* ==========================================================================
+   HALLOWEEN THEME CONTACT DETAILS CARD (PROPORTIONATE PADDING & BORDER-RADIUS)
+   ========================================================================== */
+body.halloween-active .contact-info {
+  background: linear-gradient(150deg, rgba(28, 12, 46, 0.96) 0%, rgba(14, 5, 24, 0.98) 100%) !important;
+  border: 1.5px solid rgba(255, 170, 0, 0.45) !important;
+  border-top: 2.5px solid #ffbe0b !important;
+  border-radius: 24px !important;
+  padding: 34px 28px !important;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65), 0 0 25px rgba(255, 122, 0, 0.15) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  gap: 22px !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+body.halloween-active .contact-badge-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.70rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #ffbe0b;
+  background: rgba(255, 122, 0, 0.15);
+  border: 1px solid rgba(255, 190, 11, 0.5);
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+
+body.halloween-active .contact-card-title {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 6px;
+  line-height: 1.25;
+}
+
+body.halloween-active .contact-card-desc {
+  font-size: 0.88rem;
+  color: #c77dff;
+  line-height: 1.55;
+  margin: 0;
+}
+
+body.halloween-active .contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+body.halloween-active .contact-info-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 170, 0, 0.15);
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+
+body.halloween-active .contact-info-item:hover {
+  background: rgba(255, 122, 0, 0.12);
+  border-color: rgba(255, 170, 0, 0.45);
+  transform: translateX(4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+body.halloween-active .contact-item-text h4 {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #ffbe0b;
+  margin: 0 0 3px;
+  line-height: 1.2;
+}
+
+body.halloween-active .contact-item-text a,
+body.halloween-active .contact-item-text p {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.45;
+  margin: 0;
+  word-break: break-word;
+}
+
+body.halloween-active .contact-social-wrap {
+  margin-top: 4px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.halloween-active .contact-social-label {
+  display: block;
+  font-size: 0.70rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #ffd166;
+  margin-bottom: 10px;
+}
+
+body.halloween-active .contact-social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+body.halloween-active .contact-social .social-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 170, 0, 0.35);
+  color: #ffbe0b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 991px) {
+  body.halloween-active .contact-info {
+    padding: 26px 20px !important;
+    border-radius: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body.halloween-active .contact-info {
+    padding: 22px 16px !important;
+  }
+}
+
+
